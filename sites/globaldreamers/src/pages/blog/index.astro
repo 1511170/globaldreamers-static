@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
 
 const posts = await getCollection('blog', ({ data }) => {
   return data.published !== false;
@@ -9,15 +11,18 @@ const posts = await getCollection('blog', ({ data }) => {
 // Sort by date descending
 const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Group by category
-const postsByCategory = sortedPosts.reduce((acc, post) => {
+// Get unique categories and count posts per category
+const categoryCounts = sortedPosts.reduce((acc, post) => {
   const category = post.data.category;
-  if (!acc[category]) acc[category] = [];
-  acc[category].push(post);
+  acc[category] = (acc[category] || 0) + 1;
   return acc;
 }, {});
 
-const categories = Object.keys(postsByCategory);
+const categories = Object.keys(categoryCounts).sort();
+const allCategories = ['Todos', ...categories];
+
+// Get unique tags
+const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].slice(0, 12);
 
 // Schema for Blog page
 const schemaBlog = {
@@ -35,182 +40,322 @@ const schemaBlog = {
     }
   }
 };
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: 'Blog', url: '/blog/' }
+];
 ---
 
 <Layout 
-  title="Blog | Global Dreamers"
-  description="Guías, consejos y recursos para estudiar en el exterior. Descubre todo sobre destinos, visas, becas y más para cumplir tu sueño de estudiar en el extranjero."
+  title="Blog | Global Dreamers - Guías para Estudiar en el Exterior"
+  description="Guías completas, consejos prácticos y experiencias reales para estudiar en el extranjero. Descubre información sobre visas, becas, destinos y más."
+  breadcrumbs={breadcrumbs}
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schemaBlog)} />
   
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 via-white to-brand-50 py-16 lg:py-24">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-brand-100 mb-6">
-        <span class="material-symbols-outlined text-brand-600">article</span>
-        <span class="text-sm font-medium text-slate-700">Blog de Estudios en el Exterior</span>
+  <!-- Navbar -->
+  <Navbar ctaText="Asesoría Gratis" />
+  
+  <!-- Hero Section Mejorado -->
+  <section class="relative bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+    <div class="absolute bottom-20 right-10 w-32 h-32 bg-brand-400/20 rounded-full blur-2xl"></div>
+    
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
+        <span class="material-symbols-outlined text-white text-lg">article</span>
+        <span class="text-sm font-medium text-white/90">Centro de Recursos</span>
       </div>
       
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6" style="font-family: 'Inter', system-ui, sans-serif;">
-        Todo lo que necesitas saber para<br />
-        <span class="text-gradient">estudiar en el exterior</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        Todo sobre estudiar<br />
+        <span class="text-brand-200">en el exterior</span>
       </h1>
       
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+      <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10">
         Guías completas, consejos prácticos y experiencias reales para ayudarte a cumplir 
-        tu sueño de estudiar en el extranjero. Desde requisitos hasta testimonios.
+        tu sueño de estudiar en el extranjero.
       </p>
 
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto mb-8">
+        <div class="relative group">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <span class="material-symbols-outlined text-slate-400 text-xl group-focus-within:text-brand-600 transition-colors">search</span>
+          </div>
+          <input 
+            type="text" 
+            id="search-input"
+            placeholder="Buscar artículos, destinos, visas..."
+            class="w-full pl-12 pr-4 py-4 bg-white rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-xl transition-all"
+          />
+          <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+            <kbd class="hidden sm:inline-block px-2 py-1 text-xs font-semibold text-slate-400 bg-slate-100 rounded border border-slate-200">Ctrl K</kbd>
+          </div>
+        </div>
+      </div>
+
       <!-- Stats -->
-      <div class="flex flex-wrap items-center justify-center gap-8 text-sm">
-        <div class="flex items-center gap-2 text-slate-600">
-          <span class="material-symbols-outlined text-brand-600">article</span>
-          <span><strong>{sortedPosts.length}</strong> artículos publicados</span>
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-white/80">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-200">article</span>
+          <span class="font-semibold">{sortedPosts.length}</span>
+          <span class="text-white/60">artículos</span>
         </div>
-        <div class="flex items-center gap-2 text-slate-600">
-          <span class="material-symbols-outlined text-brand-600">folder</span>
-          <span><strong>{categories.length}</strong> categorías</span>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-200">folder</span>
+          <span class="font-semibold">{categories.length}</span>
+          <span class="text-white/60">categorías</span>
         </div>
-        <div class="flex items-center gap-2 text-slate-600">
-          <span class="material-symbols-outlined text-brand-600">update</span>
-          <span>Actualizado regularmente</span>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-brand-200">local_offer</span>
+          <span class="font-semibold">{allTags.length}+</span>
+          <span class="text-white/60">temas</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Categories Filter -->
-  {categories.length > 0 && (
-    <section class="bg-white border-b border-slate-100 py-6 sticky top-0 z-30">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          <span class="text-sm font-medium text-slate-500 flex-shrink-0">Filtrar por:</span>
-          <button class="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-full whitespace-nowrap">
-            Todos
-          </button>
-          {categories.map(category => (
-            <a 
-              href={`#${category.toLowerCase().replace(/\s+/g, '-')}`}
-              class="px-4 py-2 bg-slate-100 text-slate-700 text-sm font-medium rounded-full whitespace-nowrap hover:bg-brand-100 hover:text-brand-700 transition-colors"
+  <!-- Filters Section -->
+  <section class="sticky top-16 z-40 bg-white border-b border-slate-200 shadow-sm" id="filters-section">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+        <!-- Category Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide" id="category-filters">
+          {allCategories.map((category, index) => (
+            <button 
+              class={`filter-pill px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap transition-all ${
+                index === 0 
+                  ? 'bg-brand-600 text-white shadow-md shadow-brand-600/20' 
+                  : 'bg-slate-100 text-slate-700 hover:bg-brand-50 hover:text-brand-700'
+              }`}
+              data-category={category}
             >
               {category}
-            </a>
+              {category !== 'Todos' && (
+                <span class="ml-1.5 text-xs opacity-70">({categoryCounts[category]})</span>
+              )}
+            </button>
           ))}
         </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Blog Posts -->
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      {sortedPosts.length === 0 ? (
-        <div class="text-center py-16">
-          <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="material-symbols-outlined text-4xl text-slate-400">article</span>
+        
+        <!-- Sort & View Toggle -->
+        <div class="flex items-center gap-3 lg:ml-auto">
+          <select 
+            id="sort-select"
+            class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 focus:outline-none focus:border-brand-500 cursor-pointer"
+          >
+            <option value="newest">Más recientes</option>
+            <option value="oldest">Más antiguos</option>
+            <option value="popular">Más populares</option>
+          </select>
+          
+          <div class="flex items-center bg-slate-100 rounded-lg p-1">
+            <button id="view-grid" class="p-2 rounded-md bg-white shadow-sm text-brand-600 transition-all" aria-label="Vista grid">
+              <span class="material-symbols-outlined text-xl">grid_view</span>
+            </button>
+            <button id="view-list" class="p-2 rounded-md text-slate-500 hover:text-slate-700 transition-all" aria-label="Vista lista">
+              <span class="material-symbols-outlined text-xl">view_list</span>
+            </button>
           </div>
-          <h2 class="text-xl font-bold text-slate-900 mb-2" style="font-family: 'Inter', system-ui, sans-serif;">
-            Próximamente
-          </h2>
-          <p class="text-slate-600">
-            Estamos preparando contenido valioso para ti. ¡Vuelve pronto!
-          </p>
         </div>
-      ) : (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedPosts.map(post => {
-            const wordCount = post.body?.split(/\s+/).length || 0;
-            const readingTime = Math.ceil(wordCount / 200);
-            
-            return (
-              <article class="group bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
-                <a href={`/blog/${post.slug}/`} class="block">
-                  <!-- Image -->
-                  <div class="relative h-48 overflow-hidden">
-                    {post.data.image ? (
-                      <img 
-                        src={post.data.image} 
-                        alt={post.data.title}
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div class="w-full h-full bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-6xl text-brand-300">article</span>
-                      </div>
-                    )}
-                    <div class="absolute top-4 left-4">
-                      <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-brand-700 text-xs font-semibold rounded-full">
-                        {post.data.category}
-                      </span>
+      </div>
+      
+      <!-- Tags -->
+      <div class="flex items-center gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide" id="tags-filters">
+        <span class="text-xs font-semibold text-slate-400 uppercase whitespace-nowrap">Temas populares:</span>
+        {allTags.map(tag => (
+          <button 
+            class="tag-pill px-3 py-1.5 text-xs font-medium bg-slate-50 text-slate-600 rounded-full border border-slate-200 hover:border-brand-300 hover:text-brand-700 hover:bg-brand-50 transition-all whitespace-nowrap"
+            data-tag={tag}
+          >
+            #{tag}
+          </button>
+        ))}
+      </div>
+      
+      <!-- Active Filters -->
+      <div id="active-filters" class="hidden flex items-center gap-2 mt-4 pt-4 border-t border-slate-100">
+        <span class="text-sm text-slate-500">Filtros activos:</span>
+        <div id="active-filters-list" class="flex items-center gap-2 flex-wrap"></div>
+        <button id="clear-filters" class="text-sm text-brand-600 hover:text-brand-700 font-medium ml-auto">
+          Limpiar filtros
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="py-12 lg:py-16 bg-slate-50/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Results Count -->
+      <div class="flex items-center justify-between mb-6">
+        <p class="text-slate-600">
+          Mostrando <span id="posts-count" class="font-semibold text-slate-900">{sortedPosts.length}</span> artículos
+        </p>
+        <p id="no-results" class="hidden text-slate-500 text-center py-8">
+          No se encontraron artículos con los filtros seleccionados.
+        </p>
+      </div>
+      
+      <!-- Grid -->
+      <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {sortedPosts.map((post, index) => {
+          const wordCount = post.body?.split(/\s+/).length || 0;
+          const readingTime = Math.ceil(wordCount / 200);
+          const postTags = post.data.tags || [];
+          
+          return (
+            <article 
+              class="blog-card group bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300"
+              data-category={post.data.category}
+              data-tags={postTags.join(',')}
+              data-title={post.data.title.toLowerCase()}
+              data-excerpt={post.data.excerpt.toLowerCase()}
+              style={`animation-delay: ${index * 50}ms`}
+            >
+              <a href={`/blog/${post.slug}/`} class="block">
+                <!-- Image -->
+                <div class="relative h-52 overflow-hidden">
+                  {post.data.image ? (
+                    <img 
+                      src={post.data.image} 
+                      alt={post.data.title}
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-full h-full bg-gradient-to-br from-brand-100 to-brand-50 flex items-center justify-center">
+                      <span class="material-symbols-outlined text-7xl text-brand-200">article</span>
                     </div>
+                  )}
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <!-- Category Badge -->
+                  <div class="absolute top-4 left-4">
+                    <span class="px-3 py-1.5 bg-white/95 backdrop-blur-sm text-brand-700 text-xs font-bold rounded-full shadow-sm">
+                      {post.data.category}
+                    </span>
                   </div>
                   
-                  <!-- Content -->
-                  <div class="p-6">
-                    <h2 class="font-display text-lg font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-brand-600 transition-colors">
-                      {post.data.title}
-                    </h2>
-                    <p class="text-slate-600 text-sm mb-4 line-clamp-3">
-                      {post.data.excerpt}
-                    </p>
-                    
-                    <!-- Meta -->
-                    <div class="flex items-center justify-between text-xs text-slate-500">
-                      <div class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-sm">schedule</span>
-                        <span>{readingTime} min</span>
-                      </div>
-                      <time datetime={post.data.date.toISOString()}>
-                        {post.data.date.toLocaleDateString('es-ES', { 
-                          month: 'short', 
-                          day: 'numeric' 
-                        })}
-                      </time>
-                    </div>
+                  <!-- Read Time -->
+                  <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span class="px-3 py-1.5 bg-black/70 backdrop-blur-sm text-white text-xs font-medium rounded-full flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm">schedule</span>
+                      {readingTime} min
+                    </span>
                   </div>
-                </a>
-              </article>
-            );
-          })}
+                </div>
+                
+                <!-- Content -->
+                <div class="p-6">
+                  <!-- Tags -->
+                  {postTags.length > 0 && (
+                    <div class="flex items-center gap-2 mb-3 overflow-hidden">
+                      {postTags.slice(0, 3).map(tag => (
+                        <span class="text-xs text-slate-400 font-medium">#{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                  
+                  <h2 class="font-display text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-brand-600 transition-colors leading-tight">
+                    {post.data.title}
+                  </h2>
+                  
+                  <p class="text-slate-600 text-sm mb-4 line-clamp-3 leading-relaxed">
+                    {post.data.excerpt}
+                  </p>
+                  
+                  <!-- Footer -->
+                  <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+                    <time 
+                      datetime={post.data.date.toISOString()}
+                      class="text-xs text-slate-500 font-medium"
+                    >
+                      {post.data.date.toLocaleDateString('es-ES', { 
+                        year: 'numeric',
+                        month: 'long', 
+                        day: 'numeric'
+                      })}
+                    </time>
+                    <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 group-hover:gap-2 transition-all">
+                      Leer más
+                      <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+      
+      <!-- Load More (si hay muchos posts) -->
+      {sortedPosts.length > 12 && (
+        <div class="text-center mt-12">
+          <button id="load-more" class="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-brand-600 hover:text-brand-600 transition-all">
+            <span class="material-symbols-outlined">expand_more</span>
+            Cargar más artículos
+          </button>
         </div>
       )}
     </div>
   </section>
 
-  <!-- Newsletter CTA -->
-  <section class="bg-slate-50 py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-6">
-        <span class="material-symbols-outlined text-3xl text-brand-600">mail</span>
+  <!-- Newsletter CTA Mejorado -->
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative bg-gradient-to-br from-brand-600 to-brand-700 rounded-3xl p-8 lg:p-12 text-center overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M0 40L40 0H20L0 20M40 40V20L20 40\"/%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        
+        <div class="relative">
+          <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+            <span class="material-symbols-outlined text-3xl text-white">mail</span>
+          </div>
+          
+          <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+            Recibe las mejores guías en tu email
+          </h2>
+          <p class="text-white/80 mb-8 max-w-lg mx-auto">
+            Suscríbete y recibe contenido exclusivo sobre estudios en el exterior, 
+            becas, visas y experiencias de estudiantes.
+          </p>
+          
+          <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+            <input 
+              type="email" 
+              placeholder="Tu correo electrónico"
+              required
+              class="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:border-white focus:ring-2 focus:ring-white/30"
+            />
+            <button type="submit" class="w-full sm:w-auto px-6 py-3 bg-white text-brand-600 font-bold rounded-xl hover:bg-white/90 transition-colors whitespace-nowrap shadow-lg">
+              Suscribirme
+            </button>
+          </form>
+          <p class="text-white/60 text-xs mt-4">
+            Sin spam. Puedes darte de baja en cualquier momento.
+          </p>
+        </div>
       </div>
-      <h2 class="text-2xl font-bold text-slate-900 mb-4" style="font-family: 'Inter', system-ui, sans-serif;">
-        Recibe las mejores guías en tu email
-      </h2>
-      <p class="text-slate-600 mb-8 max-w-lg mx-auto">
-        Suscríbete y recibe contenido exclusivo sobre estudios en el exterior, 
-        becas, visas y experiencias de estudiantes.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-        <input 
-          type="email" 
-          placeholder="Tu correo electrónico"
-          class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-200"
-        />
-        <button class="w-full sm:w-auto px-6 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors whitespace-nowrap">
-          Suscribirme
-        </button>
-      </div>
-      <p class="text-xs text-slate-500 mt-4">
-        Sin spam. Puedes darte de baja en cualquier momento.
-      </p>
     </div>
   </section>
 
   <!-- CTA Final -->
-  <section class="py-16">
+  <section class="py-16 bg-slate-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4" style="font-family: 'Inter', system-ui, sans-serif;">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
         ¿Listo para empezar tu aventura?
       </h2>
       <p class="text-slate-600 mb-8 max-w-2xl mx-auto">
@@ -220,7 +365,7 @@ const schemaBlog = {
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a 
           href="/asesoria-gratuita/"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-lg shadow-brand-600/25"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition-all shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40 hover:-translate-y-0.5"
         >
           <span class="material-symbols-outlined">calendar_today</span>
           Agendar asesoría gratis
@@ -229,7 +374,7 @@ const schemaBlog = {
           href="https://wa.me/61449159849?text=Hola%20Global%20Dreamers%2C%20vi%20el%20blog%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-brand-600 hover:text-brand-600 transition-colors"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-700 font-bold rounded-xl border-2 border-slate-200 hover:border-brand-600 hover:text-brand-600 transition-all hover:-translate-y-0.5"
         >
           <span class="material-symbols-outlined">chat</span>
           WhatsApp
@@ -237,6 +382,9 @@ const schemaBlog = {
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <Footer />
 </Layout>
 
 <style>
@@ -247,4 +395,244 @@ const schemaBlog = {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .blog-card {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .blog-card.visible {
+    opacity: 1;
+  }
 </style>
+
+<script is:inline>
+  // Filter functionality
+  (function() {
+    const searchInput = document.getElementById('search-input');
+    const categoryButtons = document.querySelectorAll('.filter-pill');
+    const tagButtons = document.querySelectorAll('.tag-pill');
+    const postsGrid = document.getElementById('posts-grid');
+    const posts = document.querySelectorAll('.blog-card');
+    const postsCount = document.getElementById('posts-count');
+    const noResults = document.getElementById('no-results');
+    const activeFilters = document.getElementById('active-filters');
+    const activeFiltersList = document.getElementById('active-filters-list');
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    const viewGridBtn = document.getElementById('view-grid');
+    const viewListBtn = document.getElementById('view-list');
+    const sortSelect = document.getElementById('sort-select');
+    
+    let currentCategory = 'Todos';
+    let currentTag = null;
+    let currentSearch = '';
+    
+    // Animate cards on load
+    setTimeout(() => {
+      posts.forEach((post, i) => {
+        setTimeout(() => post.classList.add('visible'), i * 50);
+      });
+    }, 100);
+    
+    // Filter function
+    function filterPosts() {
+      let visibleCount = 0;
+      
+      posts.forEach(post => {
+        const category = post.dataset.category;
+        const tags = post.dataset.tags || '';
+        const title = post.dataset.title;
+        const excerpt = post.dataset.excerpt;
+        
+        const matchesCategory = currentCategory === 'Todos' || category === currentCategory;
+        const matchesTag = !currentTag || tags.includes(currentTag);
+        const matchesSearch = !currentSearch || 
+          title.includes(currentSearch.toLowerCase()) || 
+          excerpt.includes(currentSearch.toLowerCase()) ||
+          category.toLowerCase().includes(currentSearch.toLowerCase());
+        
+        if (matchesCategory && matchesTag && matchesSearch) {
+          post.style.display = 'block';
+          setTimeout(() => post.classList.add('visible'), 10);
+          visibleCount++;
+        } else {
+          post.style.display = 'none';
+          post.classList.remove('visible');
+        }
+      });
+      
+      // Update count
+      postsCount.textContent = visibleCount;
+      
+      // Show/hide no results
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        postsGrid.classList.add('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        postsGrid.classList.remove('hidden');
+      }
+      
+      // Update active filters UI
+      updateActiveFilters();
+    }
+    
+    // Update active filters display
+    function updateActiveFilters() {
+      const filters = [];
+      if (currentCategory !== 'Todos') filters.push({ type: 'category', value: currentCategory });
+      if (currentTag) filters.push({ type: 'tag', value: '#' + currentTag });
+      if (currentSearch) filters.push({ type: 'search', value: '🔍 ' + currentSearch });
+      
+      if (filters.length > 0) {
+        activeFilters.classList.remove('hidden');
+        activeFiltersList.innerHTML = filters.map(f => `
+          <span class="inline-flex items-center gap-1 px-3 py-1 bg-brand-50 text-brand-700 text-sm rounded-full border border-brand-100">
+            ${f.value}
+            <button onclick="window.removeFilter('${f.type}')" class="hover:text-brand-900">
+              <span class="material-symbols-outlined text-base">close</span>
+            </button>
+          </span>
+        `).join('');
+      } else {
+        activeFilters.classList.add('hidden');
+      }
+    }
+    
+    // Remove filter helper
+    window.removeFilter = function(type) {
+      if (type === 'category') {
+        currentCategory = 'Todos';
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+          btn.classList.add('bg-slate-100', 'text-slate-700');
+          if (btn.dataset.category === 'Todos') {
+            btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+            btn.classList.remove('bg-slate-100', 'text-slate-700');
+          }
+        });
+      } else if (type === 'tag') {
+        currentTag = null;
+        tagButtons.forEach(btn => btn.classList.remove('bg-brand-100', 'text-brand-700', 'border-brand-300'));
+      } else if (type === 'search') {
+        currentSearch = '';
+        searchInput.value = '';
+      }
+      filterPosts();
+    };
+    
+    // Search input
+    searchInput?.addEventListener('input', (e) => {
+      currentSearch = e.target.value.trim();
+      filterPosts();
+    });
+    
+    // Category buttons
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => {
+          b.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+          b.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+        btn.classList.remove('bg-slate-100', 'text-slate-700');
+        currentCategory = btn.dataset.category;
+        filterPosts();
+      });
+    });
+    
+    // Tag buttons
+    tagButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tag = btn.dataset.tag;
+        if (currentTag === tag) {
+          currentTag = null;
+          btn.classList.remove('bg-brand-100', 'text-brand-700', 'border-brand-300');
+          btn.classList.add('bg-slate-50', 'text-slate-600', 'border-slate-200');
+        } else {
+          tagButtons.forEach(b => b.classList.remove('bg-brand-100', 'text-brand-700', 'border-brand-300'));
+          btn.classList.add('bg-brand-100', 'text-brand-700', 'border-brand-300');
+          btn.classList.remove('bg-slate-50', 'text-slate-600', 'border-slate-200');
+          currentTag = tag;
+        }
+        filterPosts();
+      });
+    });
+    
+    // Clear all filters
+    clearFiltersBtn?.addEventListener('click', () => {
+      currentCategory = 'Todos';
+      currentTag = null;
+      currentSearch = '';
+      searchInput.value = '';
+      
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+        btn.classList.add('bg-slate-100', 'text-slate-700');
+        if (btn.dataset.category === 'Todos') {
+          btn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+          btn.classList.remove('bg-slate-100', 'text-slate-700');
+        }
+      });
+      
+      tagButtons.forEach(btn => btn.classList.remove('bg-brand-100', 'text-brand-700', 'border-brand-300'));
+      
+      filterPosts();
+    });
+    
+    // View toggle
+    viewGridBtn?.addEventListener('click', () => {
+      postsGrid.classList.remove('grid-cols-1');
+      postsGrid.classList.add('md:grid-cols-2', 'lg:grid-cols-3');
+      viewGridBtn.classList.add('bg-white', 'shadow-sm', 'text-brand-600');
+      viewGridBtn.classList.remove('text-slate-500');
+      viewListBtn.classList.remove('bg-white', 'shadow-sm', 'text-brand-600');
+      viewListBtn.classList.add('text-slate-500');
+    });
+    
+    viewListBtn?.addEventListener('click', () => {
+      postsGrid.classList.remove('md:grid-cols-2', 'lg:grid-cols-3');
+      postsGrid.classList.add('grid-cols-1');
+      viewListBtn.classList.add('bg-white', 'shadow-sm', 'text-brand-600');
+      viewListBtn.classList.remove('text-slate-500');
+      viewGridBtn.classList.remove('bg-white', 'shadow-sm', 'text-brand-600');
+      viewGridBtn.classList.add('text-slate-500');
+    });
+    
+    // Sort functionality
+    sortSelect?.addEventListener('change', (e) => {
+      const sortValue = e.target.value;
+      const postsArray = Array.from(posts);
+      
+      postsArray.sort((a, b) => {
+        if (sortValue === 'newest') {
+          return new Date(b.querySelector('time').datetime) - new Date(a.querySelector('time').datetime);
+        } else if (sortValue === 'oldest') {
+          return new Date(a.querySelector('time').datetime) - new Date(b.querySelector('time').datetime);
+        }
+        return 0;
+      });
+      
+      postsArray.forEach(post => postsGrid.appendChild(post));
+    });
+    
+    // Keyboard shortcut for search
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  })();
+</script>
