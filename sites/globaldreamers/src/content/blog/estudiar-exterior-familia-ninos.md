@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Familia"
 tags: ["familia", "hijos", "niños", "estudiar con familia", "visas dependientes", "escuelas"]
-image: "/images/blog/estudiar-exterior-familia.jpg"
+image: "/images/blog/estudiar-familia-exterior.webp"
 published: true
 ---
 

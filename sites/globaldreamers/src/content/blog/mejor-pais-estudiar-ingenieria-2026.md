@@ -5,7 +5,7 @@ date: 2026-03-31
 author: "Global Dreamers"
 category: "Comparativas"
 tags: ["ingeniería", "stem", "ranking", "2026", "universidades"]
-image: "/images/blog/ingenieria-estudiar.jpg"
+image: "/images/blog/estudiar-ingenieria-lab.webp"
 published: true
 ---
 

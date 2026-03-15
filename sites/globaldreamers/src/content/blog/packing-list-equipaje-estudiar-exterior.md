@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Viaje"
 tags: ["packing", "equipaje", "lista", "qué llevar", "viaje", "destino"]
-image: "/images/blog/packing-list-estudiar-exterior.jpg"
+image: "/images/blog/packing-list-equipaje.webp"
 published: true
 ---
 

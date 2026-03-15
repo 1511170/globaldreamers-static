@@ -5,7 +5,7 @@ date: 2026-03-29
 author: "Global Dreamers"
 category: "Guías"
 tags: ["elegir país", "destino", "comparativa", "guía", "decisión"]
-image: "/images/blog/elegir-pais.jpg"
+image: "/images/blog/comparativa-paises-estudio.webp"
 published: true
 ---
 

@@ -2,7 +2,8 @@
   "site": "globaldreamers",
   "skills": [
     "web-scraper",
-    "seo-ai-citations"
+    "seo-ai-citations",
+    "image-optimizer"
   ],
   "_comment": "Skills se añaden con: node scripts/skill-add.js [nombre]"
 }

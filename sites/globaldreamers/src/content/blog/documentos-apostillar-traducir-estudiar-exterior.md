@@ -5,7 +5,7 @@ date: 2026-03-31
 author: "Global Dreamers"
 category: "Guías"
 tags: ["documentos", "apostilla", "traducción", "requisitos", "guía"]
-image: "/images/blog/documentos-apostillar.jpg"
+image: "/images/blog/apostilla-documentos.webp"
 published: true
 ---
 

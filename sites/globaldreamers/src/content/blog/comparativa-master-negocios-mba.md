@@ -5,7 +5,7 @@ date: 2026-03-30
 author: "Global Dreamers"
 category: "Comparativas"
 tags: ["mba", "master negocios", "mim", "comparativa", "2026"]
-image: "/images/blog/mba-vs-master.jpg"
+image: "/images/blog/mba-negocios-exito.webp"
 published: true
 ---
 

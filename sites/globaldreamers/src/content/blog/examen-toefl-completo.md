@@ -5,7 +5,7 @@ date: 2026-03-26
 author: "Global Dreamers"
 category: "Guías"
 tags: ["toefl", "examen de inglés", "preparación", "2026", "estrategias"]
-image: "/images/blog/toefl-guia.jpg"
+image: "/images/blog/toefl-examen-centro.webp"
 published: true
 ---
 

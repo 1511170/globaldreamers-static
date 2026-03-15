@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Idioma"
 tags: ["inglés", "presencial", "online", "comparativa", "virtual", "modalidad"]
-image: "/images/blog/presencial-vs-online-ingles.jpg"
+image: "/images/blog/online-vs-presencial-clases.webp"
 published: true
 ---
 

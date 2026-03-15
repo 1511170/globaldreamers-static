@@ -5,7 +5,7 @@ date: 2026-03-28
 author: "Global Dreamers"
 category: "Guías"
 tags: ["presupuesto", "dinero", "costos", "ahorro", "financiamiento"]
-image: "/images/blog/presupuesto-estudiar-exterior.jpg"
+image: "/images/blog/presupuesto-estudiar-calculadora.webp"
 published: true
 ---
 

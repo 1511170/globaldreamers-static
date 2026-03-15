@@ -5,7 +5,7 @@ date: 2026-03-27
 author: "Global Dreamers"
 category: "Guías"
 tags: ["cambridge", "b2 first", "c1 advanced", "examen de inglés", "fce", "cae"]
-image: "/images/blog/cambridge-exams.jpg"
+image: "/images/blog/cambridge-certificado-examen.webp"
 published: true
 ---
 

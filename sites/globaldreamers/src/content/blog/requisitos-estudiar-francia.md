@@ -5,7 +5,7 @@ date: 2026-03-20
 author: "Global Dreamers"
 category: "Francia"
 tags: ["requisitos", "visa", "campus france", "2026", "francia"]
-image: "/images/blog/requisitos-francia.jpg"
+image: "/images/blog/estudiar-francia-hero.webp"
 published: true
 ---
 
