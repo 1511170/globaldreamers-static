@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Dubai"
 tags: ["costos", "presupuesto", "universidades dubai", "costo de vida", "sin impuestos", "2026"]
-image: "/images/blog/costos-dubai.jpg"
+image: "/images/blog/costos-dubai.webp"
 published: true
 ---
 

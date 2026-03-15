@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Irlanda"
 tags: ["beneficios", "razones", "por qué", "destino", "lifestyle", "irlanda"]
-image: "/images/blog/irlanda-destino.jpg"
+image: "/images/blog/irlanda-destino.webp"
 published: true
 ---
 

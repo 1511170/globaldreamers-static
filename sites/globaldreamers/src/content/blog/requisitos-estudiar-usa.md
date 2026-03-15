@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Estados Unidos"
 tags: ["requisitos", "visa F-1", "documentos", "2026", "guía"]
-image: "/images/blog/requisitos-usa.jpg"
+image: "/images/blog/requisitos-usa.webp"
 published: true
 ---
 

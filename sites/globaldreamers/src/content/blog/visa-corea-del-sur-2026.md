@@ -5,7 +5,7 @@ date: 2026-03-25
 author: "Global Dreamers"
 category: "Corea del Sur"
 tags: ["visa", "corea", "requisitos", "d-2", "2026"]
-image: "/images/blog/visa-corea.jpg"
+image: "/images/blog/visa-corea.webp"
 published: true
 ---
 

@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Testimonios"
 tags: ["testimonio", "australia", "méxico", "brisbane", "experiencia real"]
-image: "/images/blog/testimonio-australia-carlos.jpg"
+image: "/images/blog/testimonio-australia-carlos.webp"
 published: true
 ---
 

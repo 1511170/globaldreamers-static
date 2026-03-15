@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Nueva Zelanda"
 tags: ["requisitos", "visa", "documentos", "2026", "nueva zelanda"]
-image: "/images/blog/requisitos-nueva-zelanda.jpg"
+image: "/images/blog/requisitos-nueva-zelanda.webp"
 published: true
 ---
 

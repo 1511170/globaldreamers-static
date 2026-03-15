@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Testimonios"
 tags: ["testimonio", "canadá", "experiencia real", "colombia", "caso de éxito"]
-image: "/images/blog/testimonio-canada-valentina.jpg"
+image: "/images/blog/testimonio-canada-valentina.webp"
 published: true
 ---
 

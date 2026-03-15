@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Agencias"
 tags: ["costos", "precios", "agencia", "inversión", "2026"]
-image: "/images/blog/costo-agencia.jpg"
+image: "/images/blog/costo-agencia.webp"
 published: true
 ---
 

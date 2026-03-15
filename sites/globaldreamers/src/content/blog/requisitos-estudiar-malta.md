@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "Malta"
 tags: ["requisitos", "sin visa", "documentos", "2026", "fácil"]
-image: "/images/blog/requisitos-malta.jpg"
+image: "/images/blog/requisitos-malta.webp"
 published: true
 ---
 

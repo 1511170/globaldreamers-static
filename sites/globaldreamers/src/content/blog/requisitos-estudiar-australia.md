@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Australia"
 tags: ["requisitos", "visa 500", "documentos", "2026", "guía"]
-image: "/images/blog/requisitos-australia.jpg"
+image: "/images/blog/requisitos-australia.webp"
 published: true
 ---
 

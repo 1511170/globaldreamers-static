@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Financiamiento"
 tags: ["préstamos", "financiamiento", "colombia", "bancos", "crédito educativo", "estudiar exterior"]
-image: "/images/blog/prestamos-exterior-colombia.jpg"
+image: "/images/blog/prestamos-exterior-colombia.webp"
 published: true
 ---
 

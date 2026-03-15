@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Canadá"
 tags: ["requisitos", "visa", "documentos", "2026", "guía"]
-image: "/images/blog/requisitos-canada.jpg"
+image: "/images/blog/requisitos-canada.webp"
 published: true
 ---
 

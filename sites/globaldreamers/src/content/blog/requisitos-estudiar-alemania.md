@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Alemania"
 tags: ["requisitos", "visa", "universidades", "2026", "gratuito"]
-image: "/images/blog/requisitos-alemania.jpg"
+image: "/images/blog/requisitos-alemania.webp"
 published: true
 ---
 

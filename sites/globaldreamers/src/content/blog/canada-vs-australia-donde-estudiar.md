@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Comparativas"
 tags: ["canadá", "australia", "comparativa", "destinos", "elegir", "vs"]
-image: "/images/blog/canada-vs-australia.jpg"
+image: "/images/blog/canada-vs-australia.webp"
 published: true
 ---
 

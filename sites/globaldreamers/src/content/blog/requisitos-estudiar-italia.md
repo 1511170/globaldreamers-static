@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Italia"
 tags: ["requisitos", "visa", "documentos", "2026", "italia"]
-image: "/images/blog/requisitos-italia.jpg"
+image: "/images/blog/requisitos-italia.webp"
 published: true
 ---
 

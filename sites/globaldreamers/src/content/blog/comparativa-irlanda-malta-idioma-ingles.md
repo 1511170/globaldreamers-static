@@ -5,7 +5,7 @@ date: 2026-03-30
 author: "Global Dreamers"
 category: "Comparativas"
 tags: ["irlanda", "malta", "inglés", "comparativa", "europa"]
-image: "/images/blog/irlanda-vs-malta.jpg"
+image: "/images/blog/irlanda-vs-malta.webp"
 published: true
 ---
 

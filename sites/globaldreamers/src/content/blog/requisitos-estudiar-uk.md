@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Reino Unido"
 tags: ["requisitos", "student route", "documentos", "2026", "guía"]
-image: "/images/blog/requisitos-uk.jpg"
+image: "/images/blog/requisitos-uk.webp"
 published: true
 ---
 

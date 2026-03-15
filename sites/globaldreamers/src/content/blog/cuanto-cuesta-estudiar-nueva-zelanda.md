@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Nueva Zelanda"
 tags: ["costos", "presupuesto", "dinero", "2026", "nueva zelanda"]
-image: "/images/blog/costos-nueva-zelanda.jpg"
+image: "/images/blog/costos-nueva-zelanda.webp"
 published: true
 ---
 

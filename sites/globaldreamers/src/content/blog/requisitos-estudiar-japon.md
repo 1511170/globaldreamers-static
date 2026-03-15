@@ -5,7 +5,7 @@ date: 2026-03-24
 author: "Global Dreamers"
 category: "Japón"
 tags: ["requisitos", "visa", "japon", "becas jasso", "jlpt"]
-image: "/images/blog/requisitos-japon.jpg"
+image: "/images/blog/requisitos-japon.webp"
 published: true
 ---
 

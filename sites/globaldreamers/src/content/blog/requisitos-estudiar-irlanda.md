@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Irlanda"
 tags: ["requisitos", "visa D", "documentos", "2026", "guía", "estudiantes latinoamericanos"]
-image: "/images/blog/requisitos-irlanda.jpg"
+image: "/images/blog/requisitos-irlanda.webp"
 published: true
 ---
 

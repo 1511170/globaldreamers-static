@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "España"
 tags: ["requisitos", "visa", "documentos", "2026", "guía"]
-image: "/images/blog/requisitos-espana.jpg"
+image: "/images/blog/requisitos-espana.webp"
 published: true
 ---
 

@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "Malta"
 tags: ["costos", "presupuesto", "dinero", "2026", "inglés"]
-image: "/images/blog/costos-malta.jpg"
+image: "/images/blog/costos-malta.webp"
 published: true
 ---
 

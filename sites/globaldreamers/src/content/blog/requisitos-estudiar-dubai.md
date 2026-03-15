@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Dubai"
 tags: ["requisitos", "visa", "dubai", "2026", "medio oriente"]
-image: "/images/blog/requisitos-dubai.jpg"
+image: "/images/blog/requisitos-dubai.webp"
 published: true
 ---
 
