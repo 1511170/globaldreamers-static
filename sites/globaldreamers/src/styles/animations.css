@@ -1,0 +1,551 @@
+/* ========================================
+   Global Dreamers - Premium Animations
+   Efectos Webflow-style para máximo impacto
+   ======================================== */
+
+/* ========================================
+   1. ANIMACIONES DE ENTRADA (Scroll)
+   ======================================== */
+
+/* Fade Up - Aparece desde abajo */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Scale - Aparece con escala */
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-scale-in.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide Left - Aparece desde izquierda */
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide Right - Aparece desde derecha */
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================
+   2. STAGGER DELAYS (Secuencia)
+   ======================================== */
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }
+
+/* ========================================
+   3. HOVER EFFECTS PREMIUM
+   ======================================== */
+
+/* Lift - Elevación suave */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Glow - Brillo en hover */
+.hover-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: box-shadow, transform;
+}
+
+.hover-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px rgba(65, 197, 243, 0.4),
+              0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Scale - Escalado suave */
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Icon Rotate - Rotación de icono */
+.hover-rotate .icon-wrapper {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.hover-rotate:hover .icon-wrapper {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Border Glow - Brillo en borde */
+.hover-border-glow {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: border-color, box-shadow;
+}
+
+.hover-border-glow:hover {
+  border-color: #41c5f3;
+  box-shadow: 0 0 0 4px rgba(65, 197, 243, 0.1);
+}
+
+/* ========================================
+   4. EFECTOS CONTINUOS (Loop)
+   ======================================== */
+
+/* Float - Flotación suave */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+/* Pulse Soft - Pulso sutil */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Spin Slow - Rotación lenta */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Shimmer - Brillo que pasa */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ========================================
+   5. GLASSMORPHISM
+   ======================================== */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   6. GRADIENT ORBS (Fondos animados)
+   ======================================== */
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #41c5f3, #0ea5e9);
+  top: -150px;
+  right: -100px;
+  animation: orb-float 12s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  bottom: -100px;
+  left: -100px;
+  animation: orb-float 10s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #22d3ee, #41c5f3);
+  top: 50%;
+  right: 20%;
+  animation: orb-float 8s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+@keyframes orb-float {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+  }
+  33% { 
+    transform: translate(30px, -30px) scale(1.05); 
+  }
+  66% { 
+    transform: translate(-20px, 20px) scale(0.95); 
+  }
+}
+
+/* ========================================
+   7. TEXT REVEAL (Letra por letra)
+   ======================================== */
+
+.text-reveal-container {
+  overflow: hidden;
+}
+
+.text-reveal {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: text-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes text-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   8. BUTTON EFFECTS
+   ======================================== */
+
+/* Magnetic Button Base */
+.magnetic-button {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Shine Effect */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.shine:hover::before {
+  left: 100%;
+}
+
+/* Arrow Slide */
+.btn-arrow .arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-arrow:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* ========================================
+   9. CARD 3D TILT
+   ======================================== */
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.tilt-card-content {
+  transform: translateZ(20px);
+}
+
+/* ========================================
+   10. IMAGE REVEAL
+   ======================================== */
+
+.image-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #41c5f3;
+  transform: translateX(-101%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-reveal.is-visible::after {
+  transform: translateX(101%);
+}
+
+.image-reveal img {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+
+.image-reveal.is-visible img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ========================================
+   11. NAVBAR SCROLL BEHAVIOR
+   ======================================== */
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-visible {
+  transform: translateY(0);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================
+   12. COUNTER ANIMATION
+   ======================================== */
+
+.counter-value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ========================================
+   13. LINK UNDERLINE ANIMATION
+   ======================================== */
+
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ========================================
+   14. DROPDOWN ANIMATIONS
+   ======================================== */
+
+.dropdown-animate {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.dropdown-animate.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ========================================
+   15. LOADING STATES
+   ======================================== */
+
+@keyframes loading-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading {
+  animation: loading-pulse 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   16. REDUCED MOTION (Accesibilidad)
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-soft,
+  .animate-spin-slow,
+  .animate-shimmer {
+    animation: none !important;
+  }
+  
+  .gradient-orb {
+    animation: none !important;
+  }
+}
+
+/* ========================================
+   17. UTILIDADES RÁPIDAS
+   ======================================== */
+
+/* Transition defaults */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-bounce {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Will-change helpers */
+.will-transform {
+  will-change: transform;
+}
+
+.will-opacity {
+  will-change: opacity;
+}
+
+/* Perspective para 3D */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Transform style */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Backface visibility */
+.backface-hidden {
+  backface-visibility: hidden;
+}

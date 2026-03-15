@@ -1,6 +1,7 @@
 ---
 import siteConfig from '../../config/site.config.ts';
 import '../styles/global.css';
+import '../styles/animations.css';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import SEOHead from '../components/SEOHead.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
@@ -144,11 +145,18 @@ const finalSchemaData = {
       <link rel="icon" type="image/x-icon" href={siteConfig.site.favicon} />
     )}
 
+    <!-- GSAP for Premium Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" is:inline></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" is:inline></script>
+
     <!-- Skills inyectan meta tags, schemas, scripts -->
     <slot name="head" />
   </head>
   <body class="bg-white font-display text-slate-900 antialiased">
     <slot />
     <WhatsAppFloat />
+    
+    <!-- Animaciones Globales -->
+    <script src="/scripts/animations.js" is:inline></script>
   </body>
 </html>

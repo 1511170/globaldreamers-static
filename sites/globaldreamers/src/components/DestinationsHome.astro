@@ -1,51 +1,89 @@
 ---
 const mainDests = [
-  { name: 'Australia', tag: 'Trabaja 48hrs/quincena', desc: 'Educación de clase mundial y sol.', href: '/estudiar-en-australia', image: '/images/hero-australia.png' },
-  { name: 'Canadá', tag: 'Camino a Residencia', desc: 'Naturaleza y oportunidades infinitas.', href: '/estudiar-en-canada', image: '/images/hero-canada.png' },
-  { name: 'Malta', tag: 'Sin Visa (Latam)', desc: 'El corazón del Mediterráneo.', href: '/estudiar-en-malta', image: '/images/hero-malta.png' },
-  { name: 'Dubai', tag: 'Visa 100% garantizada', desc: 'Lujo, trabajo y futuro.', href: '/estudiar-en-dubai', image: '/images/hero-dubai.png' },
+  { name: 'Australia', tag: 'Trabaja 48hrs/quincena', desc: 'Educación de clase mundial y sol.', href: '/estudiar-en-australia', image: '/images/hero-australia.png', flag: 'au' },
+  { name: 'Canadá', tag: 'Camino a Residencia', desc: 'Naturaleza y oportunidades infinitas.', href: '/estudiar-en-canada', image: '/images/hero-canada.png', flag: 'ca' },
+  { name: 'Malta', tag: 'Sin Visa (Latam)', desc: 'El corazón del Mediterráneo.', href: '/estudiar-en-malta', image: '/images/hero-malta.png', flag: 'mt' },
+  { name: 'Dubai', tag: 'Visa 100% garantizada', desc: 'Lujo, trabajo y futuro.', href: '/estudiar-en-dubai', image: '/images/hero-dubai.png', flag: 'ae' },
 ];
 const miniDests = [
-  { name: 'Irlanda', sub: 'Work & Study', href: '/estudiar-en-irlanda' },
-  { name: 'Nueva Zelanda', sub: 'Aventura', href: '/estudiar-en-nueva-zelanda' },
-  { name: 'USA', sub: 'Universidades', href: '/estudiar-en-estados-unidos' },
-  { name: 'España', sub: 'Masterados', href: '/estudiar-en-espana' },
-  { name: 'Italia', sub: 'Cultura', href: '/estudiar-en-italia' },
-  { name: 'Alemania', sub: 'Ingeniería', href: '/estudiar-en-alemania' },
-  { name: 'Reino Unido', sub: 'Prestigio', href: '/estudiar-en-reino-unido' },
+  { name: 'Irlanda', sub: 'Work & Study', href: '/estudiar-en-irlanda', flag: 'ie' },
+  { name: 'Nueva Zelanda', sub: 'Aventura', href: '/estudiar-en-nueva-zelanda', flag: 'nz' },
+  { name: 'USA', sub: 'Universidades', href: '/estudiar-en-estados-unidos', flag: 'us' },
+  { name: 'España', sub: 'Masterados', href: '/estudiar-en-espana', flag: 'es' },
+  { name: 'Italia', sub: 'Cultura', href: '/estudiar-en-italia', flag: 'it' },
+  { name: 'Alemania', sub: 'Ingeniería', href: '/estudiar-en-alemania', flag: 'de' },
+  { name: 'Reino Unido', sub: 'Prestigio', href: '/estudiar-en-reino-unido', flag: 'gb' },
 ];
 ---
 
-<section class="py-20 bg-white" id="destinos">
+<section class="py-20 bg-white overflow-hidden" id="destinos">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+    <!-- Header con animación -->
+    <div class="animate-fade-up flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
       <div>
         <h2 class="text-3xl font-bold mb-2 text-slate-900">Destinos Populares</h2>
         <p class="text-slate-600">Encuentra el lugar perfecto para tu próximo gran paso.</p>
       </div>
-      <a class="text-primary font-bold flex items-center gap-1 group" href="/destinos">
+      <a class="btn-arrow group text-primary font-bold flex items-center gap-1" href="/#destinos">
         Ver todos los destinos
-        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        <span class="arrow-icon material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
       </a>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {mainDests.map((d) => (
-        <a href={d.href} class="group relative overflow-hidden rounded-2xl bg-slate-200 aspect-[4/5] block">
-          <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={d.name} src={d.image} loading="lazy" />
+    
+    <!-- Main Destinations Cards con efecto 3D Tilt -->
+    <div class="gsap-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
+      {mainDests.map((d, idx) => (
+        <a href={d.href} class="tilt-card group relative overflow-hidden rounded-2xl bg-slate-200 aspect-[4/5] block hover-lift">
+          <!-- Image con zoom effect -->
+          <img 
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            alt={d.name} 
+            src={d.image} 
+            loading="lazy" 
+          />
+          
+          <!-- Gradient overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 p-6 text-white w-full">
-            <span class="bg-primary/90 text-[10px] font-bold px-2 py-1 rounded uppercase mb-2 inline-block">{d.tag}</span>
-            <h3 class="text-xl font-bold">{d.name}</h3>
-            <p class="text-sm text-slate-200">{d.desc}</p>
+          
+          <!-- Flag badge (rotates on hover) -->
+          <div class="absolute top-4 right-4 w-10 h-10 rounded-full overflow-hidden border-2 border-white/50 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+            <img 
+              src={`https://kapowaz.github.io/circle-flags/flags/${d.flag}.svg`} 
+              alt={d.name}
+              class="w-full h-full object-cover"
+            />
+          </div>
+          
+          <!-- Content -->
+          <div class="absolute bottom-0 p-6 text-white w-full transform transition-transform duration-300 group-hover:translate-y-[-4px]">
+            <span class="bg-primary/90 text-[10px] font-bold px-2 py-1 rounded uppercase mb-2 inline-block group-hover:bg-primary transition-colors">
+              {d.tag}
+            </span>
+            <h3 class="text-xl font-bold mb-1">{d.name}</h3>
+            <p class="text-sm text-slate-200 opacity-90 group-hover:opacity-100 transition-opacity">{d.desc}</p>
+          </div>
+          
+          <!-- Shine effect on hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           </div>
         </a>
       ))}
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mt-6">
+    
+    <!-- Mini Destinations con hover effects -->
+    <div class="gsap-stagger grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mt-6">
       {miniDests.map((d) => (
-        <a href={d.href} class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-primary transition-colors cursor-pointer block">
-          <p class="font-bold text-sm text-slate-900">{d.name}</p>
-          <p class="text-xs text-slate-400">{d.sub}</p>
+        <a href={d.href} class="hover-lift hover-border-glow bg-slate-50 p-4 rounded-xl border border-slate-100 transition-all duration-300 cursor-pointer block group">
+          <div class="flex items-center gap-2 mb-2">
+            <img 
+              src={`https://kapowaz.github.io/circle-flags/flags/${d.flag}.svg`} 
+              alt={d.name}
+              class="w-5 h-5 rounded-full object-cover group-hover:scale-110 transition-transform"
+            />
+            <p class="font-bold text-sm text-slate-900 group-hover:text-primary transition-colors">{d.name}</p>
+          </div>
+          <p class="text-xs text-slate-400 group-hover:text-slate-500 transition-colors">{d.sub}</p>
         </a>
       ))}
     </div>
