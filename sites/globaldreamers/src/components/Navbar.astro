@@ -71,105 +71,12 @@ const destNavItems = destinations.map((d) => ({
                       href={dest.href}
                       class="flex items-center gap-3 px-3 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors rounded-lg"
                     >
-                      <span class="inline-block w-6 h-4 rounded-sm overflow-hidden shadow-sm flex-shrink-0">
-                        {dest.code === 'ca' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#fff" d="M160 0h320v480H160z"/>
-                            <path fill="#d52b1e" d="M0 0h160v480H0zm320 0h320v480H320z"/>
-                            <path fill="#d52b1e" d="M320 80l-12 25h-25l20 15-8 25 20-15 20 15-8-25 20-15h-25l-12-25zm-40 70l-8 18h-18l15 10-6 18 15-11 15 11-6-18 15-10h-18l-8-18zm80 0l-8 18h-18l15 10-6 18 15-11 15 11-6-18 15-10h-18l-8-18zm-40 60l-10 22h-22l18 13-7 22 18-13 18 13-7-22 18-13h-22l-10-22zm0 70l-12 28h-28l22 16-9 28 22-16 22 16-9-28 22-16h-28l-12-28zm0 80l-15 32h-32l26 19-10 32 26-19 26 19-10-32 26-19h-32l-15-32z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'mt' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#fff" d="M0 0h640v480H0z"/>
-                            <path fill="#cf142b" d="M0 432h640v48H0zm0-384h640v48H0zm224 96h64v96h-64z"/>
-                            <path fill="#a7a6a4" d="M256 120h32v312h-32z"/>
-                            <path fill="#cf142b" d="M288 144h64v48h-64zm-96 0h64v48h-64z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'ae' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#00732f" d="M0 0h640v160H0z"/>
-                            <path fill="#fff" d="M0 160h640v160H0z"/>
-                            <path fill="#000" d="M0 320h640v160H0z"/>
-                            <path fill="#f00" d="M0 0h220v480H0z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'gb' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#012169" d="M0 0h640v480H0z"/>
-                            <path fill="#fff" d="M75 0l244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z"/>
-                            <path fill="#c8102e" d="M424 281l216 159v40L369 281zm-184 20l6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z"/>
-                            <path fill="#fff" d="M241 0v480h160V0zM0 160v160h640V160z"/>
-                            <path fill="#c8102e" d="M0 193v96h640v-96zM273 0v480h96V0z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'nz' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#012169" d="M0 0h640v480H0z"/>
-                            <path fill="#fff" d="M75 0l244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z"/>
-                            <path fill="#c8102e" d="M424 281l216 159v40L369 281zm-184 20l6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z"/>
-                            <path fill="#fff" d="M241 0v480h160V0zM0 160v160h640V160z"/>
-                            <path fill="#c8102e" d="M0 193v96h640v-96zM273 0v480h96V0z"/>
-                            <!-- 4 estrellas rojas de NZ (Cruz del Sur) -->
-                            <circle fill="#c8102e" cx="520" cy="130" r="14"/>
-                            <circle fill="#c8102e" cx="580" cy="90" r="10"/>
-                            <circle fill="#c8102e" cx="580" cy="210" r="10"/>
-                            <circle fill="#c8102e" cx="500" cy="210" r="10"/>
-                          </svg>
-                        )}
-                        {dest.code === 'ie' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#169b62" d="M0 0h213.3v480H0z"/>
-                            <path fill="#fff" d="M213.3 0h213.4v480H213.3z"/>
-                            <path fill="#ff883e" d="M426.7 0H640v480H426.7z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'es' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#aa151b" d="M0 0h640v120H0zm0 360h640v120H0z"/>
-                            <path fill="#f1bf00" d="M0 120h640v240H0z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'de' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#000" d="M0 0h640v160H0z"/>
-                            <path fill="#f00" d="M0 160h640v160H0z"/>
-                            <path fill="#fc0" d="M0 320h640v160H0z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'it' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#009246" d="M0 0h213.3v480H0z"/>
-                            <path fill="#fff" d="M213.3 0h213.4v480H213.3z"/>
-                            <path fill="#ce2b37" d="M426.7 0H640v480H426.7z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'us' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#b22234" d="M0 0h640v480H0z"/>
-                            <path fill="#fff" d="M0 36.9h640v36.9H0zm0 73.8h640v36.9H0zm0 73.8h640v36.9H0zm0 73.8h640v36.9H0zm0 73.8h640v36.9H0zm0 73.8h640v36.9H0z"/>
-                            <path fill="#3c3b6e" d="M0 0h256.8v258.5H0z"/>
-                          </svg>
-                        )}
-                        {dest.code === 'au' && (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full">
-                            <path fill="#012169" d="M0 0h640v480H0z"/>
-                            <path fill="#fff" d="M75 0l244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z"/>
-                            <path fill="#c8102e" d="M424 281l216 159v40L369 281zm-184 20l6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z"/>
-                            <path fill="#fff" d="M241 0v480h160V0zM0 160v160h640V160z"/>
-                            <path fill="#c8102e" d="M0 193v96h640v-96zM273 0v480h96V0z"/>
-                            <!-- Commonwealth Star (grande) -->
-                            <circle fill="#fff" cx="120" cy="380" r="18"/>
-                            <!-- 5 estrellas blancas (Cruz del Sur) -->
-                            <circle fill="#fff" cx="520" cy="110" r="16"/>
-                            <circle fill="#fff" cx="580" cy="70" r="10"/>
-                            <circle fill="#fff" cx="580" cy="190" r="10"/>
-                            <circle fill="#fff" cx="460" cy="150" r="10"/>
-                            <circle fill="#fff" cx="620" cy="150" r="10"/>
-                          </svg>
-                        )}
-                      </span>
+                      <img 
+                        src={`https://kapowaz.github.io/circle-flags/flags/${dest.code}.svg`}
+                        alt={dest.label}
+                        class="w-5 h-5 rounded-full flex-shrink-0 object-cover"
+                        loading="lazy"
+                      />
                       <span class="font-medium">{dest.label}</span>
                     </a>
                   ))}
