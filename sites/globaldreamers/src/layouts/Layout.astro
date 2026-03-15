@@ -2,6 +2,8 @@
 import siteConfig from '../../config/site.config.ts';
 import '../styles/global.css';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import SEOHead from '../components/SEOHead.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 
 interface Props {
   title?: string;
@@ -13,6 +15,15 @@ interface Props {
   modifiedTime?: string;
   author?: string;
   noindex?: boolean;
+  keywords?: string[];
+  // Schema.org props
+  schemaType?: string[];
+  schemaData?: Record<string, any>;
+  breadcrumbs?: Array<{name: string; url: string}>;
+  faqs?: Array<{q: string; a: string}>;
+  howToName?: string;
+  howToDescription?: string;
+  steps?: Array<{name: string; text: string; url?: string}>;
 }
 
 const {
@@ -25,12 +36,67 @@ const {
   modifiedTime,
   author = siteConfig.site.name,
   noindex = false,
+  keywords = [],
+  // Schema defaults
+  schemaType = ['Organization', 'WebSite'],
+  schemaData = {},
+  breadcrumbs,
+  faqs,
+  howToName,
+  howToDescription,
+  steps,
 } = Astro.props;
 
 const siteName = siteConfig.site.name;
 const siteUrl = `https://${siteConfig.site.domain}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
-const titleFull = title === siteName ? title : `${title} | ${siteName}`;
+
+// Organization data para Schema.org
+const organizationData = {
+  name: 'Global Dreamers',
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo-globaldreamers-color.png`,
+  sameAs: [
+    'https://facebook.com/globaldreamers',
+    'https://instagram.com/globaldreamers',
+    'https://linkedin.com/company/globaldreamers',
+    'https://youtube.com/@globaldreamers',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+61-449-159-849',
+    contactType: 'Customer Service',
+    availableLanguage: ['Spanish', 'English'],
+    areaServed: ['AU', 'CO', 'MX', 'CL', 'AR', 'PE', 'EC', 'PA'],
+  },
+  description: 'Agencia internacional de educación y viajes especializada en enviar estudiantes latinos a estudiar y trabajar en Australia, Canadá, Malta, Dubai, Reino Unido, Nueva Zelanda, Irlanda, España, Alemania, Italia y Estados Unidos.',
+  foundingDate: '2018',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'AU',
+    addressLocality: 'Sydney',
+    addressRegion: 'NSW',
+  },
+};
+
+// WebSite data
+const websiteData = {
+  name: siteName,
+  url: siteUrl,
+  description: siteConfig.site.description,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/buscar?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+// Merge schema data
+const finalSchemaData = {
+  ...organizationData,
+  ...websiteData,
+  ...schemaData,
+};
 ---
 
 <!DOCTYPE html>
@@ -39,35 +105,30 @@ const titleFull = title === siteName ? title : `${title} | ${siteName}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO básico -->
-    <title>{titleFull}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {noindex ? (
-      <meta name="robots" content="noindex, nofollow" />
-    ) : (
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    )}
+    <!-- SEO + AI Citations Component -->
+    <SEOHead 
+      title={title}
+      description={description}
+      canonical={canonical}
+      image={fullImage}
+      type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      author={author}
+      noindex={noindex}
+      keywords={keywords}
+    />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content={type} />
-    <meta property="og:title" content={titleFull} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content={siteName} />
-    <meta property="og:image" content={fullImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content={siteConfig.site.language.replace('-', '_')} />
-    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-    {author && <meta property="article:author" content={author} />}
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={titleFull} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={fullImage} />
+    <!-- Schema.org Structured Data -->
+    <SchemaOrg 
+      type={schemaType}
+      data={finalSchemaData}
+      breadcrumbs={breadcrumbs}
+      faqs={faqs}
+      howToName={howToName}
+      howToDescription={howToDescription}
+      steps={steps}
+    />
 
     <!-- AI Citations -->
     <link rel="alternate" type="text/plain" href="/llms.txt" />

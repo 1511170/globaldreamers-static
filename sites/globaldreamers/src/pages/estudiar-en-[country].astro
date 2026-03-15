@@ -15,6 +15,23 @@ export function getStaticPaths() {
 interface Props { dest: DestinationData }
 const { dest } = Astro.props;
 
+// Keywords por destino
+const keywordsByCountry: Record<string, string[]> = {
+  australia: ['estudiar en australia', 'trabajar en australia', 'visa australia estudiante', 'cursos en australia', 'sydney melbourne brisbane'],
+  canada: ['estudiar en canada', 'work and study canada', 'study permit canada', 'pgwp canada', 'residencia permanente canada'],
+  malta: ['estudiar ingles en malta', 'cursos de ingles malta', 'malta sin visa', 'estudiar en europa economico'],
+  dubai: ['estudiar en dubai', 'trabajar en dubai', 'visa dubai', '0 impuestos dubai'],
+  'reino-unido': ['estudiar en reino unido', 'estudiar en uk', 'graduate route visa', 'cursos en inglaterra'],
+  'nueva-zelanda': ['estudiar en nueva zelanda', 'work and study new zealand', 'auckland wellington'],
+  irlanda: ['estudiar en irlanda', 'work and study ireland', 'stay back visa irlanda', 'dublin cork'],
+  espana: ['estudiar en españa', 'estudiar espanol en espana', 'nie espana estudiante', 'barcelona madrid'],
+  alemania: ['estudiar en alemania', 'estudiar gratis en alemania', 'blocked account alemania', 'berlin munich'],
+  italia: ['estudiar en italia', 'cursos de moda italia', 'estudiar italiano', 'roma milan'],
+  'estados-unidos': ['estudiar en estados unidos', 'f1 visa usa', 'opt usa', 'trabajar en usa'],
+};
+
+const keywords = keywordsByCountry[dest.country] || ['estudiar en el exterior'];
+
 // Definir cursos según el destino
 const courses = [
   {
@@ -85,6 +102,16 @@ const getBenefits = (country: string) => {
 };
 
 const benefits = getBenefits(dest.country);
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: 'Destinos', url: '/#destinos' },
+  { name: dest.name, url: dest.canonical },
+];
+
+// FAQs para Schema.org
+const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
 ---
 
 <Layout
@@ -92,6 +119,38 @@ const benefits = getBenefits(dest.country);
   description={dest.seoDescription}
   canonical={dest.canonical}
   image={dest.heroBg}
+  keywords={keywords}
+  schemaType={['Organization', 'Service', 'BreadcrumbList', 'FAQPage']}
+  schemaData={{
+    name: `Estudiar en ${dest.name}`,
+    description: dest.seoDescription,
+    serviceType: 'Student Visa Consulting',
+    provider: {
+      '@type': 'Organization',
+      name: 'Global Dreamers',
+      url: 'https://globaldreamers.com.au',
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: dest.name,
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      name: 'Programas de Estudio',
+      description: 'Cursos de inglés, programas vocacionales y universitarios',
+      lowPrice: dest.investmentRows[0]?.cost?.replace(/[^0-9]/g, '') || '0',
+      priceCurrency: dest.country === 'canada' ? 'CAD' : dest.country === 'malta' || dest.country === 'irlanda' || dest.country === 'espana' || dest.country === 'alemania' || dest.country === 'italia' ? 'EUR' : dest.country === 'reino-unido' ? 'GBP' : 'AUD',
+      availability: 'https://schema.org/InStock',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '500',
+      bestRating: '5',
+    },
+  }}
+  breadcrumbs={breadcrumbs}
+  faqs={faqsForSchema}
 >
   <Navbar />
   
@@ -102,14 +161,17 @@ const benefits = getBenefits(dest.country);
         <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
         <img 
           class="w-full h-full object-cover" 
-          alt={`${dest.name} - Estudiar en el exterior`}
+          alt={`Estudiar en ${dest.name} - ${dest.heroBadge}`}
           src={dest.heroBg}
+          loading="eager"
+          fetchpriority="high"
+          decoding="sync"
         />
       </div>
       <div class="relative z-20 max-w-7xl mx-auto w-full">
         <div class="max-w-2xl">
           <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-4 border border-primary/20">
-            {dest.name} 2024
+            {dest.name} 2026
           </span>
           <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6 text-slate-900">
             {dest.heroTitle.split('—')[0]} — <span class="text-primary">{dest.heroTitle.split('—')[1]?.trim() || dest.heroBadge}</span>
@@ -145,9 +207,9 @@ const benefits = getBenefits(dest.country);
             {/* Social Proof */}
             <div class="flex items-center gap-3 pt-2">
               <div class="flex -space-x-2">
-                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Student" src="/images/testimonial-camila.png" />
-                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Student" src="/images/testimonial-marcos.png" />
-                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Student" src="/images/testimonial-sofia.png" />
+                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Estudiante en Australia" src="/images/testimonial-camila.png" loading="lazy" />
+                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Estudiante en Canadá" src="/images/testimonial-marcos.png" loading="lazy" />
+                <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Estudiante en Malta" src="/images/testimonial-sofia.png" loading="lazy" />
               </div>
               <span class="text-sm font-medium text-slate-500">+500 estudiantes este mes</span>
             </div>
@@ -213,14 +275,16 @@ const benefits = getBenefits(dest.country);
     <!-- Cities Cards -->
     <section class="py-24 px-4 bg-slate-50" id="ciudades">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 text-slate-900">Elige tu Ciudad Ideal</h2>
+        <h2 class="text-3xl font-bold mb-12 text-slate-900">Elige tu Ciudad Ideal en {dest.name}</h2>
         <div class="grid md:grid-cols-3 gap-8">
           {dest.cities.slice(0, 3).map((city) => (
             <div class="group relative h-[400px] rounded-3xl overflow-hidden shadow-xl cursor-pointer">
               <img 
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                alt={city.name}
+                alt={`Estudiar en ${city.name}, ${dest.name}`}
                 src={city.image}
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8 text-white">
                 <h3 class="text-2xl font-bold mb-2">{city.name}</h3>
@@ -236,7 +300,7 @@ const benefits = getBenefits(dest.country);
     <!-- Courses Section -->
     <section class="py-24 px-4 bg-white" id="cursos">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">Cursos Disponibles</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">Cursos Disponibles en {dest.name}</h2>
         <div class="grid md:grid-cols-3 gap-8">
           {courses.map((course, idx) => (
             <div class={`flex flex-col p-8 rounded-2xl border transition-colors ${course.popular ? 'border-2 border-primary bg-primary/5' : 'border-slate-200 hover:border-primary'}`}>
@@ -264,7 +328,7 @@ const benefits = getBenefits(dest.country);
     <!-- Investment Table -->
     <section class="py-24 px-4 bg-slate-50" id="costos">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-4 text-center text-slate-900">Inversión Transparente</h2>
+        <h2 class="text-3xl font-bold mb-4 text-center text-slate-900">Inversión Transparente para Estudiar en {dest.name}</h2>
         <p class="text-center text-slate-500 mb-12">{dest.investmentCurrencyNote}</p>
         <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-200">
           <table class="w-full text-left border-collapse">
@@ -295,7 +359,7 @@ const benefits = getBenefits(dest.country);
     <!-- FAQ Section -->
     <section class="py-24 px-4 bg-white" id="faq">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">Preguntas Frecuentes</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">Preguntas Frecuentes sobre Estudiar en {dest.name}</h2>
         <div class="space-y-4">
           {dest.faqs.slice(0, 3).map((faq, idx) => (
             <details class="group border border-slate-200 rounded-xl bg-white p-6" open={idx === 0}>

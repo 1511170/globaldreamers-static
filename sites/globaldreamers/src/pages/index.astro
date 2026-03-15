@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import HeroHome from '../components/HeroHome.astro';
 import Partners from '../components/Partners.astro';
-import TrustBar from '../components/TrustBar.astro';
 import DestinationsHome from '../components/DestinationsHome.astro';
 import DreamJourneyBuilder from '../components/DreamJourneyBuilder.astro';
 import ValueProposition from '../components/ValueProposition.astro';
@@ -12,9 +11,137 @@ import TestimonialsSection from '../components/TestimonialsSection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
+
+const title = 'Estudiar en el Exterior 2026 | Global Dreamers - Asesoría Gratis';
+const description = '✅ Asesoría 100% gratuita para estudiar y trabajar en Australia, Canadá, Malta, Dubai y más. 99% visas aprobadas, +500 estudiantes. ¡Agenda tu consulta hoy!';
+const keywords = [
+  'estudiar en el exterior',
+  'trabajar y estudiar en el exterior',
+  'visa de estudiante',
+  'estudiar en australia',
+  'estudiar en canada',
+  'estudiar en malta',
+  'estudiar en dubai',
+  'estudiar en reino unido',
+  'estudiar en nueva zelanda',
+  'estudiar en irlanda',
+  'estudiar en españa',
+  'estudiar en alemania',
+  'estudiar en italia',
+  'estudiar en estados unidos',
+  'agencia de estudios en el exterior',
+  'asesoría visa estudiante',
+  'work and study',
+];
+
+// FAQs para Schema.org
+const faqs = [
+  {
+    q: '¿La asesoría realmente es gratuita?',
+    a: 'Sí, nuestra asesoría es 100% gratuita. No cobramos por la orientación inicial, análisis de perfil ni recomendación de destinos. Nuestro ingreso proviene de las comisiones que nos pagan las instituciones educativas cuando te inscribes a través de nosotros.'
+  },
+  {
+    q: '¿Qué nivel de inglés necesito?',
+    a: 'Depende del destino y programa. Para cursos de inglés generalmente no requieres nivel previo. Para programas vocacionales o universitarios, generalmente necesitas IELTS 5.5-6.5 o equivalente. Evaluamos tu caso particular en la asesoría gratuita.'
+  },
+  {
+    q: '¿Puedo trabajar mientras estudio?',
+    a: 'Sí, la mayoría de los destinos permiten trabajar con visa de estudiante: Australia (48hrs/quincena), Canadá (20hrs/semana), Reino Unido (20hrs/semana), Irlanda (20hrs/semana), Nueva Zelanda (20hrs/semana), Malta (20hrs/semana), y España (30hrs/semana). Cada país tiene sus regulaciones específicas.'
+  },
+  {
+    q: '¿Cuánto tiempo toma el proceso de visa?',
+    a: 'Los tiempos varían por destino: Australia (2-4 semanas), Canadá (4-12 semanas), Reino Unido (3-6 semanas), Irlanda (4-8 semanas). Recomendamos iniciar el proceso con al menos 3 meses de anticipación.'
+  },
+  {
+    q: '¿Qué pasa si rechazan mi visa?',
+    a: 'Nuestra tasa de aprobación es del 99% porque preparamos meticulosamente cada aplicación. Si ocurre un rechazo, analizamos las razones, apelamos si es posible o reaplicamos con las correcciones necesarias sin costo adicional.'
+  },
+  {
+    q: '¿Tienen opciones de financiación?',
+    a: 'Sí, trabajamos con varias opciones de financiación para latinos. Algunos destinos permiten pagar el curso en cuotas mensuales. En la asesoría gratuita evaluamos tu situación y te presentamos las mejores alternativas.'
+  },
+  {
+    q: '¿Cómo es el acompañamiento al llegar al destino?',
+    a: 'Te recibimos en el aeropuerto, te ayudamos a instalarte en tu alojamiento, abrir cuenta bancaria, obtener tu tarjeta de identificación local, y te orientamos para conseguir tu primer empleo. No estás solo nunca.'
+  },
+];
+
+// HowTo steps
+const howToSteps = [
+  {
+    name: 'Agenda Tu Asesoría Gratuita',
+    text: 'Conversa con nuestros expertos sobre tus metas y analizamos tu perfil para recomendarte el mejor destino, ciudad y programa según tu presupuesto y objetivos.'
+  },
+  {
+    name: 'Diseñamos Tu Plan Personalizado',
+    text: 'Elegimos destino, curso y gestionamos toda tu documentación para la visa. Preparamos tu aplicación perfectamente para maximizar probabilidades de aprobación.'
+  },
+  {
+    name: '¡Viaja y Vive Tu Sueño!',
+    text: 'Te acompañamos antes, durante y después de llegar. Recibimiento en aeropuerto, ayuda con alojamiento, cuenta bancaria y búsqueda de empleo.'
+  },
+];
 ---
 
-<Layout title="Global Dreamers - Estudia y Trabaja en el Exterior" description="Asesoría 100% gratuita para estudiar y trabajar en el exterior. Más de 500 estudiantes ya viven su experiencia con Global Dreamers.">
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  schemaType={['Organization', 'WebSite', 'LocalBusiness', 'Service', 'HowTo', 'FAQPage']}
+  schemaData={{
+    name: 'Global Dreamers',
+    description: 'Agencia internacional de educación especializada en enviar estudiantes latinos a estudiar y trabajar en Australia, Canadá, Malta, Dubai, Reino Unido, Nueva Zelanda, Irlanda, España, Alemania, Italia y Estados Unidos.',
+    url: 'https://globaldreamers.com.au',
+    serviceType: 'Educational Consulting',
+    areaServed: [
+      { '@type': 'Country', name: 'Australia' },
+      { '@type': 'Country', name: 'Canada' },
+      { '@type': 'Country', name: 'Malta' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
+      { '@type': 'Country', name: 'United Kingdom' },
+      { '@type': 'Country', name: 'New Zealand' },
+      { '@type': 'Country', name: 'Ireland' },
+      { '@type': 'Country', name: 'Spain' },
+      { '@type': 'Country', name: 'Germany' },
+      { '@type': 'Country', name: 'Italy' },
+      { '@type': 'Country', name: 'United States' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Destinos de Estudio',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Australia' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Canadá' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Malta' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Dubai' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Reino Unido' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Nueva Zelanda' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Irlanda' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en España' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Alemania' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Italia' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estudiar en Estados Unidos' } },
+      ]
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '500',
+      bestRating: '5',
+    },
+    priceRange: '$$',
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  }}
+  howToName="Cómo empezar tu aventura de estudiar en el exterior"
+  howToDescription="Guía paso a paso para comenzar tu experiencia de estudio y trabajo en el exterior con Global Dreamers"
+  steps={howToSteps}
+  faqs={faqs}
+>
   <Navbar />
   <main>
     <HeroHome />
