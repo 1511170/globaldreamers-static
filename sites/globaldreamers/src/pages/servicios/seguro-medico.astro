@@ -1,0 +1,466 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Seguro Médico Internacional | Global Dreamers';
+const description = 'Cobertura médica completa para estudiantes internacionales. Seguros obligatorios y opcionales para Australia, Canadá, Europa y más destinos.';
+const keywords = [
+  'seguro medico estudiantes',
+  'oshc australia',
+  'seguro salud internacional',
+  'cobertura medica estudiantes',
+  'health insurance international students',
+  'medical coverage abroad',
+];
+
+// FAQs
+const faqs = [
+  {
+    q: '¿El seguro médico es obligatorio?',
+    a: 'Sí, la mayoría de países requieren seguro médico como condición de la visa. Australia requiere OSHC, UK tiene el NHS con recargo, Canadá varía por provincia.'
+  },
+  {
+    q: '¿Qué cubre el seguro?',
+    a: 'Generalmente cubre consultas médicas, hospitalización, emergencias, medicamentos recetados y repatriación. Las coberturas específicas varían por plan y destino.'
+  },
+  {
+    q: '¿Puedo usar mi seguro de mi país?',
+    a: 'No suele ser aceptable para visas. Los gobiernos requieren aseguradoras locales o internacionales específicas que cumplan con sus estándares.'
+  },
+  {
+    q: '¿Cuánto cuesta el seguro?',
+    a: 'Varía por destino, edad y duración: Australia ~AUD $500-800/año, UK ~£150-300/año, Canadá ~CAD $600-900/año. Te cotizamos opciones según tu caso.'
+  },
+];
+
+// Tipos de cobertura
+const coverageTypes = [
+  { icon: 'local_hospital', title: 'Cobertura Básica', desc: 'Consultas médicas, emergencias y hospitalización básica', mandatory: true },
+  { icon: 'emergency', title: 'Emergencias', desc: 'Atención de urgencias 24/7 y ambulancia', mandatory: true },
+  { icon: 'medication', title: 'Medicamentos', desc: 'Recetas médicas y farmacia cubiertas hasta cierto límite', mandatory: false },
+  { icon: 'dentistry', title: 'Dental Básico', desc: 'Emergencias dentales y procedimientos básicos', mandatory: false },
+  { icon: 'visibility', title: 'Óptica', desc: 'Exámenes de vista y lentes en algunos planes', mandatory: false },
+  { icon: 'flight_takeoff', title: 'Repatriación', desc: 'Traslado médico de emergencia a tu país de origen', mandatory: true },
+];
+
+// Cobertura por país
+const countryCoverage = [
+  { country: 'Australia', flag: 'au', desc: 'OSHC obligatorio', price: 'Desde AUD $500/año' },
+  { country: 'Reino Unido', flag: 'gb', desc: 'NHS surcharge + privado opcional', price: 'Desde £470/año' },
+  { country: 'Canadá', flag: 'ca', desc: 'Varía por provincia', price: 'Desde CAD $600/año' },
+  { country: 'Irlanda', flag: 'ie', desc: 'Seguro privado obligatorio', price: 'Desde €500/año' },
+  { country: 'Nueva Zelanda', flag: 'nz', desc: 'Seguro obligatorio', price: 'Desde NZD $500/año' },
+  { country: 'Malta', flag: 'mt', desc: 'Seguro EU o internacional', price: 'Desde €400/año' },
+];
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios/' },
+  { name: 'Seguro Médico', url: '/servicios/seguro-medico/' },
+];
+
+// WhatsApp link
+const whatsappNumber = '61449159849';
+const whatsappMessage = encodeURIComponent('Hola, me interesa cotizar un seguro médico internacional para estudiantes. ¿Podrían ayudarme?');
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+// Schema.org Service data
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Seguro Médico Internacional para Estudiantes',
+  description: description,
+  provider: {
+    '@type': 'Organization',
+    name: 'Global Dreamers',
+    url: 'https://globaldreamers.com.au',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Australia' },
+    { '@type': 'Country', name: 'Canada' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Ireland' },
+    { '@type': 'Country', name: 'New Zealand' },
+    { '@type': 'Country', name: 'Malta' },
+  ],
+  serviceType: 'Health Insurance',
+  category: 'Medical Insurance',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Planes de Seguro Médico',
+    itemListElement: coverageTypes.map((c) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: c.title,
+        description: c.desc,
+      },
+    })),
+  },
+};
+---
+
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical="https://globaldreamers.com.au/servicios/seguro-medico/"
+  schemaType={['Service', 'FAQPage', 'BreadcrumbList']}
+  schemaData={serviceSchema}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+>
+  <Navbar ctaText="Cotizar Seguro" />
+  
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
+      <!-- Decorative blobs -->
+      <div class="blob bg-primary/20 w-96 h-96 rounded-full -top-48 -right-48" aria-hidden="true"></div>
+      <div class="blob bg-primary/10 w-80 h-80 rounded-full -bottom-40 -left-40" aria-hidden="true"></div>
+      
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <!-- Breadcrumb -->
+          <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center justify-center gap-2 text-sm text-slate-500">
+              <li><a href="/" class="hover:text-primary transition-colors">Inicio</a></li>
+              <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+              <li><a href="/servicios/" class="hover:text-primary transition-colors">Servicios</a></li>
+              <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+              <li class="text-slate-900 font-medium">Seguro Médico</li>
+            </ol>
+          </nav>
+          
+          <!-- Hero icon -->
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-3xl mb-8">
+            <span class="material-symbols-outlined text-5xl text-primary">health_and_safety</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight">
+            Seguro Médico <span class="text-primary">Internacional</span>
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Protege tu salud mientras estudias en el exterior. Cobertura médica completa para todos los destinos. 
+            Cumple los requisitos de visa y viaja con tranquilidad.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-primary text-white text-lg font-bold py-4 px-8 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30"
+            >
+              <span class="material-symbols-outlined">chat</span>
+              Cotizar Mi Seguro
+            </a>
+            <a 
+              href="#coberturas"
+              class="inline-flex items-center gap-2 bg-white text-slate-700 text-lg font-semibold py-4 px-8 rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors"
+            >
+              <span class="material-symbols-outlined text-primary">visibility</span>
+              Ver Coberturas
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust indicators -->
+    <section class="py-8 bg-white border-b border-slate-100">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <p class="text-3xl font-black text-primary">99%</p>
+            <p class="text-sm text-slate-600">Visas Aprobadas</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-primary">+500</p>
+            <p class="text-sm text-slate-600">Estudiantes</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-primary">12+</p>
+            <p class="text-sm text-slate-600">Destinos</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-primary">24/7</p>
+            <p class="text-sm text-slate-600">Soporte Médico</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage Types Grid -->
+    <section id="coberturas" class="py-20 bg-white">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary/10 text-primary text-sm font-bold rounded-full mb-4">
+            <span class="material-symbols-outlined text-sm">shield</span>
+            Tipos de Cobertura
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            ¿Qué cubre tu seguro médico?
+          </h2>
+          <p class="text-slate-600 text-lg">
+            Diseñamos planes adaptados a las exigencias de cada país y visa. 
+            Desde cobertura básica hasta protección integral.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {coverageTypes.map((coverage) => (
+            <div class="group relative bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+              {coverage.mandatory && (
+                <span class="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 bg-red-50 text-red-600 text-xs font-bold rounded-full border border-red-100">
+                  <span class="material-symbols-outlined text-xs">priority_high</span>
+                  Obligatorio
+                </span>
+              )}
+              
+              <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-3xl text-primary">{coverage.icon}</span>
+              </div>
+              
+              <h3 class="text-xl font-bold text-slate-900 mb-2">{coverage.title}</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">{coverage.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage by Country -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white text-primary text-sm font-bold rounded-full border border-slate-200 mb-4">
+            <span class="material-symbols-outlined text-sm">public</span>
+            Por Destino
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            Cobertura por País
+          </h2>
+          <p class="text-slate-600 text-lg">
+            Cada destino tiene sus propios requisitos. Te ayudamos a elegir el seguro correcto.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {countryCoverage.map((country) => (
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="flex items-start gap-4">
+                <img 
+                  src={`https://kapowaz.github.io/circle-flags/flags/${country.flag}.svg`}
+                  alt={`Bandera de ${country.country}`}
+                  class="w-12 h-12 rounded-full flex-shrink-0 object-cover"
+                  loading="lazy"
+                />
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-lg font-bold text-slate-900 mb-1">{country.country}</h3>
+                  <p class="text-sm text-slate-500 mb-2">{country.desc}</p>
+                  <p class="text-primary font-bold">{country.price}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why insurance is important -->
+    <section class="py-20 bg-white">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary/10 text-primary text-sm font-bold rounded-full mb-6">
+              <span class="material-symbols-outlined text-sm">verified</span>
+              Importancia
+            </span>
+            
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-6">
+              ¿Por qué es obligatorio el seguro médico?
+            </h2>
+            
+            <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+              Los gobiernos de los países de destino exigen seguro médico como garantía de que los estudiantes 
+              internacionales no representarán una carga para su sistema de salud pública.
+            </p>
+            
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+                <div>
+                  <p class="font-semibold text-slate-900">Requisito de visa</p>
+                  <p class="text-slate-600 text-sm">Sin seguro médico, no puedes obtener tu visa de estudiante.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+                <div>
+                  <p class="font-semibold text-slate-900">Protección financiera</p>
+                  <p class="text-slate-600 text-sm">Los costos médicos en el exterior pueden ser extremadamente altos.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+                <div>
+                  <p class="font-semibold text-slate-900">Tranquilidad para tu familia</p>
+                  <p class="text-slate-600 text-sm">Tu familia sabe que estás protegido ante cualquier eventualidad.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+                <div>
+                  <p class="font-semibold text-slate-900">Atención inmediata</p>
+                  <p class="text-slate-600 text-sm">Acceso a redes de hospitales y médicos sin demoras ni trámites.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl transform rotate-3" aria-hidden="true"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=500&fit=crop&q=80"
+              alt="Doctor con paciente en consulta médica"
+              class="relative rounded-3xl shadow-xl w-full object-cover aspect-[4/3]"
+              loading="lazy"
+            />
+            
+            <!-- Floating card -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl border border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
+                  <span class="material-symbols-outlined text-green-500">verified</span>
+                </div>
+                <div>
+                  <p class="font-bold text-slate-900">Cobertura Global</p>
+                  <p class="text-sm text-slate-500">+50 países</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-slate-50" id="faq">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-5 gap-12">
+          <div class="lg:col-span-2">
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white text-primary text-sm font-bold rounded-full border border-slate-200 mb-4">
+              <span class="material-symbols-outlined text-sm">help</span>
+              FAQ
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+              Preguntas Frecuentes
+            </h2>
+            <p class="text-slate-600 mb-6">
+              Todo lo que necesitas saber sobre el seguro médico internacional para estudiantes.
+            </p>
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-primary font-bold hover:underline"
+            >
+              ¿Tienes más preguntas? Escríbenos
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+          
+          <div class="lg:col-span-3 space-y-4">
+            {faqs.map((faq, index) => (
+              <div class="border border-slate-200 rounded-xl overflow-hidden bg-white">
+                <button 
+                  class="w-full flex items-center justify-between p-6 text-left cursor-pointer hover:bg-slate-50 transition-colors faq-toggle"
+                  data-index={index}
+                  aria-expanded="false"
+                >
+                  <span class="font-bold text-slate-900 pr-4">{faq.q}</span>
+                  <span class="material-symbols-outlined text-primary transition-transform duration-200 flex-shrink-0">expand_more</span>
+                </button>
+                <div class="hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed faq-answer">
+                  {faq.a}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-primary rounded-[2.5rem] p-8 sm:p-12 lg:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+          <div class="absolute top-0 right-0 size-64 bg-white/10 rounded-full -mr-32 -mt-32" aria-hidden="true"></div>
+          <div class="absolute bottom-0 left-0 size-64 bg-white/5 rounded-full -ml-32 -mb-32" aria-hidden="true"></div>
+          
+          <div class="relative z-10 max-w-3xl mx-auto">
+            <span class="material-symbols-outlined text-6xl mb-6 opacity-90">health_and_safety</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6">
+              Protege tu salud mientras cumples tu sueño
+            </h2>
+            <p class="text-lg text-white/90 mb-10 max-w-2xl mx-auto opacity-90">
+              Obtén la mejor cobertura médica para tu destino. Cotizamos múltiples aseguradoras 
+              para encontrar el plan perfecto para ti.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-white text-primary text-lg font-bold py-4 px-8 rounded-xl hover:bg-slate-100 transition-colors shadow-xl"
+              >
+                <span class="material-symbols-outlined">chat</span>
+                Cotizar Ahora
+              </a>
+              <a 
+                href="tel:+61449159849"
+                class="inline-flex items-center gap-2 bg-primary-700 text-white text-lg font-semibold py-4 px-8 rounded-xl border border-white/30 hover:bg-primary-600 transition-colors"
+              >
+                <span class="material-symbols-outlined">phone</span>
+                +61 449 159 849
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script is:inline>
+  (function() {
+    const toggles = document.querySelectorAll('.faq-toggle');
+    
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const icon = this.querySelector('.material-symbols-outlined');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Close all others
+        toggles.forEach(t => {
+          t.setAttribute('aria-expanded', 'false');
+          t.nextElementSibling.classList.add('hidden');
+          t.querySelector('.material-symbols-outlined').style.transform = 'rotate(0deg)';
+        });
+        
+        // Toggle current
+        if (!isExpanded) {
+          this.setAttribute('aria-expanded', 'true');
+          answer.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  })();
+</script>

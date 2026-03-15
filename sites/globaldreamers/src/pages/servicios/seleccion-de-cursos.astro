@@ -1,0 +1,372 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Selección de Cursos | Global Dreamers';
+const description = 'Encuentra el programa académico ideal para ti. Te ayudamos a elegir entre cursos de inglés, diplomados, pregrados y posgrados en más de 50 instituciones globales.';
+const keywords = [
+  'selección de cursos',
+  'cursos de inglés en el extranjero',
+  'diplomados internacionales',
+  'pregrados en el exterior',
+  'posgrados australia',
+  'posgrados canada',
+  'elegir carrera en el exterior',
+];
+
+// FAQs
+const faqs = [
+  {
+    q: '¿Cómo sé qué curso es el mejor para mí?',
+    a: 'Analizamos tu perfil académico, profesional, objetivos de carrera y presupuesto para recomendarte las opciones que mejor se alineen con tus metas.'
+  },
+  {
+    q: '¿Puedo cambiar de curso una vez iniciado?',
+    a: 'Depende de la institución y el tipo de visa. Algunas permiten cambios dentro del mismo nivel académico, otras requieren un nuevo proceso. Te asesoramos sobre las políticas de cada destino.'
+  },
+  {
+    q: '¿Qué nivel de inglés necesito?',
+    a: 'Varía por programa: cursos de inglés general no requieren nivel previo, diplomados suelen pedir B1-B2, y posgrados generalmente requieren IELTS 6.5 o equivalente. Te ayudamos a certificar tu nivel.'
+  },
+  {
+    q: '¿Las instituciones están acreditadas?',
+    a: 'Sí, trabajamos exclusivamente con instituciones acreditadas por organismos oficiales de cada país. Garantizamos que tus estudios serán reconocidos internacionalmente.'
+  },
+  {
+    q: '¿Puedo aplicar a becas como estudiante internacional?',
+    a: '¡Absolutamente! Muchas instituciones ofrecen becas parciales o completas para estudiantes internacionales según tu perfil académico. Te ayudamos a identificar y aplicar a las oportunidades disponibles.'
+  },
+];
+
+// Tipos de cursos
+const courseTypes = [
+  { icon: 'language', title: 'Cursos de Inglés', desc: 'General, académico o preparación para exámenes (IELTS, TOEFL, Cambridge)', duration: '2-52 semanas' },
+  { icon: 'school', title: 'Diplomados', desc: 'Especializaciones técnicas y profesionales de corta duración', duration: '6-12 meses' },
+  { icon: 'menu_book', title: 'Pregrados', desc: 'Licenciaturas y programas de grado en diversas áreas', duration: '3-4 años' },
+  { icon: 'workspace_premium', title: 'Posgrados', desc: 'Maestrías, MBAs y doctorados en universidades top', duration: '1-3 años' },
+];
+
+// Pasos del proceso
+const steps = [
+  { icon: 'person_search', title: 'Evaluación de Perfil', desc: 'Analizamos tu background académico y profesional para identificar tus fortalezas y áreas de oportunidad.', },
+  { icon: 'explore', title: 'Comparación de Opciones', desc: 'Te presentamos 3-5 opciones de instituciones y programas que se ajusten a tus metas y presupuesto.', },
+  { icon: 'approval', title: 'Aplicación y Admisión', desc: 'Gestionamos tu aplicación completa y seguimiento hasta recibir la carta de admisión.', },
+];
+
+// Estadísticas
+const stats = [
+  { value: '+50', label: 'Instituciones Aliadas' },
+  { value: '+200', label: 'Programas Disponibles' },
+  { value: '15+', label: 'Países Destino' },
+  { value: '100%', label: 'Asesoría Gratuita' },
+];
+
+// Instituciones representativas (logos placeholder)
+const institutions = [
+  { name: 'University of Sydney', country: 'Australia' },
+  { name: 'University of Toronto', country: 'Canadá' },
+  { name: 'Imperial College London', country: 'Reino Unido' },
+  { name: 'Trinity College Dublin', country: 'Irlanda' },
+  { name: 'University of Auckland', country: 'Nueva Zelanda' },
+  { name: 'Bocconi University', country: 'Italia' },
+];
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios/' },
+  { name: 'Selección de Cursos', url: '/servicios/seleccion-de-cursos/' },
+];
+---
+
+<style>
+  :root {
+    --color-cyan: #41c5f3;
+    --color-cyan-dark: #0ea5e9;
+    --color-cyan-light: #bae6fd;
+  }
+  .text-cyan-primary { color: var(--color-cyan); }
+  .bg-cyan-primary { background-color: var(--color-cyan); }
+  .bg-cyan-primary\/10 { background-color: rgba(65, 197, 243, 0.1); }
+  .bg-cyan-primary\/20 { background-color: rgba(65, 197, 243, 0.2); }
+  .bg-cyan-primary\/5 { background-color: rgba(65, 197, 243, 0.05); }
+  .border-cyan-primary { border-color: var(--color-cyan); }
+  .border-cyan-primary\/50 { border-color: rgba(65, 197, 243, 0.5); }
+  .shadow-cyan { box-shadow: 0 25px 50px -12px rgba(65, 197, 243, 0.25); }
+  .shadow-cyan-sm { box-shadow: 0 10px 15px -3px rgba(65, 197, 243, 0.2); }
+</style>
+
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonical="/servicios/seleccion-de-cursos/"
+  schemaType={['Organization', 'Service', 'BreadcrumbList', 'FAQPage', 'HowTo']}
+  schemaData={{
+    name: 'Selección de Cursos Global Dreamers',
+    description: 'Servicio profesional de asesoría y selección de cursos para estudios en el exterior. Ayudamos a elegir el programa académico ideal entre cursos de inglés, diplomados, pregrados y posgrados.',
+    serviceType: 'Educational Consulting',
+    provider: {
+      '@type': 'Organization',
+      name: 'Global Dreamers',
+      url: 'https://globaldreamers.com.au',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Australia' },
+      { '@type': 'Country', name: 'Canadá' },
+      { '@type': 'Country', name: 'Reino Unido' },
+      { '@type': 'Country', name: 'Irlanda' },
+      { '@type': 'Country', name: 'Nueva Zelanda' },
+      { '@type': 'Country', name: 'Malta' },
+      { '@type': 'Country', name: 'Dubai' },
+      { '@type': 'Country', name: 'Estados Unidos' },
+    ],
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      description: 'Asesoría gratuita para selección de cursos',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '1200',
+      bestRating: '5',
+    },
+  }}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+  howToName="Cómo seleccionar tu curso ideal con Global Dreamers"
+  howToDescription="Guía paso a paso para encontrar el programa académico perfecto para tus metas"
+  steps={steps.map(s => ({ name: s.title, text: s.desc }))}
+>
+  <Navbar ctaText="Encontrar mi Curso" />
+  
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-white">
+      <div class="absolute inset-0 z-0 opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_#41c5f3_0%,_transparent_50%)]"></div>
+      </div>
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-cyan-primary/10 text-cyan-primary rounded-full w-fit" style="color: #41c5f3; background-color: rgba(65, 197, 243, 0.1);">
+              <span class="material-symbols-outlined text-sm">school</span>
+              Asesoría Académica
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-slate-900">
+              Encuentra el <span style="color: #41c5f3;">curso perfecto</span> para tu futuro
+            </h1>
+            <p class="text-lg text-slate-600 mb-8 max-w-xl">
+              Analizamos tu perfil, metas y presupuesto para recomendarte los mejores programas académicos en más de 50 instituciones globales. Tu éxito empieza con la elección correcta.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="https://wa.me/61449159849?text=Hola%2C%20quiero%20asesoría%20para%20elegir%20mi%20curso%20ideal"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl"
+                style="background-color: #41c5f3; box-shadow: 0 25px 50px -12px rgba(65, 197, 243, 0.35);"
+              >
+                Asesoría Gratuita
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <a 
+                href="#tipos-de-cursos"
+                class="inline-flex items-center justify-center gap-2 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all"
+              >
+                Ver Tipos de Cursos
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-slate-100">
+              <img 
+                src="/images/hero-students.png" 
+                alt="Estudiante feliz eligiendo su curso ideal"
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+            <!-- Floating Badge -->
+            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
+              <div class="flex items-center gap-4">
+                <div class="p-3 rounded-full" style="background-color: rgba(65, 197, 243, 0.1);">
+                  <span class="material-symbols-outlined" style="color: #41c5f3;">verified</span>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-slate-900">+200</div>
+                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Programas Disponibles</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar / Stats -->
+    <section class="py-12 border-y border-slate-800" style="background-color: #0f172a;">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat) => (
+            <div class="text-center">
+              <div class="text-3xl font-bold mb-1" style="color: #41c5f3;">{stat.value}</div>
+              <div class="text-sm font-medium text-slate-400">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Types Grid -->
+    <section id="tipos-de-cursos" class="py-20 lg:py-24 bg-slate-50">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Tipos de Programas Académicos</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">Desde cursos de inglés hasta doctorados, tenemos opciones para cada etapa de tu carrera profesional.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          {courseTypes.map((course) => (
+            <div class="group p-8 bg-white rounded-2xl shadow-sm border border-slate-200 hover:border-cyan-primary/50 hover:shadow-lg transition-all" style="--tw-border-opacity: 1; border-color: rgba(65, 197, 243, 0.5);">
+              <div class="flex items-start gap-6">
+                <div class="size-14 flex items-center justify-center rounded-xl transition-colors group-hover:text-slate-900" style="background-color: rgba(65, 197, 243, 0.1); color: #41c5f3;">
+                  <span class="material-symbols-outlined text-3xl">{course.icon}</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-bold text-slate-900">{course.title}</h3>
+                    <span class="text-sm font-medium px-3 py-1 rounded-full" style="background-color: rgba(65, 197, 243, 0.1); color: #0ea5e9;">{course.duration}</span>
+                  </div>
+                  <p class="text-slate-600">{course.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Nuestro Proceso de Selección</h2>
+          <p class="text-slate-600">Tres pasos simples para encontrar tu programa ideal</p>
+        </div>
+        <div class="relative">
+          <div class="hidden lg:block absolute top-12 left-1/2 -ml-px w-0.5 h-[calc(100%-100px)] bg-slate-200"></div>
+          <div class="space-y-12">
+            {steps.map((step, idx) => (
+              <div class={`relative flex flex-col lg:flex-row items-center lg:items-start group ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div class={`lg:w-1/2 ${idx % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}>
+                  <h3 class="text-2xl font-bold mb-2 text-slate-900">{step.title}</h3>
+                  <p class="text-slate-600">{step.desc}</p>
+                </div>
+                <div class="flex items-center justify-center w-12 h-12 rounded-full text-slate-900 font-bold text-xl z-10 my-4 lg:my-0 shadow-lg" style="background-color: #41c5f3; box-shadow: 0 10px 15px -3px rgba(65, 197, 243, 0.3);">
+                  {idx + 1}
+                </div>
+                <div class={`lg:w-1/2 ${idx % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16 lg:text-right'}`}>
+                  <div class="p-4 bg-slate-50 rounded-xl shadow-sm border border-slate-200 inline-block group-hover:bg-cyan-primary/5 transition-colors" style="--tw-bg-opacity: 1;">
+                    <span class="material-symbols-outlined text-4xl" style="color: #41c5f3;">{step.icon}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Institutions Section -->
+    <section class="py-20 lg:py-24 bg-slate-50">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Instituciones con las que Trabajamos</h2>
+          <p class="text-slate-600">Colaboramos con las mejores universidades y escuelas de cada destino</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {institutions.map((inst) => (
+            <div class="group p-6 bg-white rounded-2xl border border-slate-200 hover:border-cyan-primary/50 hover:shadow-lg transition-all" style="border-color: rgba(65, 197, 243, 0.5);">
+              <div class="flex items-center gap-4">
+                <img 
+                  src={`https://kapowaz.github.io/circle-flags/flags/${inst.country === 'Australia' ? 'au' : inst.country === 'Canadá' ? 'ca' : inst.country === 'Reino Unido' ? 'gb' : inst.country === 'Irlanda' ? 'ie' : inst.country === 'Nueva Zelanda' ? 'nz' : 'it'}.svg`} 
+                  alt={inst.country}
+                  class="w-10 h-10 rounded-full object-cover"
+                />
+                <div>
+                  <h4 class="font-bold text-slate-900 group-hover:text-cyan-primary transition-colors" style="color: inherit;">{inst.name}</h4>
+                  <p class="text-sm text-slate-500">{inst.country}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <p class="text-slate-600">Y <strong>+44 instituciones más</strong> en todo el mundo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Preguntas Frecuentes</h2>
+          <p class="text-slate-600">Todo lo que necesitas saber sobre la selección de cursos</p>
+        </div>
+        <div class="space-y-4">
+          {faqs.map((faq, idx) => (
+            <details class="group border border-slate-200 rounded-xl bg-slate-50 p-6" open={idx === 0}>
+              <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-900">
+                {faq.q}
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+              </summary>
+              <p class="mt-4 text-slate-600">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+      <div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl p-8 lg:p-16 text-center text-white relative overflow-hidden shadow-2xl" style="background-color: #0f172a;">
+          <div class="absolute inset-0 opacity-5 mix-blend-overlay" style="background-color: #41c5f3;"></div>
+          <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl" style="background-color: rgba(65, 197, 243, 0.2);"></div>
+          <div class="absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl" style="background-color: rgba(65, 197, 243, 0.1);"></div>
+          
+          <h2 class="text-3xl md:text-5xl font-black mb-6 relative z-10">¿Listo para encontrar tu curso ideal?</h2>
+          <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">Agenda una asesoría gratuita con nuestros especialistas y descubre las mejores opciones académicas para tu perfil.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+            <a 
+              href="https://wa.me/61449159849?text=Hola%2C%20quiero%20asesoría%20para%20elegir%20mi%20curso%20ideal"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 text-slate-900 px-10 py-5 rounded-xl font-bold text-lg hover:brightness-110 transition-all shadow-lg"
+              style="background-color: #41c5f3; box-shadow: 0 10px 15px -3px rgba(65, 197, 243, 0.3);"
+            >
+              <span class="material-symbols-outlined">calendar_today</span>
+              Agendar Asesoría Gratis
+            </a>
+            <a 
+              href="https://wa.me/61449159849?text=Hola%2C%20tengo%20preguntas%20sobre%20cursos%20en%20el%20extranjero"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all"
+            >
+              <span class="material-symbols-outlined">chat</span>
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
