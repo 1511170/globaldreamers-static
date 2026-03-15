@@ -5,7 +5,7 @@ date: 2026-03-22
 author: "Global Dreamers"
 category: "Suecia"
 tags: ["visa", "residencia", "2026", "requisitos", "suecia"]
-image: "/images/blog/visa-suecia.jpg"
+image: "/images/blog/visa-suecia-residencia.webp"
 published: true
 ---
 

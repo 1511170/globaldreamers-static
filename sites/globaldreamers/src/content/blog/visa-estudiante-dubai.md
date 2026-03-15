@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Dubai"
 tags: ["student residence visa", "UAE visa", "GDRFA", "emirates id", "medical test", "2026"]
-image: "/images/blog/visa-dubai.jpg"
+image: "/images/blog/visa-dubai-emiratos.webp"
 published: true
 ---
 

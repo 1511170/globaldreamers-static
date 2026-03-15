@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Nueva Zelanda"
 tags: ["visa estudiante", "INZ", "Fee Paying Student Visa", "inmigración", "2026"]
-image: "/images/blog/visa-nueva-zelanda.jpg"
+image: "/images/blog/visa-nueva-zelanda-kiwi.webp"
 published: true
 ---
 

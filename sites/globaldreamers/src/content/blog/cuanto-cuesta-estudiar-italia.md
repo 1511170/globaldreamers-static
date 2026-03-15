@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Italia"
 tags: ["costos", "presupuesto", "universidades públicas", "vida en italia", "2026"]
-image: "/images/blog/costos-italia.jpg"
+image: "/images/blog/costos-italia-euros.webp"
 published: true
 ---
 

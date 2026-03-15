@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "España"
 tags: ["beneficios", "razones", "por qué", "destino", "latinoamérica"]
-image: "/images/blog/espana-destino.jpg"
+image: "/images/blog/por-que-espana.webp"
 published: true
 ---
 

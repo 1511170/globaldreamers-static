@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Irlanda"
 tags: ["costos", "presupuesto", "dinero", "2026", "inversión", "irlanda"]
-image: "/images/blog/costos-irlanda.jpg"
+image: "/images/blog/costos-irlanda-euros.webp"
 published: true
 ---
 

@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Dubai"
 tags: ["trabajo", "empleo", "internship", "prácticas", "MOHRE", "dubai work"]
-image: "/images/blog/trabajo-dubai.jpg"
+image: "/images/blog/trabajo-dubai-lujo.webp"
 published: true
 ---
 

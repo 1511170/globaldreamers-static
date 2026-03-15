@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Alemania"
 tags: ["visa alemana", "sperrkonto", "proceso consular", "embajada alemana", "aufenthaltserlaubnis", "2026"]
-image: "/images/blog/visa-alemania.jpg"
+image: "/images/blog/visa-alemania-estudiante.webp"
 published: true
 ---
 

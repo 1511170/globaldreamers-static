@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Dubai"
 tags: ["por qué estudiar", "ventajas dubai", "hub internacional", "sin impuestos", "calidad de vida", "2026"]
-image: "/images/blog/por-que-dubai.jpg"
+image: "/images/blog/por-que-dubai.webp"
 published: true
 ---
 

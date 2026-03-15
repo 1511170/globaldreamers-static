@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Italia"
 tags: ["trabajo", "empleo", "permesso di soggiorno", "salario", "20 horas"]
-image: "/images/blog/trabajo-italia.jpg"
+image: "/images/blog/trabajo-italia-tirocinio.webp"
 published: true
 ---
 

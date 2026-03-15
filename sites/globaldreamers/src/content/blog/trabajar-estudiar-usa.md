@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Estados Unidos"
 tags: ["trabajo", "CPT", "OPT", "empleo", "prácticas"]
-image: "/images/blog/trabajo-usa.jpg"
+image: "/images/blog/trabajo-usa-campus.webp"
 published: true
 ---
 

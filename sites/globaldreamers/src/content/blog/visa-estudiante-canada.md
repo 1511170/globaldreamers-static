@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Canadá"
 tags: ["visa", "permiso de estudio", "biometría", "IRCC", "2026"]
-image: "/images/blog/visa-canada.jpg"
+image: "/images/blog/visa-canada-permiso.webp"
 published: true
 ---
 

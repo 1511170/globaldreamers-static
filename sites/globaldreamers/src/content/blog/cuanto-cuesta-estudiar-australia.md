@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Australia"
 tags: ["costos", "presupuesto", "dinero", "2026", "inversión"]
-image: "/images/blog/costos-australia.jpg"
+image: "/images/blog/costos-australia-dinero.webp"
 published: true
 ---
 

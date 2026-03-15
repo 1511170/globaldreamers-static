@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "España"
 tags: ["visa", "TIE", "estancia", "consulado", "2026"]
-image: "/images/blog/visa-espana.jpg"
+image: "/images/blog/visa-espana-estudios.webp"
 published: true
 ---
 

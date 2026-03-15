@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Italia"
 tags: ["visa tipo D", "visto per studio", "consulado italiano", "permesso di soggiorno", "2026"]
-image: "/images/blog/visa-italia.jpg"
+image: "/images/blog/visa-italia-estudiante.webp"
 published: true
 ---
 

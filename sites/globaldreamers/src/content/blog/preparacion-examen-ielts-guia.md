@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Idioma"
 tags: ["ielts", "inglés", "preparación", "examen", "certificación", "académico"]
-image: "/images/blog/preparacion-ielts.jpg"
+image: "/images/blog/ielts-preparacion-examen.webp"
 published: true
 ---
 

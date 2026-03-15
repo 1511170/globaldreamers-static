@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Visas"
 tags: ["working holiday", "visa estudiante", "comparativa", "trabajo", "viaje", "elegir"]
-image: "/images/blog/working-holiday-vs-estudiante.jpg"
+image: "/images/blog/working-holiday-vs-estudiante.webp"
 published: true
 ---
 

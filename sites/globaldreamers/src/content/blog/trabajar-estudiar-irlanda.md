@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Irlanda"
 tags: ["trabajo", "empleo", "salario", "ingresos", "graduate scheme", "irlanda"]
-image: "/images/blog/trabajo-irlanda.jpg"
+image: "/images/blog/trabajo-irlanda-pub.webp"
 published: true
 ---
 

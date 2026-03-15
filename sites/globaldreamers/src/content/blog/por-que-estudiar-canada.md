@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Canadá"
 tags: ["beneficios", "razones", "por qué", "destino", "top"]
-image: "/images/blog/canada-destino.jpg"
+image: "/images/blog/por-que-canada.webp"
 published: true
 ---
 

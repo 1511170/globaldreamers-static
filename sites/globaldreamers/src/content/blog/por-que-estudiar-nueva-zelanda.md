@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Nueva Zelanda"
 tags: ["beneficios", "razones", "por qué", "destino", "calidad de vida"]
-image: "/images/blog/nueva-zelanda-destino.jpg"
+image: "/images/blog/por-que-nueva-zelanda.webp"
 published: true
 ---
 

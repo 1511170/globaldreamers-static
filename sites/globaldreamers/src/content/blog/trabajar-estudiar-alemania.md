@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Alemania"
 tags: ["trabajo", "empleo", "werkstudent", "salario mínimo", "impuestos", "120 días"]
-image: "/images/blog/trabajo-alemania.jpg"
+image: "/images/blog/trabajo-alemania-werkstudent.webp"
 published: true
 ---
 

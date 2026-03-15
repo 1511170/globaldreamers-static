@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Reino Unido"
 tags: ["student route", "visa", "proceso", "inmigración", "2026"]
-image: "/images/blog/visa-uk.jpg"
+image: "/images/blog/visa-uk-britanica.webp"
 published: true
 ---
 

@@ -5,7 +5,7 @@ date: 2026-03-23
 author: "Global Dreamers"
 category: "Países Bajos"
 tags: ["universidades", "ranking", "2026", "programas en inglés", "holanda"]
-image: "/images/blog/universidades-holanda.jpg"
+image: "/images/blog/universidades-holanda.webp"
 published: true
 ---
 

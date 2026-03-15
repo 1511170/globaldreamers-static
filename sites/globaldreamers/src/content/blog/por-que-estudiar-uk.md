@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Reino Unido"
 tags: ["beneficios", "razones", "por qué", "destino", "oxbridge"]
-image: "/images/blog/por-que-uk.jpg"
+image: "/images/blog/por-que-uk.webp"
 published: true
 ---
 

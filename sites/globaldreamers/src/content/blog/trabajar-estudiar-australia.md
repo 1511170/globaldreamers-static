@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Australia"
 tags: ["trabajo", "empleo", "salario", "ingresos", "485 visa"]
-image: "/images/blog/trabajo-australia.jpg"
+image: "/images/blog/trabajo-australia-cafe.webp"
 published: true
 ---
 

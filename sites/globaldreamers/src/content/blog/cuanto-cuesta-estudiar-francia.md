@@ -5,7 +5,7 @@ date: 2026-03-21
 author: "Global Dreamers"
 category: "Francia"
 tags: ["costos", "presupuesto", "2026", "colegiatura", "vida", "francia"]
-image: "/images/blog/costo-francia.jpg"
+image: "/images/blog/costos-francia-euros.webp"
 published: true
 ---
 

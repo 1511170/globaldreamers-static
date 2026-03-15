@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Comparativas"
 tags: ["intercambio", "carrera completa", "pregrado", "comparativa", "estudios", "elegir"]
-image: "/images/blog/intercambio-vs-carrera-completa.jpg"
+image: "/images/blog/intercambio-vs-carrera.webp"
 published: true
 ---
 

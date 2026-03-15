@@ -5,7 +5,7 @@ date: 2026-03-18
 author: "Global Dreamers"
 category: "Alemania"
 tags: ["costos", "presupuesto", "universidades públicas", "sperrkonto", "vida en alemania", "2026"]
-image: "/images/blog/costos-alemania.jpg"
+image: "/images/blog/costos-alemania-gratis.webp"
 published: true
 ---
 

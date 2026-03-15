@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Canadá"
 tags: ["trabajo", "empleo", "salario", "ingresos", "PGWP"]
-image: "/images/blog/trabajo-canada.jpg"
+image: "/images/blog/trabajo-canada-permiso.webp"
 published: true
 ---
 

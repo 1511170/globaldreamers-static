@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Estados Unidos"
 tags: ["costos", "presupuesto", "universidades", "becas", "2026"]
-image: "/images/blog/costos-usa.jpg"
+image: "/images/blog/costos-usa-dolares.webp"
 published: true
 ---
 

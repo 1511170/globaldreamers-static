@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Irlanda"
 tags: ["visa", "stamp 2", "proceso", "inmigración", "2026", "irlanda"]
-image: "/images/blog/visa-irlanda.jpg"
+image: "/images/blog/visa-irlanda-stamp2.webp"
 published: true
 ---
 

@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Idioma"
 tags: ["business english", "inglés negocios", "cursos profesionales", "corporativo", "carrera"]
-image: "/images/blog/business-english-cursos.jpg"
+image: "/images/blog/business-english-corporativo.webp"
 published: true
 ---
 

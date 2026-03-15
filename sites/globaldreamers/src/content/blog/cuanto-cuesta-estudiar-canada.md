@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Canadá"
 tags: ["costos", "presupuesto", "dinero", "2026", "finanzas"]
-image: "/images/blog/costos-canada.jpg"
+image: "/images/blog/costos-canada-dolares.webp"
 published: true
 ---
 

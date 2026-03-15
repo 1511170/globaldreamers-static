@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "España"
 tags: ["trabajo", "empleo", "salario", "ingresos", "TIE"]
-image: "/images/blog/trabajo-espana.jpg"
+image: "/images/blog/trabajo-espana-practicas.webp"
 published: true
 ---
 

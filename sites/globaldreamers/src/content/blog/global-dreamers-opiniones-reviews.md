@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Reviews"
 tags: ["opiniones", "reviews", "testimonios", "casos de éxito", "estadísticas"]
-image: "/images/blog/globaldreamers-reviews.jpg"
+image: "/images/blog/testimonio-exito.webp"
 published: true
 ---
 

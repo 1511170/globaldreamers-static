@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Idioma"
 tags: ["inglés", "adultos", "mayores 30", "profesionales", "programas maduros", "cursos"]
-image: "/images/blog/ingles-adultos-mayores-30.jpg"
+image: "/images/blog/adultos-30-estudiar.webp"
 published: true
 ---
 

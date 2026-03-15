@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Reino Unido"
 tags: ["costos", "presupuesto", "dinero", "2026", "inversión"]
-image: "/images/blog/costos-uk.jpg"
+image: "/images/blog/costos-uk-libras.webp"
 published: true
 ---
 

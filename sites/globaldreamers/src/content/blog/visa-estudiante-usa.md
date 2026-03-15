@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Estados Unidos"
 tags: ["visa F-1", "entrevista", "consulado", "SEVIS", "2026"]
-image: "/images/blog/visa-usa.jpg"
+image: "/images/blog/visa-usa-f1.webp"
 published: true
 ---
 

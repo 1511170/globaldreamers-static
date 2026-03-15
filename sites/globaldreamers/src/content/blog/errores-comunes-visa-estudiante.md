@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Visas"
 tags: ["visa", "errores", "rechazo", "evitar", "estudiante", "tips"]
-image: "/images/blog/errores-visa-estudiante.jpg"
+image: "/images/blog/errores-visa-rechazado.webp"
 published: true
 ---
 

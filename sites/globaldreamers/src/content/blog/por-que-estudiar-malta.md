@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "Malta"
 tags: ["beneficios", "razones", "por qué", "inglés", "destino"]
-image: "/images/blog/malta-destino.jpg"
+image: "/images/blog/por-que-malta.webp"
 published: true
 ---
 

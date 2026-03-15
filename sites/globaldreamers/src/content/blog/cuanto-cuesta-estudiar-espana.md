@@ -5,7 +5,7 @@ date: 2026-03-16
 author: "Global Dreamers"
 category: "España"
 tags: ["costos", "presupuesto", "dinero", "2026", "universidad"]
-image: "/images/blog/costos-espana.jpg"
+image: "/images/blog/costos-espana-euros.webp"
 published: true
 ---
 

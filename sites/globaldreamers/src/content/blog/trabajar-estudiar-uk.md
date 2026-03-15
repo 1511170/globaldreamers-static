@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Reino Unido"
 tags: ["trabajo", "empleo", "salario", "ingresos", "graduate route"]
-image: "/images/blog/trabajo-uk.jpg"
+image: "/images/blog/trabajo-uk-retail.webp"
 published: true
 ---
 

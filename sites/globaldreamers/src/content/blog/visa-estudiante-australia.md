@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Australia"
 tags: ["visa 500", "subclass 500", "proceso", "inmigración", "2026"]
-image: "/images/blog/visa-australia.jpg"
+image: "/images/blog/visa-australia-documento.webp"
 published: true
 ---
 

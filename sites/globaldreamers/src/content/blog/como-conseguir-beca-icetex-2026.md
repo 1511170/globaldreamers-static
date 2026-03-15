@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Financiamiento"
 tags: ["becas", "icetex", "financiamiento", "colombia", "2026", "crédito educativo"]
-image: "/images/blog/beca-icetex-2026.jpg"
+image: "/images/blog/icetex-credito.webp"
 published: true
 ---
 

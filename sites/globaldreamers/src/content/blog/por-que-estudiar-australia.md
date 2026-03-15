@@ -5,7 +5,7 @@ date: 2026-03-15
 author: "Global Dreamers"
 category: "Australia"
 tags: ["beneficios", "razones", "por qué", "destino", "lifestyle"]
-image: "/images/blog/australia-paraiso.jpg"
+image: "/images/blog/por-que-australia.webp"
 published: true
 ---
 

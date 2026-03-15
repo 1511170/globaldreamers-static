@@ -5,7 +5,7 @@ date: 2026-03-19
 author: "Global Dreamers"
 category: "Agencias"
 tags: ["agencias", "comparativa", "mejores", "2026", "recomendaciones"]
-image: "/images/blog/agencias-exterior.jpg"
+image: "/images/blog/agencia-asesoria.webp"
 published: true
 ---
 

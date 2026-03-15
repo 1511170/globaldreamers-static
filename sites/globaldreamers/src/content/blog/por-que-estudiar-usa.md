@@ -5,7 +5,7 @@ date: 2026-03-17
 author: "Global Dreamers"
 category: "Estados Unidos"
 tags: ["beneficios", "razones", "por qué", "universidades", "top"]
-image: "/images/blog/usa-destino.jpg"
+image: "/images/blog/por-que-usa.webp"
 published: true
 ---
 
