@@ -1,0 +1,334 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  excerpt: string;
+  date: Date;
+  author: string;
+  category: string;
+  tags?: string[];
+  image?: string;
+  readingTime?: number;
+}
+
+const { title, excerpt, date, author, category, tags = [], image, readingTime = 5 } = Astro.props;
+
+// Schema.org Article markup
+const schemaArticle = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": excerpt,
+  "image": image ? `https://globaldreamers.com.au${image}` : undefined,
+  "author": {
+    "@type": "Organization",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Global Dreamers",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://globaldreamers.com.au/images/logo.png"
+    }
+  },
+  "datePublished": date.toISOString(),
+  "dateModified": date.toISOString()
+};
+---
+
+<Layout 
+  title={title}
+  description={excerpt}
+  ogImage={image}
+>
+  <!-- Schema.org markup -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(schemaArticle)} />
+  
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-50 py-4 border-b border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center space-x-2 text-sm text-slate-600">
+        <li><a href="/" class="hover:text-brand-600 transition-colors">Inicio</a></li>
+        <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+        <li><a href="/blog/" class="hover:text-brand-600 transition-colors">Blog</a></li>
+        <li><span class="material-symbols-outlined text-sm">chevron_right</span></li>
+        <li class="text-slate-900 font-medium truncate">{title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <article class="bg-white">
+    <!-- Header -->
+    <header class="bg-gradient-to-br from-brand-50 to-white py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Category Badge -->
+        <a 
+          href={`/blog/categoria/${category.toLowerCase().replace(/\s+/g, '-')}/`}
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-100 text-brand-700 text-xs font-semibold uppercase tracking-wider rounded-full mb-6 hover:bg-brand-200 transition-colors"
+        >
+          <span class="material-symbols-outlined text-sm">folder</span>
+          {category}
+        </a>
+        
+        <!-- Title -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight" style="font-family: 'Inter', system-ui, sans-serif;">
+          {title}
+        </h1>
+        
+        <!-- Excerpt -->
+        <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl">
+          {excerpt}
+        </p>
+        
+        <!-- Meta -->
+        <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined">calendar_today</span>
+            <time datetime={date.toISOString()}>
+              {date.toLocaleDateString('es-ES', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </time>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>{readingTime} min de lectura</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined">person</span>
+            <span>{author}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    {image && (
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img 
+            src={image} 
+            alt={title}
+            class="w-full h-64 sm:h-80 lg:h-96 object-cover"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        </div>
+      </div>
+    )}
+
+    <!-- Content -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="prose-blog">
+        <slot />
+      </div>
+      
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-slate-100">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-sm font-medium text-slate-600 mr-2">Etiquetas:</span>
+            {tags.map(tag => (
+              <a 
+                href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+                class="inline-flex items-center gap-1 px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full hover:bg-brand-100 hover:text-brand-700 transition-colors"
+              >
+                <span class="material-symbols-outlined text-sm">label</span>
+                {tag}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Author Box -->
+    <div class="bg-slate-50 py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-3xl text-brand-600">school</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-slate-900 mb-2" style="font-family: 'Inter', system-ui, sans-serif;">Escrito por Global Dreamers</h3>
+              <p class="text-slate-600 mb-4">
+                Somos expertos en estudios en el exterior. Con más de 5 años de experiencia, 
+                hemos ayudado a miles de estudiantes latinos a cumplir su sueño de estudiar en el extranjero.
+              </p>
+              <a 
+                href="/nosotros/" 
+                class="inline-flex items-center gap-1 text-brand-600 font-medium hover:text-brand-700 transition-colors"
+              >
+                Conoce más sobre nosotros
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4" style="font-family: 'Inter', system-ui, sans-serif;">
+          ¿Listo para empezar tu aventura?
+        </h2>
+        <p class="text-slate-600 mb-8 max-w-2xl mx-auto">
+          Agenda una asesoría gratuita con nuestros expertos. Te ayudamos a planificar tu estudio en el exterior 
+          paso a paso, sin costo ni compromiso.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a 
+            href="/asesoria-gratuita/"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-lg shadow-brand-600/25"
+          >
+            <span class="material-symbols-outlined">calendar_today</span>
+            Agendar asesoría gratis
+          </a>
+          <a 
+            href="https://wa.me/61449159849?text=Hola%20Global%20Dreamers%2C%20le%C3%AD%20un%20art%C3%ADculo%20en%20su%20blog%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-brand-600 hover:text-brand-600 transition-colors"
+          >
+            <span class="material-symbols-outlined">chat</span>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Articles Placeholder -->
+    <div class="bg-slate-50 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center" style="font-family: 'Inter', system-ui, sans-serif;">
+          Artículos relacionados
+        </h2>
+        <p class="text-center text-slate-500">
+          Explora más contenido sobre {category} en nuestro blog.
+        </p>
+        <div class="mt-8 text-center">
+          <a 
+            href="/blog/"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-700 font-medium rounded-xl border border-slate-200 hover:border-brand-600 hover:text-brand-600 transition-colors"
+          >
+            Ver todos los artículos
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .prose-blog :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .prose-blog :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .prose-blog :global(p) {
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+  .prose-blog :global(ul) {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+  }
+  .prose-blog :global(ol) {
+    list-style-type: decimal;
+    list-style-position: inside;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+  }
+  .prose-blog :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .prose-blog :global(strong) {
+    color: #111827;
+    font-weight: 600;
+  }
+  .prose-blog :global(a) {
+    color: #694796;
+    text-decoration: underline;
+  }
+  .prose-blog :global(a:hover) {
+    color: #5a3d80;
+  }
+  .prose-blog :global(blockquote) {
+    border-left: 4px solid #694796;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #374151;
+    margin: 1.5rem 0;
+  }
+  .prose-blog :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .prose-blog :global(th) {
+    background-color: #f3f4f6;
+    text-align: left;
+    padding: 0.75rem;
+    font-weight: 600;
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  .prose-blog :global(td) {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+  }
+  .prose-blog :global(tr:hover) {
+    background-color: #f9fafb;
+  }
+  .prose-blog :global(img) {
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    margin: 2rem 0;
+  }
+  .prose-blog :global(pre) {
+    background-color: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  .prose-blog :global(code) {
+    background-color: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #111827;
+  }
+  .prose-blog :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+</style>
