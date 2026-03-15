@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Asesoría Gratuita para Estudiar en el Exterior | Global Dreamers';
+const description = '✅ Obtén asesoría 100% gratuita y personalizada para estudiar en Australia, Canadá, Malta y más. Expertos te guiarán paso a paso. ¡Agenda tu consulta ahora!';
+const keywords = [
+  'asesoría gratuita estudiar en el exterior',
+  'consulta gratis visa estudiante',
+  'asesoría estudiar en australia',
+  'asesoría estudiar en canada',
+  'consulta estudiar en el extranjero',
+  'orientación visa estudiante',
+  'asesoría work and study',
+  'consultoría educativa gratuita',
+];
+
+// FAQs específicas de asesoría
+const faqs = [
+  {
+    q: '¿La asesoría realmente es gratuita?',
+    a: 'Sí, nuestra asesoría es 100% gratuita. No cobramos por la orientación inicial ni por el análisis de tu perfil. Solo pagas si decides contratar nuestros servicios de gestión de visa, y eso ya lo incluimos en el paquete.'
+  },
+  {
+    q: '¿Cuánto dura la sesión de asesoría?',
+    a: 'La sesión inicial dura aproximadamente 45-60 minutos. Analizamos tu perfil completo, respondemos todas tus preguntas y te presentamos las mejores opciones adaptadas a tus metas y presupuesto.'
+  },
+  {
+    q: '¿Necesito tener un nivel de inglés avanzado?',
+    a: 'No es necesario. Nuestros asesores hablan español y te guiarán en todo el proceso. Sin embargo, te ayudaremos a determinar qué nivel de inglés necesitas para tu programa específico y cómo mejorarlo si es necesario.'
+  },
+  {
+    q: '¿Puedo agendar si aún no estoy seguro de mi destino?',
+    a: '¡Por supuesto! Precisamente para eso es la asesoría. Te ayudamos a comparar destinos, analizamos pros y contras de cada opción según tu perfil, y te recomendamos el mejor destino para tus metas profesionales y personales.'
+  },
+];
+
+// Pasos del proceso de asesoría
+const steps = [
+  {
+    name: 'Análisis de Perfil Completo',
+    text: 'Evaluamos tus metas académicas, experiencia profesional, nivel de inglés y presupuesto para identificar tus fortalezas y oportunidades.',
+  },
+  {
+    name: 'Selección de Destino Ideal',
+    text: 'Comparamos opciones en Australia, Canadá, Malta, Irlanda y más. Encontramos la institución y ciudad perfectas según tu estilo de vida y objetivos.',
+  },
+  {
+    name: 'Planificación Financiera Detallada',
+    text: 'Diseñamos un presupuesto real desglosando matrícula, seguro médico, trámites de visa y gastos de manutención mensual.',
+  },
+];
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: 'Asesoría Gratuita', url: '/asesoria-gratuita/' },
+];
+---
+
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  schemaType={['Organization', 'Service', 'BreadcrumbList', 'FAQPage', 'HowTo']}
+  schemaData={{
+    name: 'Asesoría Gratuita Global Dreamers',
+    description: 'Servicio de asesoría gratuita y personalizada para estudiantes latinos que desean estudiar y trabajar en el exterior.',
+    serviceType: 'Educational Consulting',
+    provider: {
+      '@type': 'Organization',
+      name: 'Global Dreamers',
+      url: 'https://globaldreamers.com.au',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Colombia' },
+      { '@type': 'Country', name: 'México' },
+      { '@type': 'Country', name: 'Chile' },
+      { '@type': 'Country', name: 'Argentina' },
+      { '@type': 'Country', name: 'Perú' },
+      { '@type': 'Country', name: 'Ecuador' },
+      { '@type': 'Country', name: 'Panamá' },
+    ],
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      description: 'Asesoría inicial 100% gratuita sin compromiso',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '500',
+      bestRating: '5',
+    },
+  }}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+  howToName="Cómo agendar tu asesoría gratuita con Global Dreamers"
+  howToDescription="Guía paso a paso para obtener tu consulta personalizada gratuita para estudiar en el exterior"
+  steps={steps}
+>
+  <Navbar />
+  
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="max-w-[1200px] mx-auto px-4 sm:px-10 py-12 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="flex flex-col gap-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
+            <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+            <span class="text-primary text-xs font-bold uppercase tracking-wider">Asesoría 1-a-1</span>
+          </div>
+          <h1 class="text-slate-900 text-4xl md:text-6xl font-black leading-tight tracking-tight">
+            Tu Viaje Empieza con una Conversación
+          </h1>
+          <p class="text-slate-600 text-lg md:text-xl leading-relaxed">
+            Obtén una asesoría gratuita personalizada para estudiar en el extranjero. Resolvemos tus dudas, aclaramos los procesos de visa y trazamos tu camino al éxito académico internacional.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-4">
+            <a 
+              href="https://wa.me/61449159849?text=Hola%2C%20quiero%20agendar%20mi%20asesor%C3%ADa%20gratuita"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 bg-primary text-slate-900 px-8 py-4 rounded-xl text-lg font-bold hover:scale-105 transition-transform shadow-xl shadow-primary/30"
+            >
+              <span class="material-symbols-outlined">calendar_today</span>
+              Agendar Asesoría Gratis
+            </a>
+            <a 
+              href="https://wa.me/61449159849?text=Hola%2C%20tengo%20una%20pregunta%20rápida"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 bg-slate-200 text-slate-900 px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-300 transition-colors"
+            >
+              <span class="material-symbols-outlined">chat</span>
+              WhatsApp Directo
+            </a>
+          </div>
+          <div class="flex items-center gap-4 mt-2">
+            <div class="flex -space-x-2">
+              <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Estudiante en Australia" src="/images/testimonial-camila.png" loading="lazy" />
+              <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Estudiante en Canadá" src="/images/testimonial-marcos.png" loading="lazy" />
+              <img class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Estudiante en Malta" src="/images/testimonial-sofia.png" loading="lazy" />
+            </div>
+            <p class="text-slate-500 text-sm font-medium">+500 estudiantes asesorados este mes</p>
+          </div>
+        </div>
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl group-hover:bg-primary/30 transition-all"></div>
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] bg-slate-100">
+            <img 
+              alt="Asesora de Global Dreamers ayudando a estudiante a planificar su viaje al extranjero"
+              class="w-full h-full object-cover"
+              src="/images/hero-australia.png"
+              loading="eager"
+              fetchpriority="high"
+              decoding="sync"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation Steps Section -->
+    <section class="bg-slate-100 py-20">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-10">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-slate-900 text-3xl md:text-4xl font-bold mb-4">Pasos de tu Asesoría Personalizada</h2>
+          <p class="text-slate-600">Un proceso claro y transparente para que tú solo te preocupes por empacar tus maletas.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Step 1 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-primary/50 transition-colors group">
+            <div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-primary text-3xl">person_search</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Análisis de Perfil</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Evaluamos tus metas académicas, experiencia profesional y nivel de idioma para identificar tus fortalezas competitivas.
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-primary/50 transition-colors group">
+            <div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-primary text-3xl">explore</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Selección de Destino</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Comparamos opciones en Australia, Canadá, Irlanda y más, encontrando la institución y ciudad ideal según tu presupuesto y estilo de vida.
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-primary/50 transition-colors group">
+            <div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-primary text-3xl">account_balance_wallet</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Planificación Financiera</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Diseñamos un presupuesto real, desglosando costos de matrícula, seguro médico, trámites de visa y gastos de manutención mensual.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-20 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-10">
+        <div class="bg-primary rounded-3xl p-8 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
+          <div class="absolute top-0 right-0 p-10 opacity-10">
+            <span class="material-symbols-outlined text-9xl">format_quote</span>
+          </div>
+          <div class="size-48 md:size-64 shrink-0 rounded-2xl overflow-hidden shadow-xl rotate-3">
+            <img 
+              alt="Carlos Mendoza, estudiante de Marketing en Toronto recomienda Global Dreamers"
+              class="w-full h-full object-cover"
+              src="/images/testimonial-marcos.png"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="flex flex-col gap-6 relative z-10">
+            <div class="flex gap-1 text-slate-900">
+              <span class="material-symbols-outlined fill-1">star</span>
+              <span class="material-symbols-outlined fill-1">star</span>
+              <span class="material-symbols-outlined fill-1">star</span>
+              <span class="material-symbols-outlined fill-1">star</span>
+              <span class="material-symbols-outlined fill-1">star</span>
+            </div>
+            <blockquote class="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+              "Me sentía completamente perdido con tanta información en internet y no sabía por dónde empezar mi proceso a Canadá. Después de la primera llamada con mi asesora, todo cobró sentido. Me dieron un mapa paso a paso y hoy ya tengo mi visa aprobada."
+            </blockquote>
+            <div class="flex flex-col">
+              <cite class="not-italic font-bold text-slate-900 text-lg">Carlos Mendoza</cite>
+              <span class="text-slate-800 font-medium">Estudiante de Marketing en Toronto, Canadá</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-[800px] mx-auto px-4 sm:px-10">
+        <div class="text-center mb-12">
+          <h2 class="text-slate-900 text-3xl md:text-4xl font-bold mb-4">Preguntas Frecuentes</h2>
+          <p class="text-slate-600">Todo lo que necesitas saber sobre nuestra asesoría gratuita</p>
+        </div>
+        <div class="space-y-4">
+          {faqs.map((faq, idx) => (
+            <details class="group border border-slate-200 rounded-xl bg-white p-6" open={idx === 0}>
+              <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-900">
+                {faq.q}
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+              </summary>
+              <p class="mt-4 text-slate-600">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="pb-20">
+      <div class="max-w-[800px] mx-auto px-4 text-center">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-10 md:p-16">
+          <h2 class="text-white text-3xl md:text-4xl font-bold mb-6">¿Listo para dar el primer paso?</h2>
+          <p class="text-slate-400 text-lg mb-10">La asesoría es 100% gratuita y no te compromete a nada. Queremos ayudarte a cumplir tu sueño.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a 
+              href="https://wa.me/61449159849?text=Hola%2C%20quiero%20agendar%20mi%20asesor%C3%ADa%20gratuita"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl text-lg font-bold hover:brightness-110 transition-all"
+            >
+              <svg class="size-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              Agendar por WhatsApp
+            </a>
+            <a 
+              href="https://wa.me/61449159849?text=Hola%2C%20tengo%20preguntas%20sobre%20la%20asesor%C3%ADa"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-3 bg-primary text-slate-900 px-8 py-4 rounded-xl text-lg font-bold hover:brightness-110 transition-all"
+            >
+              <span class="material-symbols-outlined">chat</span>
+              Preguntar Primero
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
