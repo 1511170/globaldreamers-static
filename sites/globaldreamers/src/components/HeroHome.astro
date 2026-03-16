@@ -1,4 +1,6 @@
 ---
+import WhatsAppButton from './WhatsAppButton.astro';
+
 const heroImage = '/images/hero.webp';
 const avatars = [
   '/images/testimonial-camila.png',
@@ -33,15 +35,19 @@ const avatars = [
         
         <!-- CTAs con efectos -->
         <div class="hero-cta-animate flex flex-col sm:flex-row gap-4">
-          <a 
-            href="https://wa.me/61449159849?text=Hola%2C%20quiero%20agendar%20mi%20asesor%C3%ADa%20gratuita" 
-            target="_blank"
-            rel="noopener noreferrer"
-            class="magnetic-button shine btn-arrow group bg-primary text-white text-lg font-bold py-4 px-8 rounded-xl hover:scale-105 transition-all duration-300 shadow-xl shadow-primary/30 inline-flex items-center justify-center text-center hover:shadow-2xl hover:shadow-primary/40"
+          <WhatsAppButton
+            variant="hero"
+            location="hero-home"
+            message="Hola, quiero agendar mi asesoría gratuita"
+            pageType="home"
+            size="lg"
+            style="secondary"
+            className="magnetic-button shine btn-arrow shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40"
+            showIcon={false}
           >
             Agenda Tu Asesoría GRATIS
             <span class="arrow-icon material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">arrow_forward</span>
-          </a>
+          </WhatsAppButton>
           <div class="flex items-center gap-3 px-4">
             <div class="flex -space-x-2">
               {avatars.map((src, i) => (

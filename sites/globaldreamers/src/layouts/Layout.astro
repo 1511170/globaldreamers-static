@@ -154,6 +154,90 @@ const finalSchemaData = {
 
     <!-- Skills inyectan meta tags, schemas, scripts -->
     <slot name="head" />
+
+    <!-- Google Tag Manager - Data Layer Initialization -->
+    <script is:inline>
+      // Inicializar dataLayer para GTM/GA4
+      window.dataLayer = window.dataLayer || [];
+      
+      // Detectar tipo de página y configuración
+      (function() {
+        const path = window.location.pathname;
+        const hostname = window.location.hostname;
+        
+        // Detectar tipo de página
+        let pageType = 'general';
+        let destinationCountry = '';
+        
+        if (path === '/' || path === '/index.html') {
+          pageType = 'home';
+        } else if (path.includes('/estudiar-en-')) {
+          pageType = 'destination';
+          const match = path.match(/estudiar-en-([^/]+)/);
+          if (match) {
+            destinationCountry = match[1].replace(/-/g, ' ');
+          }
+        } else if (path.includes('/blog/')) {
+          if (path === '/blog/' || path === '/blog/index.html') {
+            pageType = 'blog-index';
+          } else {
+            pageType = 'blog-article';
+          }
+        } else if (path.includes('/servicios/')) {
+          pageType = 'service';
+        } else if (path.includes('/asesoria-gratuita')) {
+          pageType = 'landing-asesoria';
+        } else if (path.includes('/nosotros')) {
+          pageType = 'about';
+        } else if (path.includes('/planner')) {
+          pageType = 'planner';
+        }
+        
+        // Configuración global de tracking
+        window.gdTracking = {
+          pageType: pageType,
+          destinationCountry: destinationCountry,
+          environment: hostname.includes('localhost') ? 'development' : 'production'
+        };
+        
+        // Push inicial a dataLayer
+        dataLayer.push({
+          event: 'pageview',
+          page_type: pageType,
+          destination_country: destinationCountry || 'general',
+          page_location: window.location.href,
+          page_title: document.title,
+          page_path: path,
+          timestamp: new Date().toISOString()
+        });
+        
+        console.log('[GD Tracking] Initialized:', window.gdTracking);
+      })();
+    </script>
+    
+    <!-- Google Analytics 4 - gtag.js (reemplazar GA_ID con tu ID real) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        send_page_view: true,
+        page_type: window.gdTracking?.pageType || 'general',
+        custom_map: {
+          'custom_parameter_1': 'page_type',
+          'custom_parameter_2': 'destination_country'
+        }
+      });
+    </script>
+    
+    <!-- Atributos de tracking en body -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.dataset.pageType = window.gdTracking?.pageType || 'general';
+        document.body.dataset.destination = window.gdTracking?.destinationCountry || '';
+      });
+    </script>
   </head>
   <body class="bg-white font-display text-slate-900 antialiased">
     <slot />

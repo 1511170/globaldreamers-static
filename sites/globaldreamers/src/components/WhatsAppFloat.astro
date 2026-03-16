@@ -1,6 +1,7 @@
 ---
-// Botón flotante de WhatsApp con tracking
-const WHATSAPP_NUMBER = '61449159849'; // Número de Global Dreamers
+// Botón flotante de WhatsApp con tracking mejorado
+const WHATSAPP_NUMBER = '61449159849';
+const DEFAULT_MESSAGE = 'Hola, me interesa recibir asesoría para estudiar en el exterior';
 ---
 
 <a
@@ -10,6 +11,9 @@ const WHATSAPP_NUMBER = '61449159849'; // Número de Global Dreamers
   rel="noopener noreferrer"
   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
   aria-label="Contactar por WhatsApp"
+  data-variant="float"
+  data-location="floating-button"
+  data-section="bottom-right"
 >
   <span class="font-semibold text-sm hidden sm:inline">¿Hablamos?</span>
   <svg 
@@ -24,58 +28,74 @@ const WHATSAPP_NUMBER = '61449159849'; // Número de Global Dreamers
   </svg>
 </a>
 
-<script is:inline define:vars={{ WHATSAPP_NUMBER }}>
+<script is:inline define:vars={{ WHATSAPP_NUMBER, DEFAULT_MESSAGE }}>
   (function() {
     const whatsappBtn = document.getElementById('whatsapp-float');
     if (!whatsappBtn) return;
 
-    // Obtener la URL actual
+    // Obtener información de la página
     const currentUrl = window.location.href;
     const pageTitle = document.title;
+    const cleanUrl = currentUrl.split('?')[0];
     
-    // Crear mensaje personalizado con la URL
-    const message = `Hola, visité la página "${pageTitle}" y me interesa recibir asesoría para estudiar en el exterior. URL: ${currentUrl}`;
-    
-    // Codificar el mensaje para URL
+    // Crear mensaje personalizado con URL y título
+    const message = `${DEFAULT_MESSAGE}\n\n📄 Página: ${pageTitle}\n🔗 URL: ${cleanUrl}\n\n(Vía: WhatsApp Flotante)`;
     const encodedMessage = encodeURIComponent(message);
     
-    // Crear el enlace de WhatsApp
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    
     // Actualizar el href del botón
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     whatsappBtn.href = whatsappUrl;
 
-    // Agregar evento de click para Google Analytics
-    whatsappBtn.addEventListener('click', function(e) {
-      // Enviar evento a Google Analytics 4 (gtag)
+    // Función de tracking
+    function trackWhatsAppClick() {
+      const trackingData = {
+        button_variant: 'float',
+        button_location: 'floating-button',
+        page_url: currentUrl,
+        page_title: pageTitle,
+        page_type: document.body.dataset.pageType || 'unknown',
+        destination_country: document.body.dataset.destination || 'general',
+        section: 'bottom-right',
+        transport_type: 'beacon'
+      };
+
+      // Enviar a GA4
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', {
-          event_category: 'engagement',
-          event_label: currentUrl,
-          page_title: pageTitle,
-          page_location: currentUrl,
-          value: 1
+        // Evento principal
+        gtag('event', 'whatsapp_click', trackingData);
+        
+        // Evento específico
+        gtag('event', 'whatsapp_float_click', {
+          page_url: currentUrl,
+          page_title: pageTitle
+        });
+        
+        // Evento de conversión
+        gtag('event', 'generate_lead', {
+          value: 1.0,
+          currency: 'USD',
+          lead_source: 'whatsapp',
+          lead_medium: 'float',
+          page_location: currentUrl
         });
       }
 
-      // También enviar a dataLayer para Google Tag Manager (si está instalado)
+      // Enviar a dataLayer para GTM
       if (typeof dataLayer !== 'undefined') {
         dataLayer.push({
           event: 'whatsapp_float_click',
-          page_url: currentUrl,
-          page_title: pageTitle,
-          destination_number: WHATSAPP_NUMBER
+          ...trackingData,
+          event_timestamp: new Date().toISOString()
         });
       }
 
-      console.log('[WhatsApp Float] Click tracked:', {
-        url: currentUrl,
-        title: pageTitle,
-        number: WHATSAPP_NUMBER
-      });
-    });
+      console.log('[WhatsApp Float] Click tracked:', trackingData);
+    }
 
-    // Opcional: Mostrar el botón después de 3 segundos (para no ser intrusivo inmediatamente)
+    // Agregar evento de click
+    whatsappBtn.addEventListener('click', trackWhatsAppClick);
+
+    // Mostrar el botón después de 3 segundos
     whatsappBtn.style.opacity = '0';
     whatsappBtn.style.transform = 'translateY(20px)';
     
@@ -88,7 +108,6 @@ const WHATSAPP_NUMBER = '61449159849'; // Número de Global Dreamers
 </script>
 
 <style>
-  /* Animación de pulso para llamar la atención */
   @keyframes pulse-whatsapp {
     0%, 100% {
       box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
