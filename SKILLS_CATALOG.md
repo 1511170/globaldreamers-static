@@ -2,7 +2,7 @@
 
 > **Versión:** 2.1  
 > **Última actualización:** 2026-02-26  
-> **Total de skills disponibles:** 14
+> **Total de skills disponibles:** 15
 
 ---
 
@@ -172,6 +172,60 @@ node scripts/skill-add.js testimonials
   columns={3}
 />
 ```
+
+---
+
+### `whatsapp-tracking-ga4`
+Sistema completo de tracking de WhatsApp con Google Analytics 4 y mensajes enriquecidos.
+
+**Instalación:**
+```bash
+node scripts/skill-add.js whatsapp-tracking-ga4
+```
+
+**Componentes:**
+- `WhatsAppButton.astro` - Botón con tracking (9 variantes)
+- `WhatsAppFloat.astro` - Botón flotante fijo
+
+**Props WhatsAppButton:**
+| Prop | Tipo | Default | Descripción |
+|------|------|---------|-------------|
+| variant | string | required | Tipo: hero, cta, float, destination, service, blog, card, footer, testimonial |
+| location | string | required | Identificador único de ubicación |
+| message | string | required | Mensaje base del usuario |
+| destinationCountry | string | '' | País de destino |
+| size | 'sm' \| 'md' \| 'lg' | 'md' | Tamaño del botón |
+| style | 'primary' \| 'secondary' \| 'outline' | 'primary' | Estilo visual |
+
+**Uso:**
+```astro
+---
+import { WhatsAppButton, WhatsAppFloat } from '@skills/community/whatsapp-tracking-ga4';
+---
+
+<WhatsAppButton 
+  variant="hero" 
+  location="hero-home"
+  message="Hola, quiero información"
+  size="lg"
+  style="secondary"
+>
+  Agenda Tu Asesoría GRATIS
+</WhatsAppButton>
+
+<WhatsAppFloat />
+```
+
+**Eventos GA4:**
+- `whatsapp_click` - Evento principal
+- `whatsapp_{variant}_click` - Evento específico
+- `generate_lead` - Conversión ($1.00 USD)
+
+**Features:**
+- ✅ Mensajes automáticos con URL y título de página
+- ✅ 9 variantes de botones
+- ✅ Tracking completo GA4 + dataLayer
+- ✅ Eventos de conversión automáticos
 
 ---
 
@@ -391,17 +445,17 @@ npm install gsap --legacy-peer-deps
 
 ### Sitio Básico (Startup)
 ```bash
-node scripts/skill-add.js cms-sveltia testimonials contact-form
+node scripts/skill-add.js cms-sveltia testimonials contact-form whatsapp-tracking-ga4
 ```
 
 ### Sitio con Blog (Content Marketing)
 ```bash
-node scripts/skill-add.js cms-sveltia blog testimonials contact-form
+node scripts/skill-add.js cms-sveltia blog testimonials contact-form whatsapp-tracking-ga4
 ```
 
 ### Sitio Premium (Agencia)
 ```bash
-node scripts/skill-add.js cms-sveltia blog testimonials contact-form webflow-effects
+node scripts/skill-add.js cms-sveltia blog testimonials contact-form webflow-effects whatsapp-tracking-ga4
 ```
 
 ### Sitio con Testing

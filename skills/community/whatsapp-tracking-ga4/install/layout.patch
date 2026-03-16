@@ -1,0 +1,75 @@
+--- a/src/layouts/Layout.astro
++++ b/src/layouts/Layout.astro
+@@ -1,5 +1,50 @@
+ ---
+ 
++<!-- Google Tag Manager - Data Layer Initialization -->
++<script is:inline>
++  // Inicializar dataLayer para GTM/GA4
++  window.dataLayer = window.dataLayer || [];
++  
++  // Detectar tipo de página y configuración
++  (function() {
++    const path = window.location.pathname;
++    const hostname = window.location.hostname;
++    
++    // Detectar tipo de página
++    let pageType = 'general';
++    let destinationCountry = '';
++    
++    if (path === '/' || path === '/index.html') {
++      pageType = 'home';
++    } else if (path.includes('/blog/')) {
++      pageType = path === '/blog/' ? 'blog-index' : 'blog-article';
++    } else if (path.includes('/servicios/')) {
++      pageType = 'service';
++    } else if (path.includes('/estudiar-en-')) {
++      pageType = 'destination';
++      const match = path.match(/estudiar-en-([^/]+)/);
++      if (match) {
++        destinationCountry = match[1].replace(/-/g, ' ');
++      }
++    }
++    
++    // Configuración global de tracking
++    window.gdTracking = {
++      pageType: pageType,
++      destinationCountry: destinationCountry,
++      environment: hostname.includes('localhost') ? 'development' : 'production'
++    };
++    
++    // Push inicial a dataLayer
++    dataLayer.push({
++      event: 'pageview',
++      page_type: pageType,
++      destination_country: destinationCountry || 'general',
++      page_location: window.location.href,
++      page_title: document.title,
++      page_path: path,
++      timestamp: new Date().toISOString()
++    });
++  })();
++</script>
++
++<!-- Google Analytics 4 - REEMPLAZA GA_MEASUREMENT_ID CON TU ID REAL -->
++<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
++<script is:inline>
++  window.dataLayer = window.dataLayer || [];
++  function gtag(){dataLayer.push(arguments);}
++  gtag('js', new Date());
++  gtag('config', 'GA_MEASUREMENT_ID', {
++    send_page_view: true
++  });
++</script>
++
++<!-- Atributos de tracking en body -->
++<script is:inline>
++  document.addEventListener('DOMContentLoaded', function() {
++    document.body.dataset.pageType = window.gdTracking?.pageType || 'general';
++    document.body.dataset.destination = window.gdTracking?.destinationCountry || '';
++  });
++</script>
++ 
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
