@@ -603,12 +603,13 @@ export const destinations: DestinationData[] = [
       { name: 'Perth', image: '/images/cities/city-perth.png', para: 'La ciudad del oeste. Minería, buenos salarios y estilo de vida relajado.' },
     ],
     investmentRows: [
-      { concept: 'Curso de Inglés (6 meses)', cost: '$4,500 - $6,000 AUD' },
-      { concept: 'Tasa de Visa Estudiante', cost: '$710 AUD' },
-      { concept: 'Seguro Médico Obligatorio (OSHC)', cost: '$300 - $450 AUD' },
-      { concept: 'Matrícula y Materiales', cost: '$200 AUD' },
+      { concept: 'Curso de inglés (6-12 Meses)', cost: 'Desde AUD $5,760' },
+      { concept: 'Curso VET (12 meses)', cost: 'Desde AUD $7,000' },
+      { concept: 'Visa de estudiante', cost: 'AUD $2,000' },
+      { concept: 'Seguro médico (OSHC)', cost: 'Desde AUD $580/año' },
+      { concept: 'Costo de vida mensual', cost: 'AUD $1,500 - $2,000' },
     ],
-    investmentTotal: '$5,710 - $7,360 AUD',
+    investmentTotal: 'Desde AUD $9,340',
     investmentCurrencyNote: 'Valores aproximados en Dólares Australianos (AUD)',
     faqs: [
       { q: '¿Puedo trabajar sin saber inglés?', a: 'Sí, hay muchos empleos en servicios (limpieza, construcción, delivery) que no requieren un alto nivel. El curso de inglés te ayudará a subir de nivel rápido para optar a mejores puestos.' },

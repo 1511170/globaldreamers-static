@@ -31,7 +31,7 @@ const {
   title = siteConfig.site.name,
   description = siteConfig.site.description,
   canonical = Astro.url.href,
-  image = '/og-image.png',
+  image = '/og-image.webp',
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -148,6 +148,9 @@ const finalSchemaData = {
     <!-- GSAP for Premium Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" is:inline></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" is:inline></script>
+    
+    <!-- Alpine.js for Reactive Components -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Skills inyectan meta tags, schemas, scripts -->
     <slot name="head" />

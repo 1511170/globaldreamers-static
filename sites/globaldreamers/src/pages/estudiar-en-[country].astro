@@ -325,35 +325,186 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
       </div>
     </section>
 
-    <!-- Investment Table -->
-    <section class="py-24 px-4 bg-slate-50" id="costos">
+    <!-- Investment Table with Currency Converter -->
+    <section class="py-24 px-4 bg-slate-50" id="costos" x-data="currencyConverter()">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-4 text-center text-slate-900">Inversión Transparente para Estudiar en {dest.name}</h2>
-        <p class="text-center text-slate-500 mb-12">{dest.investmentCurrencyNote}</p>
+        <h2 class="text-3xl font-bold mb-4 text-center text-slate-900">¿Cuánto Cuesta Estudiar en {dest.name}?</h2>
+        <p class="text-center text-slate-500 mb-8">{dest.investmentCurrencyNote}</p>
+        
+        <!-- Country Selector -->
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 mb-8">
+          <p class="text-sm font-semibold text-slate-600 mb-4 text-center">Selecciona tu país para ver los precios en tu moneda:</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <button 
+              @click="selectCountry('LOCAL')" 
+              :class="selectedCountry === 'LOCAL' ? 'ring-2 ring-primary ring-offset-2 bg-primary/10' : ''"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 transition-all"
+            >
+              <span class="font-medium text-sm">{dest.name}</span>
+            </button>
+            <button 
+              @click="selectCountry('CL')" 
+              :class="selectedCountry === 'CL' ? 'ring-2 ring-primary ring-offset-2 bg-primary/10' : ''"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 transition-all"
+            >
+              <img 
+                src="https://kapowaz.github.io/circle-flags/flags/cl.svg" 
+                alt="Chile"
+                class="w-5 h-5 rounded-full flex-shrink-0 object-cover"
+                loading="lazy"
+              />
+              <span class="font-medium text-sm">Chile</span>
+            </button>
+            <button 
+              @click="selectCountry('CO')" 
+              :class="selectedCountry === 'CO' ? 'ring-2 ring-primary ring-offset-2 bg-primary/10' : ''"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 transition-all"
+            >
+              <img 
+                src="https://kapowaz.github.io/circle-flags/flags/co.svg" 
+                alt="Colombia"
+                class="w-5 h-5 rounded-full flex-shrink-0 object-cover"
+                loading="lazy"
+              />
+              <span class="font-medium text-sm">Colombia</span>
+            </button>
+            <button 
+              @click="selectCountry('EC')" 
+              :class="selectedCountry === 'EC' ? 'ring-2 ring-primary ring-offset-2 bg-primary/10' : ''"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 transition-all"
+            >
+              <img 
+                src="https://kapowaz.github.io/circle-flags/flags/ec.svg" 
+                alt="Ecuador"
+                class="w-5 h-5 rounded-full flex-shrink-0 object-cover"
+                loading="lazy"
+              />
+              <span class="font-medium text-sm">Ecuador</span>
+            </button>
+            <button 
+              @click="selectCountry('MX')" 
+              :class="selectedCountry === 'MX' ? 'ring-2 ring-primary ring-offset-2 bg-primary/10' : ''"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 transition-all"
+            >
+              <img 
+                src="https://kapowaz.github.io/circle-flags/flags/mx.svg" 
+                alt="México"
+                class="w-5 h-5 rounded-full flex-shrink-0 object-cover"
+                loading="lazy"
+              />
+              <span class="font-medium text-sm">México</span>
+            </button>
+            <button 
+              @click="selectCountry('PA')" 
+              :class="selectedCountry === 'PA' ? 'ring-2 ring-primary ring-offset-2 bg-primary/10' : ''"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 transition-all"
+            >
+              <img 
+                src="https://kapowaz.github.io/circle-flags/flags/pa.svg" 
+                alt="Panamá"
+                class="w-5 h-5 rounded-full flex-shrink-0 object-cover"
+                loading="lazy"
+              />
+              <span class="font-medium text-sm">Panamá</span>
+            </button>
+          </div>
+          <p class="text-xs text-center text-slate-400 mt-3" x-text="getRateInfo()"></p>
+        </div>
+
         <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-200">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="bg-slate-50 border-b border-slate-200">
                 <th class="p-6 font-bold text-slate-900">Concepto</th>
-                <th class="p-6 font-bold text-right text-slate-900">Costo Estimado</th>
+                <th class="p-6 font-bold text-right text-slate-900" x-text="selectedCountry === 'LOCAL' ? 'Costo Estimado' : 'Costo en tu moneda'"></th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
               {dest.investmentRows.map((row) => (
                 <tr>
                   <td class="p-6 text-slate-700">{row.concept}</td>
-                  <td class="p-6 text-right font-medium text-slate-900">{row.cost}</td>
+                  <td class="p-6 text-right font-medium text-slate-900">
+                    <span x-text={`selectedCountry === 'LOCAL' ? '${row.cost}' : convertCost('${row.cost}')`}>{row.cost}</span>
+                  </td>
                 </tr>
               ))}
               <tr class="bg-primary/5">
                 <td class="p-6 font-bold text-primary">TOTAL ESTIMADO</td>
-                <td class="p-6 text-right font-bold text-primary text-xl">{dest.investmentTotal}</td>
+                <td class="p-6 text-right font-bold text-primary text-xl">
+                  <span x-text={`selectedCountry === 'LOCAL' ? '${dest.investmentTotal}' : convertCost('${dest.investmentTotal}')`}>{dest.investmentTotal}</span>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="mt-8 text-sm text-center text-slate-400 italic">Los precios varían según la escuela, ciudad y duración del curso.</p>
+        <p class="mt-8 text-sm text-center text-slate-400 italic">Los precios varían según la escuela, ciudad y duración del curso. Tasas de cambio aproximadas.</p>
       </div>
+
+      <script is:inline>
+        function currencyConverter() {
+          return {
+            selectedCountry: 'LOCAL',
+            rates: {
+              LOCAL: 1,
+              CL: 950,
+              CO: 4120,
+              EC: 1,
+              MX: 20.5,
+              PA: 1,
+            },
+            symbols: {
+              LOCAL: { sym: '', suffix: '' },
+              CL: { sym: '$', suffix: ' CLP' },
+              CO: { sym: '$', suffix: ' COP' },
+              EC: { sym: 'US$', suffix: '' },
+              MX: { sym: '$', suffix: ' MXN' },
+              PA: { sym: 'US$', suffix: '' },
+            },
+            destRates: {
+              AUD: 1.56, CAD: 1.44, EUR: 0.93, GBP: 0.79, NZD: 1.72, USD: 1, AED: 3.67
+            },
+            
+            selectCountry(c) { this.selectedCountry = c; },
+            
+            getRateInfo() {
+              if (this.selectedCountry === 'LOCAL') return 'Mostrando precios en moneda local del destino';
+              const r = this.rates[this.selectedCountry];
+              const s = this.symbols[this.selectedCountry];
+              return `Tasa: 1 USD = ${r.toLocaleString()}${s.suffix || s.sym}`;
+            },
+            
+            convertCost(str) {
+              if (this.selectedCountry === 'LOCAL') return str;
+              
+              // Extraer número
+              const num = str.replace(/,/g, '').match(/[\d.]+/);
+              if (!num) return str;
+              
+              const amount = parseFloat(num[0]);
+              
+              // Detectar moneda origen
+              let from = 1;
+              if (str.includes('AUD')) from = this.destRates.AUD;
+              else if (str.includes('CAD')) from = this.destRates.CAD;
+              else if (str.includes('EUR') || str.includes('€')) from = this.destRates.EUR;
+              else if (str.includes('GBP') || str.includes('£')) from = this.destRates.GBP;
+              else if (str.includes('NZD')) from = this.destRates.NZD;
+              else if (str.includes('AED')) from = this.destRates.AED;
+              
+              // Convertir
+              const usd = amount / from;
+              const conv = usd * this.rates[this.selectedCountry];
+              
+              // Formatear
+              const fmt = this.symbols[this.selectedCountry];
+              const val = Math.round(conv).toLocaleString('es-ES');
+              const pref = str.includes('Desde') ? 'Desde ' : '';
+              
+              return `${pref}${fmt.sym}${val}${fmt.suffix}`;
+            }
+          }
+        }
+      </script>
     </section>
 
     <!-- FAQ Section -->
