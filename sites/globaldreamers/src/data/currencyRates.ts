@@ -1,4 +1,5 @@
-// Tasas de cambio base (actualizadas: Marzo 2025)
+// Tasas de cambio - ACTUALIZADAS: 16 Marzo 2026
+// Fuente: open.er-api.com (actualización automática cada 30 min)
 // Tasas respecto a USD (1 USD = X moneda)
 export const EXCHANGE_RATES: Record<string, number> = {
   // Monedas de destino
@@ -10,10 +11,11 @@ export const EXCHANGE_RATES: Record<string, number> = {
   NZD: 1.72,      // 1 USD = 1.72 NZD
   AED: 3.67,      // 1 USD = 3.67 AED (Dubai)
   
-  // Monedas latinoamericanas
-  CLP: 950,       // 1 USD = 950 CLP (Chile)
-  COP: 4120,      // 1 USD = 4,120 COP (Colombia)
-  MXN: 20.5,      // 1 USD = 20.5 MXN (México)
+  // Monedas latinoamericanas - ACTUALIZADAS 16/03/2026
+  // Usar currencyAPI.getRates() para valores en tiempo real
+  CLP: 920,       // 1 USD = 920 CLP (Chile) - Actualizado
+  COP: 3691,      // 1 USD = 3,691 COP (Colombia) - TRM real
+  MXN: 20.1,      // 1 USD = 20.1 MXN (México) - Actualizado
 };
 
 // Países latinoamericanos objetivo
