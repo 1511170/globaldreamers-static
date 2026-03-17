@@ -253,12 +253,12 @@ const breadcrumbs = [
             {dest.investmentRows.map((row) => (
               <tr>
                 <td class="p-6 text-slate-700">{row.concept}</td>
-                <td class="p-6 text-right font-medium text-slate-900" x-html="getCostDisplay('${row.cost}')"></td>
+                <td class="p-6 text-right font-medium text-slate-900 cost-cell" data-original-cost={row.cost} x-text="getCostDisplay($el.dataset.originalCost, selectedCurrency)">{row.cost}</td>
               </tr>
             ))}
             <tr class="bg-primary/5">
               <td class="p-6 font-bold text-primary">TOTAL ESTIMADO</td>
-              <td class="p-6 text-right font-bold text-primary text-xl" x-html="getCostDisplay('${dest.investmentTotal}')"></td>
+              <td class="p-6 text-right font-bold text-primary text-xl cost-cell" data-original-cost={dest.investmentTotal} x-text="getCostDisplay($el.dataset.originalCost, selectedCurrency)">{dest.investmentTotal}</td>
             </tr>
           </tbody>
         </table>
@@ -359,7 +359,8 @@ const breadcrumbs = [
             return this.lastUpdated ? `Actualizado: ${this.lastUpdated}` : '';
           },
           
-          getCostDisplay(costStr) {
+          getCostDisplay(costStr, currency) {
+            // El parámetro 'currency' fuerza re-evaluación cuando cambia selectedCurrency
             // Si es LOCAL, mostrar el costo original
             if (this.selectedCurrency === 'LOCAL') {
               return costStr;
