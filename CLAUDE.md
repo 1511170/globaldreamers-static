@@ -322,16 +322,18 @@ cd sites/globaldreamers && npm run build
 # Copiar a repo estático
 cd ../.. && cp -Recurse -Force sites/globaldreamers/dist/* globaldreamers-static/
 
-# Deploy
+# Deploy (globaldreamers-static tiene su propio .git)
 cd globaldreamers-static
 git add -A
 git commit -m "Deploy: descripción"
-git push
+git push origin master
 ```
+
+**Nota:** `globaldreamers-static` es un repositorio Git separado (inicializado con `git init`) que apunta a `https://github.com/1511170/globaldreamers-static.git`
 
 **Repos:**
 - Source: `https://github.com/1511170/globaldreamers.git` (código fuente)
-- Static: `https://github.com/1511170/globaldreamers-static.git` (build estático para GitHub Pages)
+- Static: `https://github.com/1511170/globaldreamers-static.git` (build estático para GitHub Pages, repo separado)
 
 ---
 

@@ -204,7 +204,7 @@ npm run build
 cd ../..
 cp -Recurse -Force sites/globaldreamers/dist/* globaldreamers-static/
 
-# 3. Commit y push
+# 3. Commit y push (globaldreamers-static es un repo Git separado)
 cd globaldreamers-static
 git add -A
 git commit -m "Deploy: [descripción del cambio]"
@@ -212,8 +212,8 @@ git push
 ```
 
 **Repos:**
-- Source: `https://github.com/1511170/globaldreamers.git`
-- Static: `https://github.com/1511170/globaldreamers-static.git`
+- Source: `https://github.com/1511170/globaldreamers.git` (código fuente)
+- Static: `https://github.com/1511170/globaldreamers-static.git` (build estático, repo separado con su propio .git)
 - URL producción: `https://1511170.github.io/globaldreamers/`
 
 ---
