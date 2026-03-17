@@ -250,15 +250,15 @@ const breadcrumbs = [
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100">
-            {dest.investmentRows.map((row) => (
+            <template x-for="row in costs" :key="row.concept">
               <tr>
-                <td class="p-6 text-slate-700">{row.concept}</td>
-                <td class="p-6 text-right font-medium text-slate-900 cost-cell" data-original-cost={row.cost} x-text="getCostDisplay($el.dataset.originalCost, selectedCurrency)">{row.cost}</td>
+                <td class="p-6 text-slate-700" x-text="row.concept"></td>
+                <td class="p-6 text-right font-medium text-slate-900" x-text="formatCost(row.cost)"></td>
               </tr>
-            ))}
+            </template>
             <tr class="bg-primary/5">
               <td class="p-6 font-bold text-primary">TOTAL ESTIMADO</td>
-              <td class="p-6 text-right font-bold text-primary text-xl cost-cell" data-original-cost={dest.investmentTotal} x-text="getCostDisplay($el.dataset.originalCost, selectedCurrency)">{dest.investmentTotal}</td>
+              <td class="p-6 text-right font-bold text-primary text-xl" x-text="formatCost(totalCost)"></td>
             </tr>
           </tbody>
         </table>
@@ -269,13 +269,22 @@ const breadcrumbs = [
       </p>
     </div>
 
+    <script id="currency-data" type="application/json" set:html={JSON.stringify({ costs: dest.investmentRows, total: dest.investmentTotal })}></script>
     <script is:inline>
       function currencyConverter() {
+        // Leer datos inyectados desde Astro
+        const dataEl = document.getElementById('currency-data');
+        const data = dataEl ? JSON.parse(dataEl.textContent) : { costs: [], total: '' };
+        
         return {
           selectedCurrency: 'LOCAL',
           isLoading: true,
           lastUpdated: null,
           rateSource: 'referencia',
+          
+          // Datos de costos
+          costs: data.costs,
+          totalCost: data.total,
           
           // Tasas respecto a USD
           rates: {
@@ -302,6 +311,10 @@ const breadcrumbs = [
           
           init() {
             this.fetchRates();
+          },
+          
+          formatCost(costStr) {
+            return this.convertCost(costStr, this.selectedCurrency);
           },
           
           async fetchRates() {
@@ -359,10 +372,9 @@ const breadcrumbs = [
             return this.lastUpdated ? `Actualizado: ${this.lastUpdated}` : '';
           },
           
-          getCostDisplay(costStr, currency) {
-            // El parámetro 'currency' fuerza re-evaluación cuando cambia selectedCurrency
+          convertCost(costStr, targetCurrency) {
             // Si es LOCAL, mostrar el costo original
-            if (this.selectedCurrency === 'LOCAL') {
+            if (targetCurrency === 'LOCAL') {
               return costStr;
             }
             
@@ -385,11 +397,11 @@ const breadcrumbs = [
             
             // Convertir: origen → USD → destino
             const usdAmount = amount / fromRate;
-            const targetRate = this.rates[this.selectedCurrency];
+            const targetRate = this.rates[targetCurrency];
             const converted = usdAmount * targetRate;
             
             // Formatear resultado
-            const symbol = this.symbols[this.selectedCurrency];
+            const symbol = this.symbols[targetCurrency];
             const formatted = Math.round(converted).toLocaleString('es-ES');
             const prefix = costStr.toLowerCase().includes('desde') ? 'Desde ' : '';
             
