@@ -36,7 +36,9 @@ globaldreamers/           ← raíz del repo
 **Cliente:** Global Dreamers — Agencia de estudios internacionales para latinoamericanos.
 **Dominio:** globaldreamers.com.au (registrado)
 **CMS (oculto):** glo.kinto.info/admin (no enlazado públicamente)
-**Repo GitHub:** https://github.com/1511170/globaldreamers.git
+**Repo Source:** https://github.com/1511170/globaldreamers.git
+**Repo Static (Deploy):** https://github.com/1511170/globaldreamers-static.git
+**URL Producción:** https://1511170.github.io/globaldreamers/
 
 ### Stack del sitio
 - Astro 5 (SSG, output: static)
@@ -306,6 +308,30 @@ npm run dev        # Dev server en localhost:4321
 npm run build      # Build estático (113 páginas)
 npm run preview    # Preview del build
 ```
+
+## Deploy Workflow
+
+### Deploy a GitHub Pages (globaldreamers-static)
+
+**IMPORTANTE:** Después de cada build exitoso, copiar los archivos a `globaldreamers-static` y pushear:
+
+```bash
+# Build
+cd sites/globaldreamers && npm run build
+
+# Copiar a repo estático
+cd ../.. && cp -Recurse -Force sites/globaldreamers/dist/* globaldreamers-static/
+
+# Deploy
+cd globaldreamers-static
+git add -A
+git commit -m "Deploy: descripción"
+git push
+```
+
+**Repos:**
+- Source: `https://github.com/1511170/globaldreamers.git` (código fuente)
+- Static: `https://github.com/1511170/globaldreamers-static.git` (build estático para GitHub Pages)
 
 ---
 

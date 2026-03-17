@@ -130,6 +130,32 @@ skills/community/nombre-skill/
 - [ ] Imágenes optimizadas en `public/`
 - [ ] Build exitoso: `npm run build`
 - [ ] Preview funciona: `npm run preview`
+- [ ] Deploy a `globaldreamers-static` si aplica
+
+## 🚀 Deploy Workflow (Global Dreamers)
+
+**IMPORTANTE:** Para Global Dreamers, el deploy se hace al repo estático:
+
+```bash
+# 1. Build
+cd sites/globaldreamers
+npm run build
+
+# 2. Copiar a repo estático (desde raíz)
+cd ../..
+cp -Recurse -Force sites/globaldreamers/dist/* globaldreamers-static/
+
+# 3. Commit y push
+cd globaldreamers-static
+git add -A
+git commit -m "Deploy: descripción"
+git push
+```
+
+**Repos:**
+- Source: `https://github.com/1511170/globaldreamers.git`
+- Static: `https://github.com/1511170/globaldreamers-static.git`
+- Producción: `https://1511170.github.io/globaldreamers/`
 
 ---
 

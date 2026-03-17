@@ -182,11 +182,39 @@ feat(blog): mejorar UI/UX de página de blog
 
 ## 🔗 Recursos Útiles
 
-- **Repo:** https://github.com/1511170/globaldreamers
+- **Repo Source:** https://github.com/1511170/globaldreamers
+- **Repo Static (Deploy):** https://github.com/1511170/globaldreamers-static
 - **Astro Docs:** https://docs.astro.build/
 - **Tailwind CSS:** https://tailwindcss.com/
 - **GSAP:** https://greensock.com/gsap/
 - **Gemini API:** https://ai.google.dev/
+
+## 🚀 Workflow de Deploy
+
+### Deploy a GitHub Pages (globaldreamers-static)
+
+**IMPORTANTE:** La versión estática compilada debe subirse al repositorio `globaldreamers-static`:
+
+```bash
+# 1. Build del sitio
+cd sites/globaldreamers
+npm run build
+
+# 2. Copiar archivos al repo estático
+cd ../..
+cp -Recurse -Force sites/globaldreamers/dist/* globaldreamers-static/
+
+# 3. Commit y push
+cd globaldreamers-static
+git add -A
+git commit -m "Deploy: [descripción del cambio]"
+git push
+```
+
+**Repos:**
+- Source: `https://github.com/1511170/globaldreamers.git`
+- Static: `https://github.com/1511170/globaldreamers-static.git`
+- URL producción: `https://1511170.github.io/globaldreamers/`
 
 ---
 
