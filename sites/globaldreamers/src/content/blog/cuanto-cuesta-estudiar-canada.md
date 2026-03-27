@@ -254,7 +254,7 @@ TOTAL ANUAL:           $38,946 - $55,846 CAD
 | **Usar transporte público** | $200 - $400/mes vs. auto |
 | **Comprar libros usados** | $300 - $500/año |
 | **Descuentos estudiantes** | $50 - $150/mes |
-| **Trabajar 20h/semana** | $800 - $1,200/mes |
+| **Ingresos potenciales (si aplica permiso laboral)** | Variable según programa y visa |
 
 ### 🎓 Descuentos para Estudiantes
 
@@ -275,7 +275,7 @@ TOTAL ANUAL:           $38,946 - $55,846 CAD
 | Alberta | $15.00 CAD |
 | Quebec | $15.75 CAD |
 
-**Ingreso estimado trabajando 20h/semana:**
+**Ingreso estimado (solo si tu visa/programa permite trabajar):**
 - Semanal: $300 - $350 CAD
 - Mensual: $1,200 - $1,400 CAD
 - Anual (40 semanas): $12,000 - $14,000 CAD
@@ -353,9 +353,9 @@ PRESUPUESTO ANUAL =
 
 | Destino | Costo Total Anual | Trabajo Permitido |
 |---------|-------------------|-------------------|
-| **Canadá** | $35,000 - $55,000 | 20h/semana |
+| **Canadá** | $35,000 - $55,000 | Depende de programa y visa |
 | **Australia** | $40,000 - $60,000 | 24h/semana (fortnight) |
-| **UK** | $35,000 - $50,000 | 20h/semana |
+| **UK** | $35,000 - $50,000 | Depende de programa y visa |
 | **Irlanda** | $25,000 - $40,000 | 20h/semana |
 | **USA** | $45,000 - $70,000 | Campus solo (F-1) |
 

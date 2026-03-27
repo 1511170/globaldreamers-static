@@ -350,7 +350,7 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
             <div class="bg-brand-600 p-4 sm:p-5 rounded-xl sm:rounded-2xl text-white">
               <h3 class="text-[10px] sm:text-xs font-black text-brand-200 uppercase tracking-widest mb-1">💰 Potencial de Ahorro</h3>
               <p class="text-xl sm:text-2xl font-black mb-1" id="result-savings">$5,200</p>
-              <p class="text-[10px] sm:text-xs text-brand-100">En <span id="result-duration">6</span> meses (promedio 20hrs/semana + full-time vacaciones)</p>
+              <p class="text-[10px] sm:text-xs text-brand-100" id="result-savings-note">Estimación referencial sujeta a tipo de programa y visa aprobada</p>
             </div>
 
             <!-- Action Buttons -->
@@ -578,7 +578,7 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
       { id: 'university', name: 'Universidad', baseCostPerMonth: 2000, minDuration: 24, maxDuration: 48 }
     ],
     addons: [
-      { id: 'work-permit', name: 'Permiso de Trabajo', cost: 0, included: true },
+      { id: 'work-permit', name: 'Permiso laboral (solo educación superior)', cost: 0, included: false },
       { id: 'pgwp', name: 'PGWP (Post-Graduation Work Permit)', cost: 0, included: false },
       { id: 'homestay', name: 'Alojamiento Familiar', cost: (d) => d * 4.33 * 280 },
       { id: 'airport-pickup', name: 'Recogida Aeropuerto', cost: 100 }
@@ -598,7 +598,7 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
     selectedCity: null,
     duration: 6,
     selectedCourse: null,
-    selectedAddons: ['work-permit'],
+    selectedAddons: [],
     profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }
   };
 
@@ -768,12 +768,17 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
     return { course: Math.round(courseCost), visa: visaCost, insurance: insuranceCost, addons: Math.round(addonsCost), flights: 1500, total: Math.round(total) };
   }
 
+  function isHigherEducationCourse(courseId) {
+    return courseId === 'college-co-op' || courseId === 'university';
+  }
+
   function calculateSavings() {
+    if (!isHigherEducationCourse(state.selectedCourse)) return 0;
     const city = canadaData.cities.find(c => c.id === state.selectedCity) || canadaData.cities[0];
     const weeks = state.duration * 4.33;
     
-    // Ingresos: 20hrs/semana durante clases, full-time en vacaciones
-    // Aproximadamente 20hrs promedio semanal considerando vacaciones
+    // Para Canadá, no proyectamos ingresos para cursos de idioma.
+    // Solo se consideran ingresos si el usuario elige educación superior.
     const avgWorkHours = 20;
     const grossIncome = weeks * avgWorkHours * city.minWage;
     
@@ -831,8 +836,15 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
     document.getElementById('result-addons-cost').textContent = `$${costs.addons.toLocaleString()}`;
     document.getElementById('result-flights-cost').textContent = `$${costs.flights.toLocaleString()}`;
     document.getElementById('result-total').textContent = `$${costs.total.toLocaleString()}`;
-    document.getElementById('result-savings').textContent = `$${savings.toLocaleString()}`;
-    document.getElementById('result-duration').textContent = state.duration;
+    const savingsLabel = document.getElementById('result-savings');
+    const savingsNote = document.getElementById('result-savings-note');
+    const hasWorkEligibility = isHigherEducationCourse(state.selectedCourse);
+    savingsLabel.textContent = hasWorkEligibility ? `$${savings.toLocaleString()}` : 'No aplica';
+    if (savingsNote) {
+      savingsNote.textContent = hasWorkEligibility
+        ? `En ${state.duration} meses (estimación referencial sujeta a visa aprobada)`
+        : 'Para cursos de idioma no se proyectan ingresos laborales.';
+    }
     updateCircles(visaProb);
     
     // Show PGWP notice if applicable
@@ -850,13 +862,16 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
       .filter(a => a && !a.included)
       .map(a => a.name);
     
-    const message = `🎯 *Mi Plan para Canadá - Global Dreamers*\n\n📍 *CIUDAD:* ${city.name}\n⏱️ *DURACIÓN:* ${state.duration} meses\n📚 *CURSO:* ${course.name}\n💼 *TRABAJO:* Sí (20hrs/semana + full-time vacaciones)\n${addonNames.length > 0 ? `✨ *COMPLEMENTOS:* ${addonNames.join(', ')}\n` : ''}\n💰 *INVERSIÓN TOTAL:* $${costs.total.toLocaleString()} CAD\n   • Curso: $${costs.course.toLocaleString()}\n   • Visa + Biometría: $${costs.visa.toLocaleString()}\n   • Seguro: $${costs.insurance.toLocaleString()}\n   • Vuelos: $${costs.flights.toLocaleString()}\n\n📊 *PROBABILIDAD VISA:* ${visaProb}%\n${pgwpDuration ? `🎓 *PGWP:* ${pgwpDuration} años post-graduación\n` : ''}\n💵 *AHORRO ESTIMADO:* $${savings.toLocaleString()} CAD\n   (promedio 20hrs/semana, vivienda compartida)\n\nQuiero agendar mi asesoría gratuita para revisar este plan.`;
+    const savingsText = hasWorkEligibility
+      ? `\n💵 *AHORRO ESTIMADO:* $${savings.toLocaleString()} CAD\n   (estimación referencial sujeta a visa aprobada)\n`
+      : '\n💵 *AHORRO ESTIMADO:* No aplica para cursos de idioma.\n';
+    const message = `🎯 *Mi Plan para Canadá - Global Dreamers*\n\n📍 *CIUDAD:* ${city.name}\n⏱️ *DURACIÓN:* ${state.duration} meses\n📚 *CURSO:* ${course.name}\n💼 *TRABAJO:* En Canadá para cursos de idioma no se promociona permiso laboral. En educación superior puede aplicar según visa y condiciones.\n${addonNames.length > 0 ? `✨ *COMPLEMENTOS:* ${addonNames.join(', ')}\n` : ''}\n💰 *INVERSIÓN TOTAL:* $${costs.total.toLocaleString()} CAD\n   • Curso: $${costs.course.toLocaleString()}\n   • Visa + Biometría: $${costs.visa.toLocaleString()}\n   • Seguro: $${costs.insurance.toLocaleString()}\n   • Vuelos: $${costs.flights.toLocaleString()}\n\n📊 *PROBABILIDAD VISA:* ${visaProb}%\n${pgwpDuration ? `🎓 *PGWP:* ${pgwpDuration} años post-graduación\n` : ''}${savingsText}\nℹ️ *Nota:* La elegibilidad laboral depende del tipo de curso, institución y visa aprobada.\n\nQuiero agendar mi asesoría gratuita para revisar este plan.`;
     
     document.getElementById('whatsapp-btn').href = `https://wa.me/61449159849?text=${encodeURIComponent(message)}`;
   }
 
   document.getElementById('restart-btn').addEventListener('click', () => {
-    state = { currentStep: 1, selectedCity: null, duration: 6, selectedCourse: null, selectedAddons: ['work-permit'], profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }};
+    state = { currentStep: 1, selectedCity: null, duration: 6, selectedCourse: null, selectedAddons: [], profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }};
     document.querySelectorAll('.city-option, .course-option').forEach(el => el.classList.remove('selected'));
     document.querySelectorAll('.addon-option').forEach(el => { if (el.dataset.included === 'false') el.classList.remove('active'); });
     durationSlider.value = 6;

@@ -126,7 +126,7 @@ Pero no queremos que solo nos creas por nuestra palabra. En este artículo, comp
 
 ## 🏆 Casos de éxito destacados
 
-### Caso 1: De beca completa a residencia permanente
+### Caso 1: De beca completa a proyección internacional
 
 **Cliente:** Daniela V., Colombia
 **Perfil:** Ingeniera ambiental, 26 años, presupuesto limitado

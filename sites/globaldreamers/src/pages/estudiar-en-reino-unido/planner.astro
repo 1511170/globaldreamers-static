@@ -348,7 +348,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
             <div class="bg-brand-600 p-4 sm:p-5 rounded-xl sm:rounded-2xl text-white">
               <h3 class="text-[10px] sm:text-xs font-black text-brand-200 uppercase tracking-widest mb-1">💰 Potencial de Ahorro</h3>
               <p class="text-xl sm:text-2xl font-black mb-1" id="result-savings">£3,200</p>
-              <p class="text-[10px] sm:text-xs text-brand-100">En <span id="result-duration">6</span> meses (promedio 20hrs/semana incluyendo vacaciones)</p>
+              <p class="text-[10px] sm:text-xs text-brand-100" id="result-savings-note">Estimación referencial sujeta a tipo de programa y visa aprobada</p>
             </div>
 
             <!-- Action Buttons -->
@@ -582,7 +582,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
       { id: 'masters', name: 'Master\'s Degree', baseCostPerMonth: 1800, minDuration: 12, maxDuration: 12 }
     ],
     addons: [
-      { id: 'work-permit', name: 'Permiso de Trabajo', cost: 0, included: true },
+      { id: 'work-permit', name: 'Permiso laboral (solo educación superior)', cost: 0, included: false },
       { id: 'ihs', name: 'IHS (Health Surcharge)', cost: 776, included: false },
       { id: 'homestay', name: 'Alojamiento', cost: (d) => d * 4.33 * 200, included: false },
       { id: 'airport-pickup', name: 'Recogida Aeropuerto', cost: 80, included: false }
@@ -602,7 +602,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     selectedCity: null,
     duration: 6,
     selectedCourse: null,
-    selectedAddons: ['work-permit'],
+    selectedAddons: [],
     profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }
   };
 
@@ -776,11 +776,16 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     return { course: Math.round(courseCost), visa: visaCost, ihs: ihsCost, addons: Math.round(addonsCost), flights: flightsCost, total: Math.round(total) };
   }
 
+  function isHigherEducationCourse(courseId) {
+    return courseId === 'masters';
+  }
+
   function calculateSavings() {
+    if (!isHigherEducationCourse(state.selectedCourse)) return 0;
     const city = ukData.cities.find(c => c.id === state.selectedCity) || ukData.cities[0];
     const weeks = state.duration * 4.33;
     
-    // Ingresos: 20hrs/semana durante término, full-time en vacaciones
+    // En UK no proyectamos ingresos para cursos de idioma.
     // Promedio real considerando vacaciones: ~20-25hrs/semana
     const avgWorkHours = 20;
     const grossIncome = weeks * avgWorkHours * city.minWage;
@@ -833,8 +838,15 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     document.getElementById('result-addons-cost').textContent = `£${costs.addons.toLocaleString()}`;
     document.getElementById('result-flights-cost').textContent = `£${costs.flights.toLocaleString()}`;
     document.getElementById('result-total').textContent = `£${costs.total.toLocaleString()}`;
-    document.getElementById('result-savings').textContent = `£${savings.toLocaleString()}`;
-    document.getElementById('result-duration').textContent = state.duration;
+    const savingsLabel = document.getElementById('result-savings');
+    const savingsNote = document.getElementById('result-savings-note');
+    const hasWorkEligibility = isHigherEducationCourse(state.selectedCourse);
+    savingsLabel.textContent = hasWorkEligibility ? `£${savings.toLocaleString()}` : 'No aplica';
+    if (savingsNote) {
+      savingsNote.textContent = hasWorkEligibility
+        ? `En ${state.duration} meses (estimación referencial sujeta a visa aprobada)`
+        : 'Para cursos de idioma no se proyectan ingresos laborales.';
+    }
     updateCircles(visaProb);
     
     const addonNames = state.selectedAddons
@@ -842,13 +854,16 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
       .filter(a => a && !a.included)
       .map(a => a.name);
     
-    const message = `🎯 *Mi Plan para Reino Unido - Global Dreamers*\n\n📍 *CIUDAD:* ${city.name}\n⏱️ *DURACIÓN:* ${state.duration} meses\n📚 *CURSO:* ${course.name}\n💼 *TRABAJO:* Sí (20hrs/semana)\n${addonNames.length > 0 ? `✨ *COMPLEMENTOS:* ${addonNames.join(', ')}\n` : ''}\n💰 *INVERSIÓN TOTAL:* £${costs.total.toLocaleString()} GBP\n   • Curso: £${costs.course.toLocaleString()}\n   • Visa: £${costs.visa.toLocaleString()}\n   • IHS (NHS): £${costs.ihs.toLocaleString()}\n   • Vuelos: £${costs.flights.toLocaleString()}\n\n📊 *PROBABILIDAD VISA:* ${visaProb}%\n\n🎓 *GRADUATE ROUTE:* 2 años para buscar trabajo post-Master\n\n💵 *AHORRO ESTIMADO:* £${savings.toLocaleString()} GBP\n   (promedio 20hrs/semana, vivienda compartida)\n\nQuiero agendar mi asesoría gratuita para revisar este plan.`;
+    const savingsText = hasWorkEligibility
+      ? `\n💵 *AHORRO ESTIMADO:* £${savings.toLocaleString()} GBP\n   (estimación referencial sujeta a visa aprobada)\n`
+      : '\n💵 *AHORRO ESTIMADO:* No aplica para cursos de idioma.\n';
+    const message = `🎯 *Mi Plan para Reino Unido - Global Dreamers*\n\n📍 *CIUDAD:* ${city.name}\n⏱️ *DURACIÓN:* ${state.duration} meses\n📚 *CURSO:* ${course.name}\n💼 *TRABAJO:* En UK para cursos de idioma no se promociona permiso laboral. En educación superior puede aplicar según visa y condiciones.\n${addonNames.length > 0 ? `✨ *COMPLEMENTOS:* ${addonNames.join(', ')}\n` : ''}\n💰 *INVERSIÓN TOTAL:* £${costs.total.toLocaleString()} GBP\n   • Curso: £${costs.course.toLocaleString()}\n   • Visa: £${costs.visa.toLocaleString()}\n   • IHS (NHS): £${costs.ihs.toLocaleString()}\n   • Vuelos: £${costs.flights.toLocaleString()}\n\n📊 *PROBABILIDAD VISA:* ${visaProb}%\n\n🎓 *GRADUATE ROUTE:* 2 años para buscar trabajo post-Master${savingsText}\nℹ️ *Nota:* La elegibilidad laboral depende del tipo de curso, institución y visa aprobada.\n\nQuiero agendar mi asesoría gratuita para revisar este plan.`;
     
     document.getElementById('whatsapp-btn').href = `https://wa.me/61449159849?text=${encodeURIComponent(message)}`;
   }
 
   document.getElementById('restart-btn').addEventListener('click', () => {
-    state = { currentStep: 1, selectedCity: null, duration: 6, selectedCourse: null, selectedAddons: ['work-permit'], profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }};
+    state = { currentStep: 1, selectedCity: null, duration: 6, selectedCourse: null, selectedAddons: [], profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }};
     document.querySelectorAll('.city-option, .course-option').forEach(el => el.classList.remove('selected'));
     document.querySelectorAll('.addon-option').forEach(el => { if (el.dataset.included === 'false') el.classList.remove('active'); });
     durationSlider.value = 6;

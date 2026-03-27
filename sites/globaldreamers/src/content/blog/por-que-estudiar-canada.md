@@ -63,7 +63,7 @@ Canadá invierte más en educación por habitante que la mayoría de países del
 Canadá ofrece una de las políticas de trabajo más flexibles:
 
 **Durante tus estudios:**
-- ✅ **20 horas/semana** durante clases
+- ✅ En educación superior, puede existir permiso laboral según visa y condiciones vigentes
 - ✅ **Tiempo completo** durante vacaciones
 - ✅ Trabajo **on-campus** sin límite
 - No necesitas permiso adicional
@@ -72,7 +72,7 @@ Canadá ofrece una de las políticas de trabajo más flexibles:
 - 🎓 **Post-Graduation Work Permit (PGWP)**
 - Hasta **3 años** de trabajo legal
 - Abierto (cualquier empleador, cualquier sector)
-- Ruta directa a residencia permanente
+- Opciones migratorias según perfil y normativa vigente
 
 > 💡 **Dato:** El 73% de estudiantes internacionales trabajan en Canadá durante o después de sus estudios.
 
@@ -80,7 +80,7 @@ Canadá ofrece una de las políticas de trabajo más flexibles:
 
 | Escenario | Ingreso Anual Estimado (CAD) |
 |-----------|------------------------------|
-| Trabajando 20h/semana | $15,000 - $25,000 |
+| Ingresos potenciales (si aplica permiso laboral) | Variable según programa y visa |
 | Trabajando verano completo | $8,000 - $15,000 |
 | Trabajo profesional post-grado | $45,000 - $80,000 |
 
@@ -105,7 +105,7 @@ A diferencia de otros países, Canadá **diseñó su sistema para retener talent
 - Experiencia de trabajo canadiense: **+50-80 puntos**
 - Edad óptima (20-29): **+110 puntos**
 
-> 🎯 **Resultado:** Muchos estudiantes obtienen residencia permanente en 1-3 años después de graduarse.
+> 🎯 **Resultado:** Muchos estudiantes continúan su proyecto internacional con opciones post-estudio y laborales, según su perfil y reglas vigentes.
 
 ---
 
@@ -146,15 +146,15 @@ Comparado con otros destinos angloparlantes:
 
 | Destino | Colegiatura Promedio | Costo de Vida | Trabajo Permitido |
 |---------|---------------------|---------------|-------------------|
-| **Canadá** | $20,000 - $35,000 | Medio-Alto | 20h/semana |
+| **Canadá** | $20,000 - $35,000 | Medio-Alto | Depende de programa y visa |
 | **USA** | $35,000 - $60,000 | Alto | Campus only |
-| **UK** | $25,000 - $40,000 | Muy Alto | 20h/semana |
+| **UK** | $25,000 - $40,000 | Muy Alto | Depende de programa y visa |
 | **Australia** | $25,000 - $40,000 | Alto | 48h/quincena |
 
 **Inversión vs Retorno:**
 - Educación de calidad similar a USA por 40% menos
 - Permiso de trabajo post-grado (USA no tiene equivalente)
-- Ruta directa a residencia permanente
+- Opciones migratorias evaluadas caso a caso
 
 ### 💰 Becas y Ayudas Financieras
 

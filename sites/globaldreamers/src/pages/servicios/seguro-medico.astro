@@ -46,12 +46,9 @@ const coverageTypes = [
 
 // Cobertura por país
 const countryCoverage = [
-  { country: 'Australia', flag: 'au', desc: 'OSHC obligatorio', price: 'Desde AUD $500/año' },
-  { country: 'Reino Unido', flag: 'gb', desc: 'NHS surcharge + privado opcional', price: 'Desde £470/año' },
-  { country: 'Canadá', flag: 'ca', desc: 'Varía por provincia', price: 'Desde CAD $600/año' },
-  { country: 'Irlanda', flag: 'ie', desc: 'Seguro privado obligatorio', price: 'Desde €500/año' },
-  { country: 'Nueva Zelanda', flag: 'nz', desc: 'Seguro obligatorio', price: 'Desde NZD $500/año' },
-  { country: 'Malta', flag: 'mt', desc: 'Seguro EU o internacional', price: 'Desde €400/año' },
+  { country: 'Australia', flag: 'au', desc: 'OSHC obligatorio', price: 'Desde AUD $500/año', link: 'https://agents.flywire.com/services/27433/oshc-au?referrer=e901130e-ef35-4674-bfa9-a4d054ccd859' },
+  { country: 'Nueva Zelanda', flag: 'nz', desc: 'Student Health Insurance', price: 'Según plan', link: 'https://agents.flywire.com/services/27433/studenthealth-nz?referrer=e901130e-ef35-4674-bfa9-a4d054ccd859' },
+  { country: 'Otros destinos', flag: 'un', desc: 'Seguros para otros países', price: 'Consultar opciones', link: 'https://oshcstudents.com.au/client/student-insurance' },
 ];
 
 // Breadcrumbs
@@ -252,16 +249,25 @@ const serviceSchema = {
           {countryCoverage.map((country) => (
             <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
               <div class="flex items-start gap-4">
-                <img 
-                  src={`https://kapowaz.github.io/circle-flags/flags/${country.flag}.svg`}
-                  alt={`Bandera de ${country.country}`}
-                  class="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                  loading="lazy"
-                />
+                {country.flag === 'un' ? (
+                  <div class="w-12 h-12 rounded-full flex-shrink-0 bg-slate-100 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-slate-500">public</span>
+                  </div>
+                ) : (
+                  <img
+                    src={`https://kapowaz.github.io/circle-flags/flags/${country.flag}.svg`}
+                    alt={`Bandera de ${country.country}`}
+                    class="w-12 h-12 rounded-full flex-shrink-0 object-cover"
+                    loading="lazy"
+                  />
+                )}
                 <div class="flex-1 min-w-0">
                   <h3 class="text-lg font-bold text-slate-900 mb-1">{country.country}</h3>
                   <p class="text-sm text-slate-500 mb-2">{country.desc}</p>
-                  <p class="text-primary font-bold">{country.price}</p>
+                  <p class="text-primary font-bold mb-2">{country.price}</p>
+                  <a href={country.link} target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-slate-700 hover:text-primary transition-colors">
+                    Ver opciones →
+                  </a>
                 </div>
               </div>
             </div>

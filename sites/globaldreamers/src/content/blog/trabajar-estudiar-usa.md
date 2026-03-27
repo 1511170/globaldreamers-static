@@ -283,8 +283,8 @@ Tienes **90 días de desempleo permitidos** durante OPT. Si excedes, debes salir
 | País | Trabajo Durante | Trabajo Post | Flexibilidad |
 |------|-----------------|--------------|--------------|
 | **USA** | Limitado | OPT 1-3 años | Media |
-| **Canadá** | 20h/semana | PGWP 1-3 años | Alta |
-| **UK** | 20h/semana | PSW 2 años | Media |
+| **Canadá** | Depende de programa y visa | PGWP 1-3 años | Alta |
+| **UK** | Depende de programa y visa | PSW 2 años | Media |
 | **Australia** | 48h/quincena | Visa 485 2-4 años | Alta |
 
 ---

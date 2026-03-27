@@ -212,7 +212,7 @@ La ingeniería es una de las carreras con **mayor demanda global y mejores salar
 | **Australia** | 48h/2 sem | €20-30/hora | ⭐⭐⭐⭐⭐ |
 | **Alemania** | 20h | €12-18/hora | ⭐⭐⭐⭐⭐ |
 | **Países Bajos** | 16h | €12-15/hora | ⭐⭐⭐⭐ |
-| **Canadá** | 20h | €15-20/hora | ⭐⭐⭐⭐⭐ |
+| **Canadá** | Depende de programa y visa | €15-20/hora | ⭐⭐⭐⭐⭐ |
 | **Irlanda** | 20h | €12-15/hora | ⭐⭐⭐⭐⭐ |
 
 **Trabajos comunes para ingenieros estudiantes:**

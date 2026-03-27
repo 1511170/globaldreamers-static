@@ -34,6 +34,12 @@ const contactInfo = {
   whatsapp: `https://wa.me/${WHATSAPP_NUMBER}?text=Hola%2C%20me%20interesa%20recibir%20asesor%C3%ADa%20para%20estudiar%20en%20el%20exterior`,
   abn: '73384896450', // Australian Business Number
 };
+
+const socialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100092555559597&mibextid=ZbWKwL', icon: 'facebook' },
+  { label: 'Instagram', href: 'https://www.instagram.com/globaldreamers_col/', icon: 'instagram' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@global.dreamers', icon: 'tiktok' },
+];
 ---
 
 <footer id="contacto" class="bg-slate-900 text-slate-400">
@@ -101,6 +107,24 @@ const contactInfo = {
           >
             <span class="material-symbols-outlined text-lg">mail</span>
           </a>
+        </div>
+
+        <div class="flex items-center gap-3 mt-4">
+          {socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              class="flex items-center justify-center w-10 h-10 bg-slate-800 text-slate-400 rounded-lg hover:bg-slate-700 hover:text-white transition-colors"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                {social.icon === 'facebook' && <path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />}
+                {social.icon === 'instagram' && <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.8A3.95 3.95 0 003.8 7.75v8.5a3.95 3.95 0 003.95 3.95h8.5a3.95 3.95 0 003.95-3.95v-8.5a3.95 3.95 0 00-3.95-3.95h-8.5zm8.85 1.35a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.8a3.2 3.2 0 100 6.4 3.2 3.2 0 000-6.4z" />}
+                {social.icon === 'tiktok' && <path d="M14.5 3c.3 1.4 1.1 2.5 2.4 3.2.8.4 1.7.6 2.6.6v2.5c-1 0-2-.2-2.9-.6v5.2A5.9 5.9 0 1110.6 8h.3v2.6h-.3a3.3 3.3 0 103.3 3.3V3h2.6z" />}
+              </svg>
+            </a>
+          ))}
         </div>
       </div>
 

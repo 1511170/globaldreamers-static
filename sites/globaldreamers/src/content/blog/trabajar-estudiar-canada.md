@@ -1,6 +1,6 @@
 ---
-title: "Cómo trabajar y estudiar en Canadá: Reglas y oportunidades 2026"
-excerpt: "Descubre todo sobre trabajar siendo estudiante en Canadá. Horarios permitidos, salarios, tipos de empleo y cómo maximizar tus ingresos legalmente."
+title: "Trabajar y estudiar en Canadá: cuándo aplica realmente (2026)"
+excerpt: "Guía clara para evitar errores: en cursos de idioma no se promociona permiso laboral; en educación superior puede aplicar según visa y condiciones vigentes."
 date: 2026-03-15
 author: "Global Dreamers"
 category: "Canadá"
@@ -11,19 +11,19 @@ published: true
 
 ## Introducción
 
-Una de las mayores ventajas de estudiar en Canadá es la posibilidad de **trabajar legalmente** mientras estudias. Esto no solo te ayuda financieramente, sino que también te da **experiencia laboral canadiense** valiosa para tu futuro profesional.
+Antes de planear ingresos, debes tener esto claro: en Canadá **no se debe promocionar trabajo para cursos de idioma**. La posibilidad laboral puede aplicar principalmente en **educación superior**, según visa y condiciones vigentes.
 
 En esta guía te explicamos **todo lo que necesitas saber**: reglas, horarios permitidos, salarios, tipos de empleo disponibles y cómo encontrar trabajo.
 
-> 💡 **Dato clave:** Puedes trabajar hasta **20 horas/semana** durante clases y tiempo completo en vacaciones.
+> 💡 **Dato clave:** La elegibilidad laboral depende del tipo de curso, la institución y la visa aprobada.
 
 ---
 
-## Permiso de Trabajo para Estudiantes
+## Permiso laboral para estudiantes (solo educación superior)
 
 ### 📋 ¿Necesitas permiso adicional?
 
-**NO**, con tu permiso de estudio válido ya puedes trabajar si:
+Solo en programas elegibles de educación superior y con visa que lo permita:
 - ✅ Eres estudiante a tiempo completo
 - ✅ Tu programa dura más de 6 meses
 - ✅ Estás estudiando en una DLI (Designated Learning Institution)
@@ -33,7 +33,7 @@ En esta guía te explicamos **todo lo que necesitas saber**: reglas, horarios pe
 
 Tu Study Permit debe tener una de estas anotaciones:
 - "May accept employment..."
-- "May work 20 hours..."
+- "May work during studies under conditions..."
 - "May work on/off campus..."
 
 Si no tiene ninguna anotación, puedes solicitar una corrección gratuita.
@@ -46,12 +46,12 @@ Si no tiene ninguna anotación, puedes solicitar una corrección gratuita.
 
 | Período | Horas Permitidas |
 |---------|------------------|
-| **Durante clases** | Máximo 20 horas/semana |
+| **Durante clases** | Según condiciones de tu visa aprobada |
 | **Vacaciones programadas** | Tiempo completo (40+ horas) |
 | **En campus** | Sin límite de horas |
 | **Después de graduación** | Aplica PGWP (hasta 3 años) |
 
-> ⚠️ **Importante:** Superar las 20 horas durante clases es una violación grave y puede resultar en deportación.
+> ⚠️ **Importante:** Exceder o incumplir las condiciones de tu visa puede causar sanciones migratorias.
 
 ### 📅 Calendario de Vacaciones
 
@@ -86,7 +86,7 @@ Durante estas fechas puedes trabajar **sin límite de horas**.
 
 ### 🏢 Trabajo Off-Campus
 
-**Máximo 20 horas/semana** durante clases:
+Solo si tu visa/programa autoriza trabajo durante estudios:
 
 | Sector | Ejemplos de Empleo |
 |--------|-------------------|
@@ -112,7 +112,7 @@ Durante estas fechas puedes trabajar **sin límite de horas**.
 
 ### 💰 Salario Mínimo (2026)
 
-| Provincia | Salario/Hora | 20h/semana | 40h/semana |
+| Provincia | Salario/Hora | Escenario parcial* | Escenario intensivo* |
 |-----------|--------------|------------|------------|
 | **British Columbia** | $17.40 | $348 | $696 |
 | **Ontario** | $17.20 | $344 | $688 |
@@ -128,13 +128,13 @@ Durante estas fechas puedes trabajar **sin límite de horas**.
 
 | Escenario | Ingreso Mensual (CAD) |
 |-----------|----------------------|
-| **Mínimo (20h × $15)** | $1,200 |
-| **Promedio (20h × $18)** | $1,440 |
-| **Bueno (20h × $20)** | $1,600 |
+| **Mínimo (parcial × $15)** | $1,200 |
+| **Promedio (parcial × $18)** | $1,440 |
+| **Bueno (parcial × $20)** | $1,600 |
 | **Verano (40h × $18)** | $2,880 |
 
 **Ingreso anual trabajando:**
-- 20h/semana × 32 semanas (clases) = $46,080 - $61,440
+- Escenario parcial en clases (si aplica según visa/programa)
 - 40h/semana × 16 semanas (vacaciones) = $19,200 - $25,600
 - **Total estimado: $24,000 - $35,000 CAD/año**
 
@@ -256,7 +256,7 @@ Al terminar tus estudios, puedes aplicar a:
 - Trabajar para cualquier empleador
 - Sin límite de horas
 - Abierto (no necesitas oferta de trabajo)
-- Ruta a residencia permanente
+- Opciones migratorias posteriores según perfil y normativa vigente
 
 ---
 
@@ -295,7 +295,7 @@ Al terminar tus estudios, puedes aplicar a:
 
 **NO**, debes esperar a que inicie tu programa académico.
 
-### ¿Qué pasa si trabajo más de 20 horas?
+### ¿Qué pasa si trabajo fuera de lo permitido por mi visa?
 
 Es una violación de las condiciones de tu permiso. Puedes:
 - Perder tu permiso de estudio
@@ -304,7 +304,7 @@ Es una violación de las condiciones de tu permiso. Puedes:
 
 ### ¿Puedo tener dos trabajos?
 
-**Sí**, mientras la suma total no exceda 20 horas/semana durante clases.
+Solo aplica si tu condición migratoria permite trabajo y cumples los límites oficiales de tu visa.
 
 ### ¿Mi pareja puede trabajar?
 
@@ -345,7 +345,7 @@ Trabajar mientras estudias en Canadá es una **oportunidad increíble** que pued
 - Darte experiencia laboral canadiense
 - Mejorar tu inglés
 - Construir tu red profesional
-- Abrir puertas a la residencia permanente
+- Abrir puertas a opciones migratorias futuras según requisitos vigentes
 
 ### 🚀 Próximos Pasos
 

@@ -195,8 +195,8 @@ El gobierno canadiense requiere que demuestres fondos suficientes para cubrir:
 
 ### ¿Puedo trabajar mientras estudio?
 
-**Sí**, con permiso de estudio válido puedes trabajar:
-- **20 horas/semana** durante clases
+Depende del tipo de programa y de la condición de tu visa.  
+En **cursos de idioma** no se promociona permiso laboral; en **educación superior** puede aplicar autorización bajo reglas oficiales vigentes.
 - **Tiempo completo** durante vacaciones
 - En campus sin restricciones
 

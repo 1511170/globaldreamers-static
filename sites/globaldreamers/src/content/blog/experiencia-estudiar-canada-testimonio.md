@@ -39,7 +39,7 @@ Valentina tenía metas muy específicas cuando comenzó su búsqueda:
 1. 🎯 **Mejorar su inglés** hasta un nivel avanzado de negocios
 2. 🎯 **Obtener una certificación internacional** en negocios internacionales
 3. 🎯 **Ganar experiencia laboral** en una empresa canadiense
-4. 🎯 **Evaluar la posibilidad** de residencia permanente a largo plazo
+4. 🎯 **Evaluar opciones migratorias** a largo plazo según su perfil
 
 > "No quería solo un curso de inglés genérico. Necesitaba algo que realmente impulsara mi carrera profesional y me diera herramientas para trabajar en un entorno global." — Valentina
 
@@ -86,8 +86,8 @@ Objetivos profesionales:    Negocios internacionales
 Presupuesto total:          $45,000,000 COP
 Nivel de inglés:            B1 (intermedio)
 Preferencia climática:      Ciudades con invierno manejable
-Expectativa de trabajo:     Máximo 20h/semana durante estudios
-Visión a largo plazo:       Posible residencia permanente
+Expectativa de trabajo:     Depende del tipo de programa y visa aprobada
+Visión a largo plazo:       Opciones migratorias según perfil y normativa
 
 RECOMENDACIÓN PRINCIPAL:
 📍 Toronto, Ontario - Programa de Negocios en Centennial College
@@ -98,7 +98,7 @@ RECOMENDACIÓN PRINCIPAL:
 
 | Opción | Ciudad | Programa | Costo total | Pros | Contras |
 |--------|--------|----------|-------------|------|---------|
-| **Opción A (Recomendada)** | Toronto | Diploma Negocios Internacionales (2 años) | $42,000 CAD | Co-op incluido, mercado laboral fuerte, PATH a PR | Costo de vida más alto |
+| **Opción A (Recomendada)** | Toronto | Diploma Negocios Internacionales (2 años) | $42,000 CAD | Co-op incluido, mercado laboral fuerte, buena proyección profesional | Costo de vida más alto |
 | Opción B | Vancouver | Certificado Marketing Digital (1 año) | $28,000 CAD | Clima más suave, industria tech fuerte | Sin co-op, más competitivo |
 | Opción C | Montreal | Diploma Gestión Empresarial (2 años) | $32,000 CAD | Costo más bajo, bilingüe | Necesita francés para algunos empleos |
 
@@ -193,7 +193,7 @@ El 20 de abril, exactamente 4 semanas después de su biometría, Valentina recib
 |-------------------|-------------|
 | Tipo | Study Permit + Visa de entrada (TRV) |
 | Duración | 2 años y 3 meses (hasta septiembre 2026) |
-| Condición de trabajo | 20 horas/semana durante clases |
+| Condición de trabajo | Depende de programa y visa (en idioma no se promociona trabajo) |
 | Entradas múltiples | Sí, ilimitadas |
 
 ### Preparativos de viaje con checklist de Global Dreamers
@@ -351,7 +351,7 @@ En su tercer semestre, Valentina comenzó su **co-op work term**:
 
 | Fuente | Monto anual (CAD) |
 |--------|-------------------|
-| Trabajo part-time (20h/semana) | $12,000 |
+| Ingreso part-time (si aplica permiso laboral) | $12,000 |
 | Co-op work term | $10,000 |
 | **TOTAL INGRESOS** | **$22,000** |
 
@@ -412,7 +412,7 @@ REMANTE:                  $ 7,868 CAD  (para año 2)
 | **Inmediato** | Completar el diploma con honores |
 | **6 meses** | Aplicar a Post-Graduation Work Permit (3 años) |
 | **1-2 años** | Trabajo full-time en marketing digital en Toronto |
-| **2-3 años** | Aplicar a residencia permanente vía Express Entry |
+| **2-3 años** | Evaluar opciones migratorias según perfil y normativa vigente |
 
 ### Consejos de Valentina para futuros estudiantes
 

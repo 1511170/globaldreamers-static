@@ -248,8 +248,8 @@ TOTAL ANUAL:                  $52,000
 |---------|-------------------|-------------------|
 | **USA (privada)** | $65,000-$85,000 | Limitado (campus) |
 | **USA (pública)** | $40,000-$55,000 | Limitado (campus) |
-| **UK** | $40,000-$55,000 | 20h/semana |
-| **Canadá** | $35,000-$50,000 | 20h/semana |
+| **UK** | $40,000-$55,000 | Depende de programa y visa |
+| **Canadá** | $35,000-$50,000 | Depende de programa y visa |
 | **Australia** | $40,000-$60,000 | 48h/quincena |
 
 ---

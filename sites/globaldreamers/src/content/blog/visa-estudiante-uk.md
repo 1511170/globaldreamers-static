@@ -14,7 +14,7 @@ published: true
 La **Student Route Visa** (anteriormente conocida como Tier 4 General Student Visa) es tu pasaporte para estudiar en una de las mejores sistemas educativos del mundo. Este permiso te permite:
 
 - Estudiar a tiempo completo en una institución licenciada (Licensed Sponsor)
-- Trabajar hasta 20 horas semanales durante el período de estudios
+- En educación superior, puede existir permiso laboral bajo condiciones de visa
 - Viajar dentro y fuera del Reino Unido libremente
 - Traer a familiares dependientes (bajo ciertas condiciones)
 - Acceder a la **Graduate Route Visa** tras completar tus estudios
@@ -33,7 +33,7 @@ En esta guía te explicamos **cada paso del proceso** para que tu aplicación se
 |----------------|---------|
 | **Tipo** | Visa temporal de estudiante (RQF nivel 6 o superior) |
 | **Duración** | Según programa + 4 meses (generalmente) |
-| **Trabajo permitido** | 20h/semana durante clases, full-time en vacaciones |
+| **Trabajo permitido** | Depende del programa y condiciones de visa (en cursos de idioma no se promociona permiso laboral) |
 | **Costo visa** | £363 GBP |
 | **IHS (1 año)** | £776 GBP |
 | **Procesamiento estándar** | 3 semanas |
@@ -42,15 +42,14 @@ En esta guía te explicamos **cada paso del proceso** para que tu aplicación se
 ### ✅ Lo que Puedes Hacer
 
 - Estudiar programa a tiempo completo
-- Trabajar 20 horas/semana durante período lectivo
-- Trabajar tiempo completo durante vacaciones oficiales
+- En educación superior, trabajar según condiciones de visa aprobada
 - Traer dependientes (si estudias posgrado RQF 7+)
 - Extender tu visa si continúas estudios
 - Cambiar a Graduate Route tras graduarte
 
 ### ❌ Lo que NO Puedes Hacer
 
-- Trabajar más de 20 horas/semana durante clases
+- Trabajar fuera de las condiciones permitidas por tu visa
 - Ser self-employed o trabajar freelance
 - Trabajar como deportista profesional o entertainer
 - Acceder a fondos públicos (benefits)

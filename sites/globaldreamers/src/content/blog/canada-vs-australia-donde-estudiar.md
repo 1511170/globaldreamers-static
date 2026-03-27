@@ -11,11 +11,11 @@ published: true
 
 ## Introducción: La batalla de los titanes educativos
 
-Si estás considerando estudiar en el extranjero, es muy probable que **Canadá** y **Australia** estén en tu lista final. Son los dos destinos más populares entre latinoamericanos por buenas razones: educación de clase mundial, calidad de vida excepcional, y oportunidades de trabajo e inmigración.
+Si estás considerando estudiar en el extranjero, es muy probable que **Canadá** y **Australia** estén en tu lista final. Son dos destinos populares entre latinoamericanos por educación de clase mundial, calidad de vida y rutas migratorias claras.
 
 Pero ¿cuál es mejor para TI? La respuesta depende de tus prioridades específicas. En esta comparativa exhaustiva, analizamos cada factor para que tomes una decisión informada.
 
-> 💡 **Dato clave:** Ambos países reciben aproximadamente 700,000 estudiantes internacionales cada año. Canadá tiene ventaja en cercanía a USA y camino directo a residencia; Australia lidera en clima y salarios para estudiantes.
+> 💡 **Dato clave:** Ambos países reciben aproximadamente 700,000 estudiantes internacionales cada año. Canadá tiene ventaja en cercanía a USA; Australia lidera en clima y salarios para estudiantes.
 
 ---
 
@@ -27,7 +27,7 @@ Pero ¿cuál es mejor para TI? La respuesta depende de tus prioridades específi
 | **Costo colegiatura** | $15,000-35,000 CAD/año | $25,000-45,000 AUD/año | 🇨🇦 Canadá |
 | **Costo de vida** | $15,000-20,000 CAD/año | $25,000-35,000 AUD/año | 🇨🇦 Canadá |
 | **Salario mínimo** | $15-17 CAD/hora | $23+ AUD/hora | 🇦🇺 Australia |
-| **Horas trabajo** | 20h/semana | 48h/quincena | 🇦🇺 Australia |
+| **Trabajo durante estudios** | Depende de programa y visa | 48h/quincena | 🇦🇺 Australia |
 | **Post-study work** | 1-3 años | 2-4 años | 🇦🇺 Australia |
 | **Path to PR** | Directo y claro | Posible, más selectivo | 🇨🇦 Canadá |
 | **Clima** | -30°C a +30°C | +10°C a +40°C | 🇦🇺 Australia |
@@ -95,9 +95,9 @@ BALANCE ANUAL ESTIMADO - ESTUDIANTE
 
 CANADÁ (Toronto):
 Gastos anuales:           $35,000 CAD
-Ingresos trabajo (20h/s): -$20,000 CAD
+Ingresos trabajo:         Depende de programa y visa
                           ─────────────
-NETO A CARGO:             $15,000 CAD  (~$11,000 USD)
+NETO A CARGO:             Variable según elegibilidad laboral
 
 AUSTRALIA (Sydney):
 Gastos anuales:           $55,000 AUD
@@ -118,7 +118,7 @@ mayores ingresos que compensan la diferencia.
 
 | Aspecto | Canadá | Australia |
 |---------|--------|-----------|
-| **Horas durante clases** | 20 horas/semana | 48 horas/quincena (~24h/semana promedio) |
+| **Trabajo durante clases** | Depende de programa y visa | 48 horas/quincena (~24h/semana promedio) |
 | **Durante vacaciones** | Full-time | Full-time |
 | **Salario mínimo** | $15-17.20 CAD/hora | $23.23 AUD/hora |
 | **Ingreso mensual estimado** | $1,200-1,400 CAD | $2,200-2,500 AUD |
@@ -145,7 +145,7 @@ mayores ingresos que compensan la diferencia.
 
 ---
 
-## 🛤️ Camino a residencia permanente
+## 🛤️ Opciones migratorias post-estudio
 
 ### Canadá: El sistema más claro
 

@@ -63,7 +63,7 @@ PERFIL COMPLETO - CARLOS M.
 ═══════════════════════════════════════════════════════
 
 🎯 Objetivo profesional:    Project Management / Operations
-🎯 Objetivo migratorio:     Evaluar residencia permanente
+🎯 Objetivo migratorio:     Evaluar opciones migratorias según perfil y normativa
 💰 Presupuesto:             $50,000 USD (~$75,000 AUD)
 📚 Nivel académico:         Ingeniería completa
 🗣️ Inglés:                  IELTS 6.0 (objetivo: 7.0)

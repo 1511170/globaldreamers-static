@@ -210,8 +210,8 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
               <div class="flex items-start gap-2">
                 <span class="material-symbols-outlined text-amber-600 text-sm">warning</span>
                 <div>
-                  <p class="font-bold text-amber-800 text-xs sm:text-sm">Restricción de Trabajo</p>
-                  <p class="text-[10px] sm:text-xs text-amber-700">Primer año: solo <strong>20h/semana en campus</strong>. Después puedes hacer CPT/OPT.</p>
+                  <p class="font-bold text-amber-800 text-xs sm:text-sm">Regla de Permiso Laboral</p>
+                  <p class="text-[10px] sm:text-xs text-amber-700">En cursos de idioma no se promociona permiso laboral. En educación superior puede aplicar autorización según visa y condiciones vigentes.</p>
                 </div>
               </div>
             </div>
@@ -380,7 +380,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
             <div class="bg-slate-800 p-4 sm:p-5 rounded-xl sm:rounded-2xl text-white">
               <h3 class="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest mb-1">💰 Potencial de Ahorro</h3>
               <p class="text-xl sm:text-2xl font-black mb-1" id="result-savings">$3,200</p>
-              <p class="text-[10px] sm:text-xs text-slate-400">En <span id="result-duration">12</span> meses (20h/semana campus, primer año)</p>
+              <p class="text-[10px] sm:text-xs text-slate-400" id="result-savings-note">Estimación referencial sujeta a tipo de programa y visa aprobada</p>
             </div>
 
             <!-- Action Buttons -->
@@ -472,7 +472,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
           <div class="p-3 rounded-xl bg-blue-50 border border-blue-100">
             <p class="text-[10px] font-bold text-blue-800 mb-1">💡 Info USA</p>
             <p class="text-[10px] text-blue-600 leading-relaxed">
-              Primer año: solo trabajo en campus (20h/semana). Miami: 70% habla español.
+              En cursos de idioma no se proyecta permiso laboral. En educación superior, la elegibilidad depende de visa y programa.
             </p>
           </div>
         </div>
@@ -624,7 +624,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
       { id: 'associate-degree', name: 'Associate Degree (Community College)', baseCostPerMonth: 800, minDuration: 24, maxDuration: 24 }
     ],
     addons: [
-      { id: 'campus-work', name: 'Campus Work Permit', cost: 0, included: true },
+      { id: 'campus-work', name: 'Permiso laboral (solo educación superior)', cost: 0, included: false },
       { id: 'sevis-fee', name: 'SEVIS Fee', cost: 350, included: false },
       { id: 'medical-insurance', name: 'Seguro Médico Universitario', cost: (d) => d * 400, included: false },
       { id: 'books-materials', name: 'Libros y Materiales', cost: 500, included: false },
@@ -645,7 +645,7 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     selectedCity: null,
     duration: 12,
     selectedCourse: null,
-    selectedAddons: ['campus-work'],
+    selectedAddons: [],
     profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }
   };
 
@@ -816,11 +816,16 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     return { course: Math.round(courseCost), visa: visaCost, sevis: sevisCost, insurance: insuranceCost, addons: Math.round(addonsCost), flights: flightsCost, total: Math.round(total) };
   }
 
+  function isHigherEducationCourse(courseId) {
+    return courseId === 'stem-degree' || courseId === 'mba-business' || courseId === 'associate-degree';
+  }
+
   function calculateSavings() {
+    if (!isHigherEducationCourse(state.selectedCourse)) return 0;
     const city = usaData.cities.find(c => c.id === state.selectedCity) || usaData.cities[0];
     const weeks = state.duration * 4.33;
     
-    // USA: 20h/semana solo en campus primer año (muy limitado)
+    // Proyección solo para educación superior, sujeta a condiciones de visa.
     const workHours = 20;
     const grossIncome = weeks * workHours * city.minWage;
     
@@ -873,8 +878,15 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     document.getElementById('result-addons-cost').textContent = `$${costs.addons.toLocaleString()}`;
     document.getElementById('result-flights-cost').textContent = `$${costs.flights.toLocaleString()}`;
     document.getElementById('result-total').textContent = `$${costs.total.toLocaleString()}`;
-    document.getElementById('result-savings').textContent = `$${savings.toLocaleString()}`;
-    document.getElementById('result-duration').textContent = state.duration;
+    const savingsLabel = document.getElementById('result-savings');
+    const savingsNote = document.getElementById('result-savings-note');
+    const hasWorkEligibility = isHigherEducationCourse(state.selectedCourse);
+    savingsLabel.textContent = hasWorkEligibility ? `$${savings.toLocaleString()}` : 'No aplica';
+    if (savingsNote) {
+      savingsNote.textContent = hasWorkEligibility
+        ? `En ${state.duration} meses (estimación referencial sujeta a visa aprobada)`
+        : 'Para cursos de idioma no se proyectan ingresos laborales.';
+    }
     updateCircles(visaProb);
     
     const addonNames = state.selectedAddons
@@ -886,13 +898,16 @@ const description = 'Calcula tu inversión, probabilidad de visa y potencial de 
     const stemText = isStem ? '\n🚀 *STEM OPT:* 3 años trabajo post-grado' : '';
     const miamiText = state.selectedCity === 'miami' ? '\n🇨🇺 *Miami:* 70% habla español' : '';
     
-    const message = `🎯 *Mi Plan para Estados Unidos - Global Dreamers*\n\n📍 *CIUDAD:* ${city.name}${miamiText}\n⏱️ *DURACIÓN:* ${state.duration} meses\n📚 *CURSO:* ${course.name}${stemText}\n💼 *TRABAJO:* 20h/semana en campus (1er año)\n${addonNames.length > 0 ? `✨ *COMPLEMENTOS:* ${addonNames.join(', ')}\n` : ''}\n💰 *INVERSIÓN TOTAL:* $${costs.total.toLocaleString()} USD\n   • Curso: $${costs.course.toLocaleString()}\n   • Visa F-1: $${costs.visa.toLocaleString()}\n   • SEVIS: $${costs.sevis.toLocaleString()}\n   • Seguro: $${costs.insurance.toLocaleString()}\n   • Vuelos: $${costs.flights.toLocaleString()}\n\n📊 *PROBABILIDAD VISA:* ${visaProb}%\n\n💵 *AHORRO ESTIMADO:* $${savings.toLocaleString()} USD\n   (20h/semana campus, vivienda compartida)\n\nQuiero agendar mi asesoría gratuita para revisar este plan.`;
+    const savingsText = hasWorkEligibility
+      ? `\n💵 *AHORRO ESTIMADO:* $${savings.toLocaleString()} USD\n   (estimación referencial sujeta a visa aprobada)\n`
+      : '\n💵 *AHORRO ESTIMADO:* No aplica para cursos de idioma.\n';
+    const message = `🎯 *Mi Plan para Estados Unidos - Global Dreamers*\n\n📍 *CIUDAD:* ${city.name}${miamiText}\n⏱️ *DURACIÓN:* ${state.duration} meses\n📚 *CURSO:* ${course.name}${stemText}\n💼 *TRABAJO:* En cursos de idioma no se promociona permiso laboral. En educación superior puede aplicar autorización según visa y condiciones.\n${addonNames.length > 0 ? `✨ *COMPLEMENTOS:* ${addonNames.join(', ')}\n` : ''}\n💰 *INVERSIÓN TOTAL:* $${costs.total.toLocaleString()} USD\n   • Curso: $${costs.course.toLocaleString()}\n   • Visa F-1: $${costs.visa.toLocaleString()}\n   • SEVIS: $${costs.sevis.toLocaleString()}\n   • Seguro: $${costs.insurance.toLocaleString()}\n   • Vuelos: $${costs.flights.toLocaleString()}\n\n📊 *PROBABILIDAD VISA:* ${visaProb}%${savingsText}\nℹ️ *Nota:* La elegibilidad laboral depende del tipo de curso, institución y visa aprobada.\n\nQuiero agendar mi asesoría gratuita para revisar este plan.`;
     
     document.getElementById('whatsapp-btn').href = `https://wa.me/61449159849?text=${encodeURIComponent(message)}`;
   }
 
   document.getElementById('restart-btn').addEventListener('click', () => {
-    state = { currentStep: 1, selectedCity: null, duration: 12, selectedCourse: null, selectedAddons: ['campus-work'], profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }};
+    state = { currentStep: 1, selectedCity: null, duration: 12, selectedCourse: null, selectedAddons: [], profile: { age: '25-30', englishLevel: 'intermediate', workExperience: '1-3', financialCapacity: 'adequate' }};
     document.querySelectorAll('.city-option, .course-option').forEach(el => el.classList.remove('selected'));
     document.querySelectorAll('.addon-option').forEach(el => { if (el.dataset.included === 'false') el.classList.remove('active'); });
     durationSlider.value = 12;

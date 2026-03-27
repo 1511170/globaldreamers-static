@@ -95,15 +95,50 @@ const DEFAULT_MESSAGE = 'Hola, me interesa recibir asesoría para estudiar en el
     // Agregar evento de click
     whatsappBtn.addEventListener('click', trackWhatsAppClick);
 
-    // Mostrar el botón después de 3 segundos
-    whatsappBtn.style.opacity = '0';
-    whatsappBtn.style.transform = 'translateY(20px)';
-    
-    setTimeout(() => {
+    const pathname = window.location.pathname.replace(/\/+$/, '');
+    const isDestinationPage = /^\/estudiar-en-[^/]+$/.test(pathname);
+
+    function hideButton() {
+      whatsappBtn.style.opacity = '0';
+      whatsappBtn.style.transform = 'translateY(20px)';
+      whatsappBtn.style.pointerEvents = 'none';
+    }
+
+    function showButton() {
       whatsappBtn.style.transition = 'all 0.5s ease';
       whatsappBtn.style.opacity = '1';
       whatsappBtn.style.transform = 'translateY(0)';
-    }, 3000);
+      whatsappBtn.style.pointerEvents = 'auto';
+    }
+
+    // En páginas de destino, mostrar el float solo después de pasar #costos
+    if (isDestinationPage) {
+      const costsSection = document.getElementById('costos');
+      hideButton();
+
+      if (!costsSection) {
+        // Fallback seguro si no existe la sección
+        return;
+      }
+
+      function updateVisibilityAfterCosts() {
+        const rect = costsSection.getBoundingClientRect();
+        if (rect.top <= 0) {
+          showButton();
+          window.removeEventListener('scroll', updateVisibilityAfterCosts);
+          window.removeEventListener('resize', updateVisibilityAfterCosts);
+        }
+      }
+
+      window.addEventListener('scroll', updateVisibilityAfterCosts, { passive: true });
+      window.addEventListener('resize', updateVisibilityAfterCosts);
+      updateVisibilityAfterCosts();
+      return;
+    }
+
+    // En el resto del sitio, mantener comportamiento original
+    hideButton();
+    setTimeout(showButton, 3000);
   })();
 </script>
 

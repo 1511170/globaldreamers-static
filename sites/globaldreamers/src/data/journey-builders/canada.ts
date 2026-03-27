@@ -10,9 +10,9 @@ export const canadaData: JourneyBuilderData = {
   whatsappNumber: '61449159849',
   
   workPermit: {
-    hoursPerWeek: 20,
-    notes: '20 horas/semana durante clases, full-time en vacaciones oficiales',
-    includedInVisa: true,
+    hoursPerWeek: 0,
+    notes: 'En Canadá el permiso laboral depende del tipo de programa. En cursos de idioma no se promociona trabajo; en educación superior puede aplicar según visa vigente.',
+    includedInVisa: false,
     vacationFullTime: true
   },
   

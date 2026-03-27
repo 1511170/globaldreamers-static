@@ -101,7 +101,7 @@ Descubre las 8 razones por las que Nueva Zelanda debería estar en tu lista de d
 **Características:**
 - Visa abierta (cualquier empleador)
 - Sin restricción de horas
-- Ruta a residencia permanente
+- Opciones migratorias a largo plazo según perfil y normativa vigente
 
 **Pathway to Residence:**
 - Skill shortages en muchas áreas
@@ -188,7 +188,7 @@ Descubre las 8 razones por las que Nueva Zelanda debería estar en tu lista de d
 
 **Retorno de inversión:**
 - 3 años trabajo post-grado
-- Ruta a residencia
+- Opciones migratorias futuras
 - Título reconocido globalmente
 
 ---
@@ -214,7 +214,7 @@ Descubre las 8 razones por las que Nueva Zelanda debería estar en tu lista de d
 - Naturaleza y aventura outdoor
 - Calidad de vida tranquila
 - Educación británica reconocida
-- Ruta clara a residencia permanente
+- Opciones migratorias futuras según perfil y reglas vigentes
 - Sociedad inclusiva y segura
 - Costos menores que Australia
 - Experiencia única "off the beaten path"

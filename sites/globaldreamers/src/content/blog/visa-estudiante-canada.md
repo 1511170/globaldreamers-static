@@ -304,10 +304,8 @@ Recibirás carta explicando razones comunes:
 
 ### ¿Puedo trabajar con el permiso de estudio?
 
-**Sí:**
-- 20 horas/semana durante clases
-- Tiempo completo durante vacaciones
-- En campus sin restricciones
+Depende del tipo de programa y condiciones de la visa aprobada.  
+En cursos de idioma no se promociona permiso laboral; en educación superior puede existir autorización conforme a normativa vigente.
 
 ### ¿Qué pasa si cambio de programa?
 

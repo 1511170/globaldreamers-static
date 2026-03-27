@@ -15,7 +15,7 @@ Estudiar en el **Reino Unido** representa una de las inversiones educativas más
 
 El costo total estimado varía entre **£25,000 y £45,000 GBP anuales**, dependiendo de tu programa, ciudad y estilo de vida. Aunque Londres es significativamente más cara, ciudades como **Manchester, Birmingham o Glasgow** ofrecen la misma calidad educativa a precios más accesibles.
 
-> 💰 **Tip:** Con trabajo de estudiante (20h/semana) puedes cubrir entre £8,000-£15,000 GBP/año de tus gastos.
+> 💰 **Tip:** Solo si tu programa y visa lo permiten, los ingresos de estudiante pueden ayudar a cubrir parte de tus gastos.
 
 ---
 
@@ -247,7 +247,7 @@ TOTAL ANUAL:                  £29,189 GBP
 ### 💼 Trabajo de Estudiante
 
 **Límites:**
-- 20 horas semanales durante períodos de clase
+- Solo en los casos permitidos por programa y visa aprobada
 - Tiempo completo durante vacaciones oficiales (Navidad, Pascua, verano)
 
 **Salarios por sector:**
@@ -261,12 +261,12 @@ TOTAL ANUAL:                  £29,189 GBP
 | **Tutoría** | £15.00 - £25.00 |
 | **Internships** | £12.00 - £20.00 |
 
-**Ingreso potencial anual (20h/semana):**
+**Ingreso potencial anual (si aplica permiso laboral):**
 
 | Escenario | Horas/Semana | Ingreso Anual |
 |-----------|--------------|---------------|
 | **Mínimo** | 10h | £5,000 - £6,500 |
-| **Moderado** | 20h | £10,000 - £13,000 |
+| **Moderado** | Según visa | £10,000 - £13,000 |
 | **Verano full-time** | 40h × 3 meses | £5,000 - £6,500 |
 
 > 💡 **Nota:** El salario mínimo nacional (National Living Wage) es £11.44/hora para mayores de 21 años.
@@ -285,7 +285,7 @@ TOTAL ANUAL:                  £29,189 GBP
 | 16-25 Railcard | £200 - £500 |
 | Student discounts (UNiDAYS, Totum) | £300 - £800 |
 | Comprar libros usados | £200 - £400 |
-| Trabajar 20h/semana | £10,000 - £13,000 |
+| Ingreso potencial (si aplica permiso laboral) | £10,000 - £13,000 |
 
 ### 🎓 Becas Disponibles
 
@@ -394,9 +394,9 @@ Más:
 
 | Destino | Costo Total | Trabajo | Post-Grado |
 |---------|-------------|---------|------------|
-| **UK** | £££ | 20h/semana | 2 años (Graduate Route) |
+| **UK** | £££ | Depende de programa y visa | 2 años (Graduate Route) |
 | **Australia** | £££ | 48h/quincena | 2-4 años |
-| **Canadá** | ££ | 20h/semana | 1-3 años (PGWP) |
+| **Canadá** | ££ | Depende de programa y visa | 1-3 años (PGWP) |
 | **Irlanda** | ££ | 20h/semana | 2 años (Stay Back) |
 | **USA** | ££££ | Campus only | 1 año (OPT) |
 

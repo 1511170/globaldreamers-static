@@ -279,8 +279,8 @@ TOTAL ANUAL:                  $53,900 AUD
 | Destino | Costo Total | Trabajo | Post-Grado |
 |---------|-------------|---------|------------|
 | **Australia** | $$ | 48h/quincena | 2-4 años |
-| **Canadá** | $$ | 20h/semana | 1-3 años |
-| **UK** | $$ | 20h/semana | 2 años |
+| **Canadá** | $$ | Depende de programa y visa | 1-3 años |
+| **UK** | $$ | Depende de programa y visa | 2 años |
 | **USA** | $$$ | Campus only | OPT 1 año |
 
 ---

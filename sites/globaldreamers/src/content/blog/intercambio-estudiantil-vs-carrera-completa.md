@@ -105,9 +105,9 @@ Realizar todo tu programa de pregrado (bachelor's degree) en una universidad ext
 
 | País | Duración | Costo total | Work rights |
 |------|----------|-------------|-------------|
-| **Canadá** | 4 años | $80,000-160,000 CAD | 20h/semana |
+| **Canadá** | 4 años | $80,000-160,000 CAD | Depende de programa y visa |
 | **USA** | 4 años | $150,000-300,000+ USD | Campus only (F-1) |
-| **UK** | 3 años | £60,000-90,000 GBP | 20h/semana |
+| **UK** | 3 años | £60,000-90,000 GBP | Depende de programa y visa |
 | **Australia** | 3-4 años | $90,000-150,000 AUD | 48h/quincena |
 | **Alemania** | 3-4 años | €0-20,000 EUR (pública) | 120 días/año |
 
@@ -124,14 +124,14 @@ Realizar todo tu programa de pregrado (bachelor's degree) en una universidad ext
 - Red profesional local profunda
 
 ✅ **Work rights durante estudios**
-- Ingresos parciales (20h/semana)
+- Ingresos parciales (si aplica permiso laboral)
 - Experiencia laboral internacional
 - Construcción de CV desde año 1
 
 ✅ **Post-graduation work**
 - Permisos de 1-4 años según país
 - Experiencia profesional completa
-- Path a residencia permanente
+- Opciones migratorias posteriores según perfil y normativa vigente
 
 ✅ **Independencia completa**
 - Madurez acelerada
@@ -316,9 +316,9 @@ Realísticamente:
 
 | País | Trabajo permitido | Puede cubrir |
 |------|------------------|--------------|
-| Canadá | 20h/semana | 30-40% de gastos |
+| Canadá | Depende de programa y visa | 30-40% de gastos |
 | Australia | 48h/quincena | 50-70% de gastos |
-| UK | 20h/semana | 20-30% de gastos |
+| UK | Depende de programa y visa | 20-30% de gastos |
 | USA | Campus only | 10-20% de gastos |
 
 **Conclusión:** El trabajo complementa pero no sustituye fondos iniciales.

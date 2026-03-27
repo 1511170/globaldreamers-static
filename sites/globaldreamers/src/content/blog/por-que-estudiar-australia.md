@@ -97,7 +97,7 @@ Australia ofrece uno de los permisos de trabajo más flexibles:
 - 🎓 **Temporary Graduate Visa (485)**
 - 2-4 años de trabajo legal
 - Abierto (cualquier empleador)
-- Ruta a residencia permanente
+- Opciones migratorias a largo plazo según normativa vigente
 
 > 💡 **Dato:** Muchos estudiantes cubren entre 50-70% de sus gastos de vida trabajando.
 
@@ -206,7 +206,7 @@ Australia valora a sus graduados internacionales:
 1. Estudia en Australia
 2. Obtén visa 485 (2-4 años trabajo)
 3. Trabaja en campo relacionado
-4. Aplica a residencia permanente
+4. Evalúa opciones migratorias según tu perfil
 
 **Programas de puntos:**
 - Puntos extra por educación australiana
@@ -322,13 +322,13 @@ Australia tiene una de las economías más estables:
 - Salario post-grado: $60,000 - $90,000/año
 - Experiencia internacional invaluable
 - Red profesional global
-- Posible residencia permanente
+- Posibles opciones migratorias futuras
 
 ---
 
 ## Testimonios
 
-> "Australia cambió mi perspectiva de vida. Estudié, trabajé en una empresa increíble y ahora estoy aplicando a residencia permanente." — María, Colombia
+> "Australia cambió mi perspectiva de vida. Estudié, trabajé en una empresa increíble y hoy tengo un plan profesional y migratorio más claro." — María, Colombia
 
 > "El balance entre estudio, trabajo y playa es perfecto. Nunca pensé que estudiar pudiera ser tan disfrutable." — Carlos, México
 

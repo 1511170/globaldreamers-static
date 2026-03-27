@@ -352,11 +352,8 @@ La duración depende de tu programa:
 
 ### ¿Puedo trabajar con Student Route Visa?
 
-**Sí:**
-- 20 horas semanales durante período de estudios
-- Tiempo completo durante vacaciones oficiales
-- No puedes ser self-employed o freelancer
-- No puedes trabajar como profesional deportista o entertainer
+Depende del tipo de programa y visa aprobada.  
+En cursos de idioma no se promociona permiso laboral; en educación superior puede aplicar autorización bajo condiciones oficiales.
 
 ### ¿Puedo llevar a mi familia?
 

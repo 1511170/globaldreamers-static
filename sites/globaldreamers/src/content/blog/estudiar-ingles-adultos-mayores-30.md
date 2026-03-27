@@ -202,7 +202,7 @@ Combina inglés con desarrollo en tu área específica.
 | **Irlanda** | Stamp 2 | 8 meses | ✅ 20h/semana |
 | **Malta** | Schengen C | 90 días | ❌ No |
 | | National D | >90 días | ⚠️ Limitado |
-| **Canadá** | Study permit | Duración curso + 90 días | ✅ 20h/semana |
+| **Canadá** | Study permit | Duración curso + 90 días | ⚠️ Depende de programa y visa |
 | **Australia** | Subclass 500 | Duración curso | ✅ 48h/quincena |
 | **USA** | F-1 (academic) | Duración programa | ✅ Campus solo |
 | | B-1/B-2 (turista) | 6 meses | ❌ No |
@@ -373,7 +373,7 @@ Comparativa:
 |---------|-------------------|---------------|
 | Irlanda | Sí, 20h/semana | Con Stamp 2 |
 | Australia | Sí, 48h/quincena | Con visa de estudiante |
-| Canadá | Sí, 20h/semana | Con study permit |
+| Canadá | Depende de programa y visa | Con estudio superior y condiciones vigentes |
 | UK | Generalmente no | Short-term study |
 | Malta | Limitado | Depende de visa |
 

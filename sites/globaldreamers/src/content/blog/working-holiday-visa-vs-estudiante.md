@@ -103,10 +103,10 @@ La visa de estudiante te permite residir en otro país principalmente para estud
 - Títulos, certificados, diplomas con valor académico
 - Mejora profesional tangible
 
-✅ **Path a residencia**
+✅ **Opciones migratorias a largo plazo**
 - Post-study work visas (2-4 años)
 - Puntos extra para inmigración en muchos países
-- Posibilidad de residencia permanente
+- Posibles rutas migratorias según perfil y normativa vigente
 
 ✅ **Sin límite de edad**
 - Desde 16 hasta sin límite superior
@@ -174,7 +174,7 @@ La visa de estudiante te permite residir en otro país principalmente para estud
 | Aspecto | WHV | Estudiante |
 |---------|-----|------------|
 | **Post-visa work rights** | Ninguno o muy limitados | 2-4 años típicamente |
-| **Path to PR** | Casi ninguno | Fuerte en Canadá, Australia, NZ |
+| **Opciones migratorias** | Limitadas | Más amplias según país, perfil y normativa vigente |
 | **Puntos educación** | 0 | Significativos |
 | **Experiencia local** | Cuenta poco | Cuenta mucho |
 
@@ -200,7 +200,7 @@ La visa de estudiante te permite residir en otro país principalmente para estud
 | Tu situación | Por qué Estudiante es mejor |
 |--------------|----------------------------|
 | Buscas crecimiento profesional | Valor académico y networking |
-| Quieres inmigrar permanentemente | Path más claro a residencia |
+| Quieres explorar opciones migratorias a largo plazo | Mayor estructura académica y profesional |
 | Necesitas cambiar de carrera | Re-entrenamiento formal |
 | Tienes +30 años | WHV no es opción |
 | Buscar retorno de inversión | Incremento salarial futuro |
@@ -223,7 +223,7 @@ Algunos países permiten estrategias secuenciales:
 
 1. **Estudiante:** 1-2 años de programa con co-op
 2. **PGWP:** 3 años de trabajo post-graduación
-3. **PR:** Aplicación a residencia permanente
+3. **Opciones migratorias:** Evaluación de rutas según perfil y reglas vigentes
 
 ### Estrategia Nueva Zelanda
 

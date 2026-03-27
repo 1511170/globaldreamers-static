@@ -116,9 +116,9 @@ Elegir el país donde estudiar es una de las **decisiones más importantes** de 
 | País | Horas/Semana | Salario Promedio | Facilidad |
 |------|--------------|------------------|-----------|
 | **Australia** | 48h/2 semanas | €18-25/hora | ⭐⭐⭐⭐⭐ |
-| **Canadá** | 20h | €12-18/hora | ⭐⭐⭐⭐⭐ |
+| **Canadá** | Depende de programa y visa | €12-18/hora | ⭐⭐⭐⭐⭐ |
 | **Irlanda** | 20h | €12-15/hora | ⭐⭐⭐⭐⭐ |
-| **UK** | 20h | €10-15/hora | ⭐⭐⭐⭐ |
+| **UK** | Depende de programa y visa | €10-15/hora | ⭐⭐⭐⭐ |
 | **Alemania** | 20h | €12-15/hora | ⭐⭐⭐⭐ |
 
 **Mejores para quedarse después:**

@@ -261,8 +261,8 @@ TOTAL ANUAL:                  $50,100 NZD
 | **Nueva Zelanda** | $30,000-$35,000 | 20h/semana |
 | **Australia** | $40,000-$60,000 | 48h/quincena |
 | **USA** | $45,000-$80,000 | Limitado |
-| **UK** | $35,000-$50,000 | 20h/semana |
-| **Canadá** | $30,000-$50,000 | 20h/semana |
+| **UK** | $35,000-$50,000 | Depende de programa y visa |
+| **Canadá** | $30,000-$50,000 | Depende de programa y visa |
 
 ---
 

@@ -11,28 +11,27 @@ published: true
 
 ## Introducción
 
-Una de las mayores ventajas de estudiar en el **Reino Unido** es la posibilidad de **trabajar legalmente** durante tus estudios y, lo más importante, la oportunidad de quedarte a trabajar **2 años después de graduarte** con la **Graduate Route Visa**.
+Para Reino Unido es clave separar escenarios: en **cursos de idioma** no se debe promocionar permiso laboral; en **educación superior** puede aplicar autorización según visa y condiciones vigentes.
 
 Con el **National Living Wage** aumentando consistentemente y una economía fuerte, muchos estudiantes logran **cubrir parte significativa de sus gastos de vida** mientras ganan experiencia laboral invaluable en uno de los mercados más competitivos del mundo.
 
-En esta guía te contamos **todo lo que necesitas saber** sobre trabajar en UK como estudiante internacional.
+En esta guía te explicamos cuándo sí aplica y cuándo no, para que tomes una decisión informada antes de iniciar tu proceso.
 
 > 💡 **Dato:** El **National Living Wage** para mayores de 21 años es **£11.44/hora** (2026).
 
 ---
 
-## Permisos de Trabajo
+## Permiso laboral en UK (según programa y visa)
 
 ### 📋 ¿Necesitas Permiso Adicional?
 
-**NO.** Tu **Student Route Visa** ya incluye permiso de trabajo automáticamente.
+Depende del tipo de programa y de la visa aprobada.
 
-**Condiciones de trabajo:**
-- ✅ 20 horas semanales durante períodos de clase
-- ✅ Tiempo completo durante vacaciones oficiales
-- ✅ Comienzas cuando inicia tu curso
+**Condiciones generales:**
+- En cursos de idioma no se promociona permiso laboral.
+- En educación superior puede aplicar autorización bajo condiciones de visa.
 
-> ⚠️ **Importante:** El límite de 20 horas es estricto. Excederlo puede resultar en cancelación de visa.
+> ⚠️ **Importante:** Incumplir las condiciones de tu visa puede causar sanciones migratorias.
 
 ---
 
@@ -42,7 +41,7 @@ En esta guía te contamos **todo lo que necesitas saber** sobre trabajar en UK c
 
 | Período | Horas Permitidas |
 |---------|------------------|
-| **Durante clases** | 20 horas por semana |
+| **Durante clases** | Según condiciones de visa y programa |
 | **Vacaciones** | Sin límite (hasta 40-48h/semana) |
 | **Después de graduarte** | Graduate Route: sin límite |
 
@@ -165,8 +164,8 @@ Muchos programas en UK incluyen **placements** (prácticas profesionales):
 - **Industry project:** Proyecto con empresa real
 
 **Regulación para estudiantes internacionales:**
-- Placements obligatorios del curso: generalmente permitidos sin contar para el límite de 20 horas
-- Placements opcionales: cuentan para las 20 horas semanales
+- Placements obligatorios del curso: revisar siempre condiciones exactas de visa
+- Placements opcionales: dependen de autorización y reglas de tu programa
 - Siempre verifica con tu universidad el status de tu placement
 
 **Ventajas de placements:**
@@ -184,11 +183,11 @@ Muchos programas en UK incluyen **placements** (prácticas profesionales):
 | Escenario | Horas/Semana | Ingreso Semanal | Ingreso Anual |
 |-----------|--------------|-----------------|---------------|
 | **Conservador** | 10h | £110 - £130 | £4,000 - £5,000 |
-| **Moderado** | 20h | £220 - £260 | £8,000 - £10,000 |
+| **Moderado** | Según visa | £220 - £260 | £8,000 - £10,000 |
 | **Verano full-time** | 40h × 3 meses | £440 - £520 | £5,500 - £6,500 |
 
 **Ejemplo realista (estudiante en Manchester):**
-- 20h/semana × 36 semanas = £7,500 - £9,000
+- Escenario parcial durante clases (si aplica según visa/programa)
 - 40h/semana × 12 semanas (verano) = £5,000 - £6,000
 - **Total anual: ~£12,500 - £15,000 GBP**
 
@@ -432,7 +431,7 @@ Si pagaste impuestos pero ganaste menos de £12,570:
 
 **NO.** Debes esperar a la fecha de inicio indicada en tu CAS.
 
-### ¿Qué pasa si trabajo más de 20 horas?
+### ¿Qué pasa si trabajo fuera de lo permitido por mi visa?
 
 Es violación de visa. Puede resultar en:
 - Cancelación de visa
@@ -456,7 +455,7 @@ Para **Graduate Route**, tampoco hay restricción de campo.
 ### ¿Puedo hacer internships durante estudios?
 
 **Sí:**
-- Deben contar para el límite de 20 horas/semana si son pagadas
+- Deben cumplir las condiciones de tu visa si son pagadas
 - Internships no pagadas: no cuentan para el límite
 - Placements obligatorios del curso: generalmente permitidos
 

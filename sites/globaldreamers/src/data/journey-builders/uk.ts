@@ -10,9 +10,9 @@ export const ukData: JourneyBuilderData = {
   whatsappNumber: '61449159849',
   
   workPermit: {
-    hoursPerWeek: 20,
-    notes: '20 horas/semana durante término, full-time en vacaciones',
-    includedInVisa: true,
+    hoursPerWeek: 0,
+    notes: 'En Reino Unido el permiso laboral depende del programa y la visa. En cursos de idioma hay restricciones relevantes; en educación superior puede aplicar bajo condiciones.',
+    includedInVisa: false,
     vacationFullTime: true
   },
   

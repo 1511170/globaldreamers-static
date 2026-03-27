@@ -15,7 +15,7 @@ Imagina caminar por los mismos pasillos donde estudiaron **Oscar Wilde, Stephen 
 
 Con un legado académico de más de **800 años**, UK es sinónimo de excelencia educativa. Sus universidades —Oxford, Cambridge, Imperial, LSE, UCL— son marcas que abren puertas en cualquier rincón del mundo.
 
-Pero UK no solo ofrece historia. Ofrece **oportunidad**: la **Graduate Route Visa**, que te permite trabajar 2 años post-grado sin necesidad de patrocinador. Es la combinación perfecta de educación de élite y experiencia laboral internacional.
+Pero UK no solo ofrece historia. También ofrece oportunidad en **educación superior**: la **Graduate Route Visa**, que permite trabajar post-grado bajo condiciones vigentes. Es una combinación potente de educación de élite y proyección profesional.
 
 > 🎓 **Dato:** 4 de las top 10 universidades del mundo están en el Reino Unido.
 

@@ -43,7 +43,7 @@ La **Visa Tipo D (Visto per Studio)** es tu pasaporte para estudiar en Italia, p
 - Trabajar más de 20 horas/semana
 - Estudiar en instituciones no reconocidas
 - Acceder a beneficios sociales sin contribuir
-- Establecer residencia permanente directamente
+- Asumir estatus migratorio permanente sin cumplir requisitos oficiales
 
 ---
 
