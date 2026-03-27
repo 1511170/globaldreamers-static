@@ -11,7 +11,7 @@ export const canadaData: JourneyBuilderData = {
   
   workPermit: {
     hoursPerWeek: 0,
-    notes: 'En Canadá el permiso laboral depende del tipo de programa. En cursos de idioma no se promociona trabajo; en educación superior puede aplicar según visa vigente.',
+    notes: 'En Canadá NO se permite trabajar estudiando solo idioma. El permiso laboral aplica únicamente para educación superior (College/University) con Study Permit. Siempre verifica las condiciones específicas de tu visa.',
     includedInVisa: false,
     vacationFullTime: true
   },
@@ -100,10 +100,10 @@ export const canadaData: JourneyBuilderData = {
     {
       id: 'work-permit',
       name: 'Permiso de Trabajo',
-      description: 'Incluido en Study Permit',
+      description: 'Incluido en Study Permit (solo educación superior)',
       icon: 'payments',
       cost: 0,
-      included: true
+      included: false
     },
     {
       id: 'pgwp',
@@ -111,22 +111,6 @@ export const canadaData: JourneyBuilderData = {
       description: 'Trabaja hasta 3 años post-graduación',
       icon: 'badge',
       cost: 0,
-      included: false
-    },
-    {
-      id: 'homestay',
-      name: 'Alojamiento Familiar',
-      description: 'Vive con familia canadiense',
-      icon: 'home',
-      cost: (duration) => duration * 4.33 * 280,
-      included: false
-    },
-    {
-      id: 'airport-pickup',
-      name: 'Recogida Aeropuerto',
-      description: 'Te recibimos en YYZ/YVR/etc',
-      icon: 'flight_land',
-      cost: 100,
       included: false
     }
   ],

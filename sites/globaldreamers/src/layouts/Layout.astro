@@ -51,6 +51,8 @@ const {
 const siteName = siteConfig.site.name;
 const siteUrl = `https://${siteConfig.site.domain}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const faviconHref = siteConfig.site.favicon;
+const faviconType = faviconHref?.endsWith('.svg') ? 'image/svg+xml' : 'image/x-icon';
 
 // Organization data para Schema.org
 const organizationData = {
@@ -140,8 +142,8 @@ const finalSchemaData = {
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
     <!-- Favicon -->
-    {siteConfig.site.favicon && (
-      <link rel="icon" type="image/x-icon" href={siteConfig.site.favicon} />
+    {faviconHref && (
+      <link rel="icon" type={faviconType} href={faviconHref} />
     )}
 
     <!-- GSAP for Premium Animations -->

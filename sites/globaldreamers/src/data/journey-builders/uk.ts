@@ -11,7 +11,7 @@ export const ukData: JourneyBuilderData = {
   
   workPermit: {
     hoursPerWeek: 0,
-    notes: 'En Reino Unido el permiso laboral depende del programa y la visa. En cursos de idioma hay restricciones relevantes; en educación superior puede aplicar bajo condiciones.',
+    notes: 'En Reino Unido NO se permite trabajar estudiando solo idioma (Short-term Study Route). El permiso laboral aplica únicamente para educación superior (University) con Student Route visa. Siempre verifica las condiciones específicas de tu visa.',
     includedInVisa: false,
     vacationFullTime: true
   },
@@ -99,10 +99,10 @@ export const ukData: JourneyBuilderData = {
     {
       id: 'work-permit',
       name: 'Permiso de Trabajo',
-      description: 'Incluido en Student Visa',
+      description: 'Incluido en Student Visa (solo educación superior)',
       icon: 'payments',
       cost: 0,
-      included: true
+      included: false
     },
     {
       id: 'ihs',
@@ -110,22 +110,6 @@ export const ukData: JourneyBuilderData = {
       description: 'Acceso NHS - requerido por cada año',
       icon: 'medical_services',
       cost: 776,
-      included: false
-    },
-    {
-      id: 'homestay',
-      name: 'Alojamiento',
-      description: 'Habitación en shared house',
-      icon: 'home',
-      cost: (duration) => duration * 4.33 * 200,
-      included: false
-    },
-    {
-      id: 'airport-pickup',
-      name: 'Recogida Aeropuerto',
-      description: 'LHR/LGW/MAN/etc',
-      icon: 'flight_land',
-      cost: 80,
       included: false
     }
   ],

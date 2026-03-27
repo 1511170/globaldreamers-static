@@ -579,9 +579,7 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
     ],
     addons: [
       { id: 'work-permit', name: 'Permiso laboral (solo educación superior)', cost: 0, included: false },
-      { id: 'pgwp', name: 'PGWP (Post-Graduation Work Permit)', cost: 0, included: false },
-      { id: 'homestay', name: 'Alojamiento Familiar', cost: (d) => d * 4.33 * 280 },
-      { id: 'airport-pickup', name: 'Recogida Aeropuerto', cost: 100 }
+      { id: 'pgwp', name: 'PGWP (Post-Graduation Work Permit)', cost: 0, included: false }
     ],
     visaFactors: {
       age: { '18-24': 25, '25-30': 20, '31-35': 15, '36-40': 10, '40+': 5 },
@@ -679,6 +677,30 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
     updateCalculations();
   });
 
+  function updateAddonVisibility() {
+    const isHigherEd = state.selectedCourse === 'college-co-op' || state.selectedCourse === 'university';
+    const workPermitAddon = document.querySelector('[data-addon="work-permit"]');
+    const pgwpAddon = document.querySelector('[data-addon="pgwp"]');
+
+    if (workPermitAddon) {
+      workPermitAddon.style.display = isHigherEd ? 'flex' : 'none';
+      // Si el addon estaba seleccionado y el curso cambia a no elegible, removerlo
+      if (!isHigherEd && state.selectedAddons.includes('work-permit')) {
+        state.selectedAddons = state.selectedAddons.filter(id => id !== 'work-permit');
+        workPermitAddon.classList.remove('active');
+      }
+    }
+
+    if (pgwpAddon) {
+      pgwpAddon.style.display = isHigherEd ? 'flex' : 'none';
+      // Si el addon estaba seleccionado y el curso cambia a no elegible, removerlo
+      if (!isHigherEd && state.selectedAddons.includes('pgwp')) {
+        state.selectedAddons = state.selectedAddons.filter(id => id !== 'pgwp');
+        pgwpAddon.classList.remove('active');
+      }
+    }
+  }
+
   document.querySelectorAll('.course-option').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.course-option').forEach(b => b.classList.remove('selected'));
@@ -686,6 +708,7 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
       state.selectedCourse = btn.dataset.course;
       validateStep();
       updateCalculations();
+      updateAddonVisibility();
     });
   });
 
@@ -847,8 +870,9 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
     }
     updateCircles(visaProb);
     
-    // Show PGWP notice if applicable
-    const pgwpDuration = getPGWPDuration(state.duration);
+    // Show PGWP notice if applicable (solo para educación superior)
+    const isHigherEd = state.selectedCourse === 'college-co-op' || state.selectedCourse === 'university';
+    const pgwpDuration = isHigherEd ? getPGWPDuration(state.duration) : null;
     const pgwpNotice = document.getElementById('pgwp-notice');
     if (pgwpDuration && pgwpNotice) {
       pgwpNotice.classList.remove('hidden');
@@ -882,4 +906,5 @@ const { cities, courses, addons, visaCosts, visaFactors, currency, currencySymbo
   // Initialize
   validateStep();
   updateCalculations();
+  updateAddonVisibility();
 </script>

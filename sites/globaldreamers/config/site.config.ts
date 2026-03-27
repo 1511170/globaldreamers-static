@@ -39,7 +39,7 @@ export default {
     description: 'Agencia de estudios internacionales dedicada a hacer realidad tus sueños de vivir y trabajar en el exterior.',
     language: 'es',
     logo: '/logo.svg',
-    favicon: '/favicon.ico'
+    favicon: '/favicon.svg'
   },
   cms: {
     enabled: true,
