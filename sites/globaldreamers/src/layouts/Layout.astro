@@ -99,6 +99,14 @@ const finalSchemaData = {
   ...websiteData,
   ...schemaData,
 };
+
+const analytics = siteConfig.analytics;
+const ga4Id = analytics?.ga4MeasurementId?.trim() ?? '';
+const hasGa4Config = ga4Id.startsWith('G-');
+const googleAdsId = analytics?.googleAdsId ?? 'AW-18002682558';
+const conversionSendTo =
+  analytics?.googleAdsConversionSendTo ?? `${googleAdsId}/r3P3CKnlv5AcEL7FrIhD`;
+const gtagJsId = hasGa4Config ? ga4Id : googleAdsId;
 ---
 
 <!DOCTYPE html>
@@ -216,20 +224,18 @@ const finalSchemaData = {
       })();
     </script>
     
-    <!-- Google Analytics 4 - gtag.js (reemplazar GA_ID con tu ID real) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script is:inline>
+    <!-- Google tag (gtag.js): GA4 + Google Ads (un solo snippet; AW según guía de Google) -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gtagJsId}`}></script>
+    <script is:inline define:vars={{ hasGa4Config, ga4Id, googleAdsId }}>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        send_page_view: true,
-        page_type: window.gdTracking?.pageType || 'general',
-        custom_map: {
-          'custom_parameter_1': 'page_type',
-          'custom_parameter_2': 'destination_country'
-        }
-      });
+      if (hasGa4Config) {
+        gtag('config', ga4Id);
+      }
+      gtag('config', googleAdsId);
     </script>
     
     <!-- Atributos de tracking en body -->
@@ -243,6 +249,59 @@ const finalSchemaData = {
   <body class="bg-white font-display text-slate-900 antialiased">
     <slot />
     <WhatsAppFloat />
+
+    <!-- Google Ads: conversión en clics a WhatsApp (wa.me). data-no-ads-conversion en el <a> para excluir. -->
+    <script is:inline define:vars={{ conversionSendTo }}>
+      (function () {
+        var SEND_TO = conversionSendTo;
+        var FALLBACK_MS = 2000;
+        function isWhatsAppHref(href) {
+          if (!href || href === '#' || href.indexOf('javascript:') === 0) return false;
+          try {
+            var u = new URL(href, window.location.href);
+            return u.hostname === 'wa.me' || u.hostname === 'api.whatsapp.com';
+          } catch (e) {
+            return false;
+          }
+        }
+        document.addEventListener(
+          'click',
+          function (e) {
+            if (e.button !== 0) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            var t = e.target;
+            if (!t || !t.closest) return;
+            var a = t.closest('a[href]');
+            if (!a || !a.getAttribute('href')) return;
+            if (a.hasAttribute('data-no-ads-conversion')) return;
+            if (!isWhatsAppHref(a.href)) return;
+            e.preventDefault();
+            var url = a.href;
+            var opened = false;
+            function openOnce() {
+              if (opened) return;
+              opened = true;
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }
+            var timeoutId = setTimeout(openOnce, FALLBACK_MS);
+            function clearAndOpen() {
+              clearTimeout(timeoutId);
+              openOnce();
+            }
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
+                send_to: SEND_TO,
+                event_callback: clearAndOpen
+              });
+            } else {
+              clearTimeout(timeoutId);
+              openOnce();
+            }
+          },
+          true
+        );
+      })();
+    </script>
     
     <!-- Animaciones Globales -->
     <script src="/scripts/animations.js" is:inline></script>

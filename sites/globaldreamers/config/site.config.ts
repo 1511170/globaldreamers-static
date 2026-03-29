@@ -30,6 +30,14 @@ export interface SiteConfig {
   skills: {
     // Skills activas se leen de skills-active.json
   };
+  analytics?: {
+    /** GA4 Measurement ID (G-xxxxxxxx). Vacío = solo Google Ads como cargador gtag. */
+    ga4MeasurementId?: string;
+    /** Google Ads conversion tag ID */
+    googleAdsId?: string;
+    /** Valor send_to de la acción de conversión en Google Ads */
+    googleAdsConversionSendTo?: string;
+  };
 }
 
 export default {
@@ -53,5 +61,10 @@ export default {
     compressHTML: true,
     inlineStylesheets: 'auto'
   },
-  skills: {}
+  skills: {},
+  analytics: {
+    ga4MeasurementId: 'G-DZZEVSKDEG',
+    googleAdsId: 'AW-18002682558',
+    googleAdsConversionSendTo: 'AW-18002682558/r3P3CKnlv5AcEL7FrIhD'
+  }
 } satisfies SiteConfig;
