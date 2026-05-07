@@ -6,7 +6,7 @@ export const newzealandData: JourneyBuilderData = {
   countryCode: 'nz',
   currency: 'NZD',
   currencySymbol: '$',
-  whatsappNumber: '61449159849',
+  whatsappNumber: '',
   
   workPermit: {
     hoursPerWeek: 20,
@@ -72,7 +72,7 @@ export const newzealandData: JourneyBuilderData = {
       id: 'english-general',
       name: 'Inglés General',
       description: 'Mejora tu inglés en el paraíso. Accent neutral kiwi.',
-      baseCostPerMonth: 750,
+      baseCostPerMonth: 1250,
       minDuration: 4,
       maxDuration: 24
     },
@@ -80,7 +80,7 @@ export const newzealandData: JourneyBuilderData = {
       id: 'agriculture',
       name: 'Agricultura & Horticultura',
       description: 'NZ líder mundial en agro. Programas prácticos con trabajo garantizado.',
-      baseCostPerMonth: 900,
+      baseCostPerMonth: 1333,
       minDuration: 6,
       maxDuration: 24,
       popular: true,
@@ -90,7 +90,7 @@ export const newzealandData: JourneyBuilderData = {
       id: 'tourism-hospitality',
       name: 'Turismo & Hotelería',
       description: 'Industria turística de clase mundial con alta empleabilidad.',
-      baseCostPerMonth: 800,
+      baseCostPerMonth: 1250,
       minDuration: 6,
       maxDuration: 24
     },
@@ -98,7 +98,7 @@ export const newzealandData: JourneyBuilderData = {
       id: 'university',
       name: 'Universidad',
       description: 'Grados y Masters con alta calidad académica.',
-      baseCostPerMonth: 2200,
+      baseCostPerMonth: 1667,
       minDuration: 12,
       maxDuration: 48
     }
@@ -140,9 +140,9 @@ export const newzealandData: JourneyBuilderData = {
   ],
   
   visaCosts: {
-    base: 330, // NZD - Fee de aplicación
+    base: 850,
     medical: 200,
-    insurance: 520, // Anual
+    insurance: 520,
     insurancePerMonth: 65
   },
   

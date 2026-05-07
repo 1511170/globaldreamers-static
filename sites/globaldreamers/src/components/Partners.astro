@@ -1,16 +1,16 @@
 ---
 const partners = [
-  'Greenwich English College',
-  'Hawthorn English',
-  'Discover English',
-  'ILSC',
-  'ELSIS',
-  'ECA College',
-  'IKON Institute of Australia',
-  'ALG',
-  'Insight Academy',
-  'English Path',
-  'Atlas Language School',
+  { name: 'Greenwich English College', logo: '/images/partners/logo-greenwich.png', width: 160 },
+  { name: 'Hawthorn English', logo: '/images/partners/logo-hawthorn.svg', width: 140 },
+  { name: 'Discover English', logo: '/images/partners/logo-discover.png', width: 150 },
+  { name: 'ILSC', logo: '/images/partners/logo-ilsc.svg', width: 100 },
+  { name: 'ELSIS', logo: '/images/partners/logo-elsis.png', width: 120 },
+  { name: 'ECA College', logo: '/images/partners/logo-eca.png', width: 130 },
+  { name: 'IKON Institute of Australia', logo: '/images/partners/logo-ikon.png', width: 150 },
+  { name: 'ALG', logo: '/images/partners/logo-alg.svg', width: 120 },
+  { name: 'Insight Academy', logo: '/images/partners/logo-insight.png', width: 160 },
+  { name: 'English Path', logo: '/images/partners/logo-englishpath.png', width: 150 },
+  { name: 'Atlas Language School', logo: '/images/partners/logo-atlas.png', width: 140 },
 ];
 
 const stats = [
@@ -30,8 +30,14 @@ const stats = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {partners.map((partner) => (
-        <div class="flex items-center justify-center rounded-xl border border-gray-200 bg-slate-50 px-4 py-4 text-center">
-          <p class="text-sm font-semibold text-slate-700">{partner}</p>
+        <div class="flex items-center justify-center rounded-xl border border-gray-200 bg-slate-50 px-6 py-6 text-center hover:shadow-sm transition-shadow">
+          <img
+            src={partner.logo}
+            alt={partner.name}
+            class="h-12 w-auto object-contain max-w-full"
+            loading="lazy"
+            style={`max-width: ${partner.width}px;`}
+          />
         </div>
       ))}
     </div>
@@ -39,12 +45,14 @@ const stats = [
     <!-- Certificación ICEF -->
     <div class="flex justify-center pt-4 border-t border-gray-100">
       <div class="flex items-center gap-4 bg-slate-50 px-6 py-4 rounded-xl">
-        <img 
-          src="/images/certification-icef.png" 
-          alt="ICEF Accredited Agency #5642"
-          class="h-16 w-auto"
-          loading="lazy"
-        />
+        <a href="https://www.icef.com/agency/0016M00002eumjPQAQ" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/certification-icef.png"
+            alt="ICEF Accredited Agency #5642"
+            class="h-16 w-auto"
+            loading="lazy"
+          />
+        </a>
         <div class="text-left">
           <p class="text-sm font-bold text-slate-900">ICEF Accredited Agency</p>
           <p class="text-xs text-slate-500">Agencia Certificada #5642</p>

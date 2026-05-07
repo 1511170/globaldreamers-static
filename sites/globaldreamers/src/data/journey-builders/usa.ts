@@ -6,7 +6,7 @@ export const usaData: JourneyBuilderData = {
   countryCode: 'us',
   currency: 'USD',
   currencySymbol: '$',
-  whatsappNumber: '61449159849',
+  whatsappNumber: '',
   
   workPermit: {
     hoursPerWeek: 20,
@@ -84,7 +84,7 @@ export const usaData: JourneyBuilderData = {
       id: 'english-intensive',
       name: 'Inglés Intensivo',
       description: 'Inmersión total en inglés americano.',
-      baseCostPerMonth: 1200,
+    baseCostPerMonth: 1417,
       minDuration: 1,
       maxDuration: 12
     },
@@ -92,7 +92,7 @@ export const usaData: JourneyBuilderData = {
       id: 'stem-degree',
       name: 'STEM Degree (STEM OPT)',
       description: 'Ciencia, Tech, Ingeniería, Matemáticas. OPT extendido a 3 años.',
-      baseCostPerMonth: 2500,
+    baseCostPerMonth: 2083,
       minDuration: 24,
       maxDuration: 48,
       popular: true
@@ -101,7 +101,7 @@ export const usaData: JourneyBuilderData = {
       id: 'mba-business',
       name: 'MBA / Business',
       description: 'Negocios en el país del capitalismo.',
-      baseCostPerMonth: 3000,
+    baseCostPerMonth: 2500,
       minDuration: 12,
       maxDuration: 24
     },
@@ -109,7 +109,7 @@ export const usaData: JourneyBuilderData = {
       id: 'associate-degree',
       name: 'Associate Degree (Community College)',
       description: '2 años más económico, transfer a universidad.',
-      baseCostPerMonth: 800,
+    baseCostPerMonth: 1000,
       minDuration: 24,
       maxDuration: 24
     }
@@ -159,10 +159,10 @@ export const usaData: JourneyBuilderData = {
   ],
   
   visaCosts: {
-    base: 160, // F-1 visa fee
-    sevis: 350, // SEVIS fee
+    base: 350,
+    sevis: 0,
     medical: 0,
-    insurance: 4800 // Muy caro, ~400/mes
+    insurance: 4800
   },
   
   visaFactors: {

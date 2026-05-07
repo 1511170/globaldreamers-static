@@ -520,7 +520,7 @@ Depende de tu comodidad. Si escribes rápido en teclado, computador puede ser ve
       <span class="material-symbols-outlined">calendar_today</span>
       Evaluación gratuita
     </a>
-    <a href="https://wa.me/61449159849?text=Hola%2C%20quiero%20ayuda%20con%20preparaci%C3%B3n%20IELTS" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-brand-600 transition-colors">
+    <a href="/asesoria-gratuita" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-brand-600 transition-colors">
       <span class="material-symbols-outlined">chat</span>
       WhatsApp
     </a>

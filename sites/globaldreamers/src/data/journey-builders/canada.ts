@@ -7,7 +7,7 @@ export const canadaData: JourneyBuilderData = {
   countryCode: 'ca',
   currency: 'CAD',
   currencySymbol: '$',
-  whatsappNumber: '61449159849',
+  whatsappNumber: '',
   
   workPermit: {
     hoursPerWeek: 0,
@@ -72,7 +72,7 @@ export const canadaData: JourneyBuilderData = {
       id: 'english-french',
       name: 'Inglés o Francés',
       description: 'Aprende inglés o francés en un país bilingüe oficialmente.',
-      baseCostPerMonth: 650,
+    baseCostPerMonth: 1333,
       minDuration: 4,
       maxDuration: 24
     },
@@ -80,7 +80,7 @@ export const canadaData: JourneyBuilderData = {
       id: 'college-co-op',
       name: 'College Co-op (Work & Study)',
       description: 'Programas con pasantías pagadas. La mejor opción para ganar experiencia canadiense.',
-      baseCostPerMonth: 1200,
+    baseCostPerMonth: 1875,
       minDuration: 12,
       maxDuration: 36,
       popular: true,
@@ -90,7 +90,7 @@ export const canadaData: JourneyBuilderData = {
       id: 'university',
       name: 'Universidad',
       description: 'Grados y Masters reconocidos mundialmente. Acceso a PGWP.',
-      baseCostPerMonth: 2000,
+    baseCostPerMonth: 1917,
       minDuration: 24,
       maxDuration: 48
     }
@@ -119,7 +119,7 @@ export const canadaData: JourneyBuilderData = {
     base: 150,
     biometrics: 85,
     medical: 150,
-    insurance: 600 // UHIP or provincial wait period
+    insurance: 600
   },
   
   visaFactors: {

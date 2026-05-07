@@ -138,7 +138,7 @@ const breadcrumbs = [
   howToDescription="Guía paso a paso para encontrar el programa académico perfecto para tus metas"
   steps={steps.map(s => ({ name: s.title, text: s.desc }))}
 >
-  <Navbar ctaText="Encontrar mi Curso" />
+ <Navbar />
   
   <main class="flex-1">
     <!-- Hero Section -->
@@ -161,9 +161,7 @@ const breadcrumbs = [
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <a 
-                href="https://wa.me/61449159849?text=Hola%2C%20quiero%20asesoría%20para%20elegir%20mi%20curso%20ideal"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/asesoria-gratuita"
                 class="inline-flex items-center justify-center gap-2 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl"
                 style="background-color: #41c5f3; box-shadow: 0 25px 50px -12px rgba(65, 197, 243, 0.35);"
               >
@@ -340,9 +338,7 @@ const breadcrumbs = [
           <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">Agenda una asesoría gratuita con nuestros especialistas y descubre las mejores opciones académicas para tu perfil.</p>
           <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
             <a 
-              href="https://wa.me/61449159849?text=Hola%2C%20quiero%20asesoría%20para%20elegir%20mi%20curso%20ideal"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/asesoria-gratuita"
               class="inline-flex items-center justify-center gap-2 text-slate-900 px-10 py-5 rounded-xl font-bold text-lg hover:brightness-110 transition-all shadow-lg"
               style="background-color: #41c5f3; box-shadow: 0 10px 15px -3px rgba(65, 197, 243, 0.3);"
             >
@@ -350,13 +346,11 @@ const breadcrumbs = [
               Agendar Asesoría Gratis
             </a>
             <a 
-              href="https://wa.me/61449159849?text=Hola%2C%20tengo%20preguntas%20sobre%20cursos%20en%20el%20extranjero"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/asesoria-gratuita"
               class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all"
             >
-              <span class="material-symbols-outlined">chat</span>
-              Hablar por WhatsApp
+              <span class="material-symbols-outlined">menu_book</span>
+              Leer Guías
             </a>
           </div>
         </div>

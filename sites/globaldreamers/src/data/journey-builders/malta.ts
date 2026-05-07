@@ -6,7 +6,7 @@ export const maltaData: JourneyBuilderData = {
   countryCode: 'mt',
   currency: 'EUR',
   currencySymbol: '€',
-  whatsappNumber: '61449159849',
+  whatsappNumber: '',
   
   workPermit: {
     hoursPerWeek: 20,
@@ -72,7 +72,7 @@ export const maltaData: JourneyBuilderData = {
       id: 'english-intensive',
       name: 'Inglés Intensivo',
       description: 'El programa estrella de Malta. Clases todos los días con profesores nativos.',
-      baseCostPerMonth: 450,
+    baseCostPerMonth: 600,
       minDuration: 2,
       maxDuration: 12
     },
@@ -80,7 +80,7 @@ export const maltaData: JourneyBuilderData = {
       id: 'english-standard',
       name: 'Inglés Standard',
       description: 'Ritmo más relajado para combinar estudio y turismo.',
-      baseCostPerMonth: 350,
+    baseCostPerMonth: 500,
       minDuration: 4,
       maxDuration: 24
     },
@@ -88,7 +88,7 @@ export const maltaData: JourneyBuilderData = {
       id: 'ielts-preparation',
       name: 'Preparación IELTS',
       description: 'Preparación específica para el examen IELTS.',
-      baseCostPerMonth: 500,
+    baseCostPerMonth: 700,
       minDuration: 1,
       maxDuration: 6,
       popular: true
@@ -131,9 +131,9 @@ export const maltaData: JourneyBuilderData = {
   ],
   
   visaCosts: {
-    base: 0, // Sin visa para latinoamericanos (Schengen)
+    base: 100,
     medical: 0,
-    insurance: 300 // Seguro de viaje anual
+    insurance: 300
   },
   
   visaFactors: {

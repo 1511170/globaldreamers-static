@@ -44,7 +44,11 @@ const ICONS = {
 
 const IMG = (id: string) => `https://images.unsplash.com/photo-${id}?w=400&h=400&fit=crop&q=80`;
 
+const inactiveCountries: string[] = [];
+
 export const destinations: DestinationData[] = [
+  // NOTA: Italia, Alemania, Dubái e Irlanda están desactivados temporalmente
+  // según directriz comercial de Global Dreamers (abril 2026)
   // ─── CANADÁ ───────────────────────────────────────────────────────────────
   {
     country: 'canada',
@@ -628,6 +632,6 @@ export const destinations: DestinationData[] = [
     seoDescription: '✅ Estudiar en Australia con visa de estudiante. Trabaja 48hrs/quincena. Asesoría 100% gratis, 99% visas aprobadas. ¡Agenda tu consulta hoy!',
     canonical: '/estudiar-en-australia/',
   },
-];
+].filter(d => !inactiveCountries.includes(d.country));
 
 export const destinationsMap = Object.fromEntries(destinations.map(d => [d.country, d]));

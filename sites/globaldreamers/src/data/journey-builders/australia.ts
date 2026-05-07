@@ -7,7 +7,7 @@ export const australiaData: JourneyBuilderData = {
   countryCode: 'au',
   currency: 'AUD',
   currencySymbol: '$',
-  whatsappNumber: '61449159849',
+  whatsappNumber: '',
   
   workPermit: {
     hoursPerWeek: 24,
@@ -84,7 +84,7 @@ export const australiaData: JourneyBuilderData = {
       id: 'english-general',
       name: 'Inglés General',
       description: 'Perfecciona tu nivel desde principiante hasta avanzado con profesores nativos.',
-      baseCostPerMonth: 800,
+      baseCostPerMonth: 1167,
       minDuration: 3,
       maxDuration: 24,
       visaRequirements: 'Visa de Estudiante (Subclase 500)'
@@ -93,7 +93,7 @@ export const australiaData: JourneyBuilderData = {
       id: 'vet-technical',
       name: 'Cursos VET (Técnicos)',
       description: 'Especialízate mientras trabajas. Programas prácticos con alta empleabilidad.',
-      baseCostPerMonth: 1200,
+      baseCostPerMonth: 1500,
       minDuration: 6,
       maxDuration: 24,
       popular: true,
@@ -146,7 +146,7 @@ export const australiaData: JourneyBuilderData = {
   ],
   
   visaCosts: {
-    base: 710,
+    base: 2000,
     medical: 150,
     insurance: 340,
     insurancePerMonth: 57

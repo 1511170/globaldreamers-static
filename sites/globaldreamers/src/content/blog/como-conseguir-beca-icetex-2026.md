@@ -502,7 +502,7 @@ Depende del programa:
       <span class="material-symbols-outlined">calendar_today</span>
       Asesoría ICETEX gratuita
     </a>
-    <a href="https://wa.me/61449159849?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20ICETEX%20para%202026" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-brand-600 transition-colors">
+    <a href="/asesoria-gratuita" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-brand-600 transition-colors">
       <span class="material-symbols-outlined">chat</span>
       WhatsApp
     </a>

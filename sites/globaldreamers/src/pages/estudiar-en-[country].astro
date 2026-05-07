@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import WhatsAppButton from '../components/WhatsAppButton.astro';
+
 import { destinations } from '../data/destinations';
 import type { DestinationData } from '../data/destinations';
 
@@ -191,7 +191,7 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
               <div class="absolute inset-0 bg-gradient-to-r from-brand-600 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span class="relative flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined">auto_awesome</span>
-                <span>✨ Diseña tu vida en {dest.name} - Calculadora Interactiva</span>
+                <span>✨ Aplica en 3 minutos - Evaluación de Perfil</span>
                 <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </span>
             </a>
@@ -210,19 +210,175 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
       </div>
     </section>
 
-    <!-- Problem/Agitation Section -->
-    <section class="py-24 bg-white">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-slate-900">¿Te Identificas con Esto?</h2>
-        <div class="grid gap-4">
-          {dest.painPoints.map((point) => (
-            <div class="flex items-center justify-between p-6 bg-slate-50 rounded-2xl border border-slate-100">
-              <p class="text-lg font-medium text-slate-800">"{point.title}"</p>
-              <svg class={`w-8 h-8 ${point.colorIcon}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={point.iconPath} />
-              </svg>
+    <!-- Perfiles y Requisitos -->
+    <section class="py-20 px-4 bg-white" x-data="{ activeProfile: 'idioma' }">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">¿Cuál es tu Perfil?</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto text-lg">Selecciona el perfil que más se ajuste a ti y descubre los requisitos esenciales para estudiar en {dest.name}.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+          <button
+            @click="activeProfile = 'idioma'"
+            :class="activeProfile === 'idioma' ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all"
+          >
+            <span class="material-symbols-outlined">translate</span>
+            Curso de Idioma / VET
+          </button>
+          <button
+            @click="activeProfile = 'universitario'"
+            :class="activeProfile === 'universitario' ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all"
+          >
+            <span class="material-symbols-outlined">school</span>
+            Grado / Máster
+          </button>
+          <button
+            @click="activeProfile = 'profesional'"
+            :class="activeProfile === 'profesional' ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all"
+          >
+            <span class="material-symbols-outlined">work</span>
+            Profesional / Especialización
+          </button>
+        </div>
+
+        <!-- Content panels -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-8">
+          <!-- Idioma -->
+          <div x-show="activeProfile === 'idioma'" x-transition>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">cake</span>
+                  <h3 class="font-bold text-slate-900">Edad mínima</h3>
+                </div>
+                <p class="text-slate-600">18+ años</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">language</span>
+                  <h3 class="font-bold text-slate-900">Nivel de idioma</h3>
+                </div>
+                <p class="text-slate-600">Básico a Avanzado (depende del programa)</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                  <h3 class="font-bold text-slate-900">Fondos requeridos</h3>
+                </div>
+                <p class="text-slate-600">{dest.investmentTotal} aproximados (curso + visa + manutención)</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">description</span>
+                  <h3 class="font-bold text-slate-900">Documentos principales</h3>
+                </div>
+                <ul class="text-slate-600 space-y-1 text-sm">
+                  <li>• Pasaporte vigente</li>
+                  <li>• Certificado bancario de fondos</li>
+                  <li>• Carta de aceptación de la institución</li>
+                  <li>• Seguro médico internacional</li>
+                </ul>
+              </div>
             </div>
-          ))}
+          </div>
+
+          <!-- Universitario -->
+          <div x-show="activeProfile === 'universitario'" x-transition style="display: none;">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">cake</span>
+                  <h3 class="font-bold text-slate-900">Edad mínima</h3>
+                </div>
+                <p class="text-slate-600">18+ años</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">language</span>
+                  <h3 class="font-bold text-slate-900">Nivel de idioma</h3>
+                </div>
+                <p class="text-slate-600">IELTS 6.0+ o equivalente (TOEFL, PTE, Cambridge)</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                  <h3 class="font-bold text-slate-900">Fondos requeridos</h3>
+                </div>
+                <p class="text-slate-600">Mayor a cursos de idioma. {dest.investmentTotal} como referencia base.</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">description</span>
+                  <h3 class="font-bold text-slate-900">Documentos principales</h3>
+                </div>
+                <ul class="text-slate-600 space-y-1 text-sm">
+                  <li>• Pasaporte vigente</li>
+                  <li>• Títulos académicos previos (traducidos y apostillados)</li>
+                  <li>• Certificado bancario de fondos ampliados</li>
+                  <li>• Carta de aceptación universitaria</li>
+                  <li>• Certificado de idioma (IELTS/TOEFL)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profesional -->
+          <div x-show="activeProfile === 'profesional'" x-transition style="display: none;">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">cake</span>
+                  <h3 class="font-bold text-slate-900">Edad mínima</h3>
+                </div>
+                <p class="text-slate-600">21+ años</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">work_history</span>
+                  <h3 class="font-bold text-slate-900">Experiencia laboral</h3>
+                </div>
+                <p class="text-slate-600">2+ años de experiencia en el área de especialización</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">language</span>
+                  <h3 class="font-bold text-slate-900">Nivel de idioma</h3>
+                </div>
+                <p class="text-slate-600">Intermedio-Avanzado (IELTS 6.0+ recomendado)</p>
+              </div>
+              <div class="bg-white p-6 rounded-xl border border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">description</span>
+                  <h3 class="font-bold text-slate-900">Documentos principales</h3>
+                </div>
+                <ul class="text-slate-600 space-y-1 text-sm">
+                  <li>• Pasaporte vigente</li>
+                  <li>• CV actualizado en inglés</li>
+                  <li>• Cartas de referencia profesional</li>
+                  <li>• Certificado bancario de fondos</li>
+                  <li>• Carta de aceptación del programa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA dentro de perfiles -->
+        <div class="mt-8 text-center">
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
+          >
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Aplicar Ahora
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <p class="text-sm text-slate-400 mt-3">Evaluación de perfil en 3 minutos · Sin compromiso</p>
         </div>
       </div>
     </section>
@@ -245,6 +401,17 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
             </div>
           ))}
         </div>
+        <div class="mt-10 text-center">
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
+          >
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Aplicar Ahora
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <p class="text-sm text-slate-400 mt-3">Evaluación de perfil en 3 minutos · Sin compromiso</p>
+        </div>
       </div>
     </section>
 
@@ -260,6 +427,17 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
               <p class="text-sm text-slate-500">{benefit.desc}</p>
             </div>
           ))}
+        </div>
+        <div class="mt-10 text-center">
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
+          >
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Aplicar Ahora
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <p class="text-sm text-slate-400 mt-3">Evaluación de perfil en 3 minutos · Sin compromiso</p>
         </div>
       </div>
     </section>
@@ -313,6 +491,17 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
               </ul>
             </div>
           ))}
+        </div>
+        <div class="mt-10 text-center">
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
+          >
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Aplicar Ahora
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <p class="text-sm text-slate-400 mt-3">Evaluación de perfil en 3 minutos · Sin compromiso</p>
         </div>
       </div>
     </section>
@@ -447,6 +636,17 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
           Los precios varían según la escuela, ciudad y duración del curso. 
           Tasas de cambio actualizadas automáticamente desde fuentes oficiales.
         </p>
+        <div class="mt-10 text-center">
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
+          >
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Aplicar Ahora
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <p class="text-sm text-slate-400 mt-3">Evaluación de perfil en 3 minutos · Sin compromiso</p>
+        </div>
       </div>
 
       <script is:inline>
@@ -597,6 +797,17 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
             </details>
           ))}
         </div>
+        <div class="mt-10 text-center">
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all"
+          >
+            <span class="material-symbols-outlined">rocket_launch</span>
+            Aplicar Ahora
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <p class="text-sm text-slate-400 mt-3">Evaluación de perfil en 3 minutos · Sin compromiso</p>
+        </div>
       </div>
     </section>
 
@@ -609,18 +820,14 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
         </h2>
         <p class="text-xl mb-10 opacity-90">{dest.ctaSubtext}</p>
         <div class="flex flex-col items-center gap-4">
-          <WhatsAppButton
-            variant="cta"
-            location={`cta-final-${dest.country}`}
-            message={`Hola, quiero solicitar mi asesoría gratuita para ${dest.name}`}
-            destinationCountry={dest.country}
-            pageType="destination"
-            size="lg"
-            style="outline"
-            className="px-10 py-5 text-xl font-black shadow-2xl"
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-white text-primary px-10 py-5 rounded-xl text-xl font-black shadow-2xl hover:bg-slate-100 transition-all"
           >
-            ¡Solicitar Mi Asesoría GRATIS Ahora!
-          </WhatsAppButton>
+            <span class="material-symbols-outlined">auto_awesome</span>
+            ¡Ir al Planner y Verificar mi Elegibilidad!
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
           <p class="text-sm font-medium opacity-80 flex items-center gap-2">
             <span class="material-symbols-outlined text-sm">schedule</span> 
             Cupos limitados para asesorías esta semana
@@ -628,6 +835,30 @@ const faqsForSchema = dest.faqs.map(f => ({ q: f.q, a: f.a }));
         </div>
       </div>
     </section>
+
+    <!-- Sticky CTA -->
+    <div 
+      x-data="{ show: false }" 
+      x-init="window.addEventListener('scroll', () => { show = window.scrollY > 400 && window.scrollY < document.body.scrollHeight - window.innerHeight - 400 })"
+      class="fixed bottom-4 right-4 z-40 md:bottom-6 md:right-6"
+      x-show="show"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0 translate-y-4"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100 translate-y-0"
+      x-transition:leave-end="opacity-0 translate-y-4"
+      style="display: none;"
+    >
+      <a
+        href={`/estudiar-en-${dest.country}/planner`}
+        class="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:scale-105 transition-all"
+      >
+        <span class="material-symbols-outlined">rocket_launch</span>
+        <span class="hidden sm:inline">Aplicar Ahora</span>
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
   </main>
   
   <Footer />

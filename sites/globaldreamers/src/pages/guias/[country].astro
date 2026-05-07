@@ -1,0 +1,329 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { destinations } from '../../data/destinations';
+
+const plannerCountries = ['canada', 'malta', 'nueva-zelanda', 'australia', 'estados-unidos'];
+
+export function getStaticPaths() {
+  const plannerCountries = ['canada', 'malta', 'nueva-zelanda', 'australia', 'estados-unidos'];
+  return destinations
+    .filter(d => plannerCountries.includes(d.country))
+    .map(dest => ({
+      params: { country: dest.country },
+      props: { dest },
+    }));
+}
+
+const { dest } = Astro.props;
+
+const profileRequirements: Record<string, Array<{profile: string, age: string, education: string, english: string, work: string, funds: string, notes: string}>> = {
+  canada: [
+    { profile: 'Curso de Idioma / VET', age: '18-35 años', education: 'Bachillerato mínimo', english: 'Básico a Avanzado', work: 'No requerida', funds: '$10,318 CAD (6 meses) / $20,635 CAD (12+ meses)', notes: 'Cursos de inglés NO incluyen permiso de trabajo. VET/College sí.' },
+    { profile: 'Grado / Máster', age: '18-40 años', education: 'Carrera universitaria completa', english: 'IELTS 6.0+', work: 'Recomendable 1+ año', funds: '$20,635 CAD mínimo', notes: 'PGWP de 1-3 años post-grado. Permiso de trabajo durante estudios.' },
+    { profile: 'Profesional / Especialización', age: '28-45 años', education: 'Maestría o posgrado', english: 'Intermedio-Avanzado', work: '2+ años experiencia', funds: '$20,635 CAD mínimo', notes: 'Mayores de 36 requieren maestría. PGWP disponible según programa.' },
+  ],
+  malta: [
+    { profile: 'Curso de Idioma / VET', age: '18+ años', education: 'Bachillerato mínimo', english: 'Básico a Avanzado', work: 'No requerida', funds: '€8,100 (6 meses) / €16,000 (12+ meses)', notes: 'Puedes trabajar 20hrs/semana desde el inicio.' },
+    { profile: 'Grado / Máster', age: '18+ años', education: 'Carrera universitaria completa', english: 'IELTS 5.5+', work: 'Recomendable', funds: '€16,000 mínimo', notes: 'Inglés oficial del país. Acceso a 26 países Schengen.' },
+    { profile: 'Profesional / Especialización', age: '21+ años', education: 'Carrera + experiencia', english: 'Intermedio-Avanzado', work: '2+ años experiencia', funds: '€16,000 mínimo', notes: 'Malta es flexible pero requiere fondos demostrables.' },
+  ],
+  'nueva-zelanda': [
+    { profile: 'Curso de Idioma / VET', age: '18-35 años', education: 'Bachillerato mínimo', english: 'Básico a Avanzado', work: 'No requerida', funds: '$10,000 NZD (6 meses) / $20,000 NZD (12+ meses)', notes: 'Post-study work disponible para programas elegibles.' },
+    { profile: 'Grado / Máster', age: '18-40 años', education: 'Carrera universitaria completa', english: 'IELTS 6.0+', work: 'Recomendable 1+ año', funds: '$20,000 NZD mínimo', notes: 'Student Visa permite 20hrs/semana. Post-study work 1-3 años.' },
+    { profile: 'Profesional / Especialización', age: '28-45 años', education: 'Maestría o posgrado', english: 'Intermedio-Avanzado', work: '2+ años experiencia', funds: '$20,000 NZD mínimo', notes: 'Mayores de 36 requieren maestría. Rutas migratorias posibles post-estudio.' },
+  ],
+  australia: [
+    { profile: 'Curso de Idioma / VET', age: '18-35 años', education: 'Bachillerato mínimo', english: 'Básico a Avanzado', work: 'No requerida', funds: '$17,355 AUD (6 meses) / $29,710 AUD (12+ meses)', notes: '48hrs/quincena permitidas. Salario mínimo $23.23 AUD/hr.' },
+    { profile: 'Grado / Máster', age: '18-40 años', education: 'Carrera universitaria completa', english: 'IELTS 6.0+', work: 'Recomendable 1+ año', funds: '$29,710 AUD mínimo', notes: 'Visa 485 post-estudio hasta 4 años. Excelentes opciones migratorias.' },
+    { profile: 'Profesional / Especialización', age: '28-45 años', education: 'Maestría o posgrado', english: 'Intermedio-Avanzado', work: '2+ años experiencia', funds: '$29,710 AUD mínimo', notes: 'Mayores de 36 requieren maestría. Opciones de PR según profesión.' },
+  ],
+  'estados-unidos': [
+    { profile: 'Curso de Idioma / Pathway', age: '18-35 años', education: 'Bachillerato mínimo', english: 'Básico a Avanzado', work: 'No requerida', funds: '$6,000 USD (6 meses) / $12,000 USD (12+ meses)', notes: 'Trabajo en campus 20hrs/semana. CPT disponible después del primer año.' },
+    { profile: 'Grado / Máster', age: '18-40 años', education: 'Carrera universitaria completa', english: 'TOEFL/IELTS requerido', work: 'Recomendable 1+ año', funds: '$12,000 USD mínimo', notes: 'OPT 12 meses post-grado (36 meses STEM). F-1 visa.' },
+    { profile: 'Profesional / Especialización', age: '28-45 años', education: 'Maestría o posgrado', english: 'Intermedio-Avanzado', work: '2+ años experiencia', funds: '$12,000 USD mínimo', notes: 'Mayores de 36 requieren maestría. OPT disponible según programa.' },
+  ],
+};
+
+const tipsByCountry: Record<string, string[]> = {
+  canada: [
+    'Fortalece tu inglés antes de aplicar. Un IELTS 6.0+ abre más puertas.',
+    'Acumula fondos en una cuenta bancaria sólida por al menos 3-6 meses.',
+    'Si tienes más de 35 años, considera una maestría o posgrado.',
+    'Obtén cartas de referencia laboral que demuestren experiencia comprobable.',
+    'Investiga las provincias con menor costo de vida como Calgary o Montreal.',
+  ],
+  malta: [
+    'Malta es muy flexible con la edad, pero requiere fondos demostrables.',
+    'El inglés maltés es de alta calidad, similar al de UK.',
+    'Aprovecha la posición Schengen para viajar por Europa en vacaciones.',
+    'Considera opciones de alojamiento compartido para reducir costos.',
+    'El costo de vida es 40-50% menor que en Londres o Dublín.',
+  ],
+  'nueva-zelanda': [
+    'Nueva Zelanda valora la calidad de vida sobre el lujo. Presupuesta bien.',
+    'Auckland es la más cara; Wellington y Christchurch son más económicas.',
+    'Si tienes más de 35, una maestría mejora significativamente tu perfil.',
+    'Experiencia laboral comprobable es un diferenciador clave.',
+    'El clima es templado; no necesitas ropa de invierno extrema.',
+  ],
+  australia: [
+    'Australia tiene el salario mínimo más alto del mundo para estudiantes.',
+    'Melbourne y Sydney son las más caras; Brisbane y Perth son más accesibles.',
+    'Los cursos VET son económicos y te permiten trabajar desde el día 1.',
+    'Si tienes más de 35, considera una maestría para mejores opciones de visa 485.',
+    'El OSHC (seguro médico) es obligatorio; presupúestalo desde el inicio.',
+  ],
+  'estados-unidos': [
+    'La visa F-1 es exigente; prepara tu entrevista consular con anticipación.',
+    'Miami es ideal para latinos; Boston y NYC para académicos.',
+    'Si tienes más de 35, una maestría es casi obligatoria para aprobación.',
+    'El SEVIS fee ($350 USD) se paga antes de la entrevista consular.',
+    'OPT post-grado es una gran ventaja; considera carreras STEM para 36 meses.',
+  ],
+};
+
+const requirements = profileRequirements[dest.country] || [];
+const tips = tipsByCountry[dest.country] || [];
+---
+
+<Layout
+  title={`Guía de Orientación - ${dest.name} | Global Dreamers`}
+  description={`Guía completa para estudiar en ${dest.name}. Requisitos, costos, ciudades y tips para mejorar tu perfil.`}
+  canonical={`/guias/${dest.country}/`}
+>
+  <div class="min-h-screen bg-slate-100">
+    <!-- Toolbar (hidden when printing) -->
+    <div class="no-print sticky top-0 z-50 bg-white border-b border-slate-200 px-4 py-3">
+      <div class="max-w-3xl mx-auto flex items-center justify-between">
+        <a href={`/estudiar-en-${dest.country}/`} class="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
+          <span class="material-symbols-outlined text-sm">arrow_back</span>
+          Volver a {dest.name}
+        </a>
+        <div class="flex items-center gap-2">
+          <button
+            onclick="window.print()"
+            class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg font-semibold text-sm hover:bg-slate-700 transition-all"
+          >
+            <span class="material-symbols-outlined text-sm">print</span>
+            Guardar como PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guide Content -->
+    <div id="guia-content" class="max-w-3xl mx-auto bg-white shadow-lg print:shadow-none">
+      <!-- Cover -->
+      <div class="bg-slate-900 text-white p-12 text-center print:p-8">
+        <img src="/images/logo-globaldreamers-white.png" alt="Global Dreamers" class="h-12 w-auto mx-auto mb-6" />
+        <h1 class="text-4xl font-black mb-4">Guía de Orientación</h1>
+        <p class="text-2xl font-bold text-primary mb-2">{dest.flag} {dest.name}</p>
+        <p class="text-slate-400">Todo lo que necesitas saber para estudiar en {dest.name}</p>
+        <div class="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
+          <span class="material-symbols-outlined text-sm">calendar_today</span>
+          {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-4">{dest.flag} ¿Por qué {dest.name}?</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">{dest.heroSubtitle}</p>
+        <div class="bg-primary/5 border border-primary/20 rounded-xl p-4">
+          <p class="text-sm text-primary font-semibold flex items-center gap-2">
+            <span class="material-symbols-outlined">info</span>
+            Esta guía es para ti si estás explorando opciones o si tu perfil necesita fortalecerse antes de aplicar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Profiles & Requirements -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-6">📋 Requisitos por Perfil</h2>
+        <div class="space-y-4">
+          {requirements.map((req) => (
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <h3 class="font-bold text-slate-900">{req.profile}</h3>
+              </div>
+              <div class="p-6 grid sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <span class="text-slate-400 font-medium">Edad:</span>
+                  <p class="text-slate-700">{req.age}</p>
+                </div>
+                <div>
+                  <span class="text-slate-400 font-medium">Educación:</span>
+                  <p class="text-slate-700">{req.education}</p>
+                </div>
+                <div>
+                  <span class="text-slate-400 font-medium">Inglés:</span>
+                  <p class="text-slate-700">{req.english}</p>
+                </div>
+                <div>
+                  <span class="text-slate-400 font-medium">Experiencia laboral:</span>
+                  <p class="text-slate-700">{req.work}</p>
+                </div>
+                <div class="sm:col-span-2">
+                  <span class="text-slate-400 font-medium">Fondos requeridos:</span>
+                  <p class="text-slate-700 font-semibold">{req.funds}</p>
+                </div>
+                {req.notes && (
+                  <div class="sm:col-span-2 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <span class="text-amber-700 text-xs font-medium">💡 Nota:</span>
+                    <p class="text-amber-800 text-xs mt-1">{req.notes}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Costs -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-6">💰 Inversión Estimada</h2>
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200">
+                <th class="text-left p-4 font-bold text-slate-900">Concepto</th>
+                <th class="text-right p-4 font-bold text-slate-900">Costo</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              {dest.investmentRows.map((row) => (
+                <tr>
+                  <td class="p-4 text-slate-700">{row.concept}</td>
+                  <td class="p-4 text-right font-medium text-slate-900">{row.cost}</td>
+                </tr>
+              ))}
+              <tr class="bg-primary/5">
+                <td class="p-4 font-bold text-primary">TOTAL ESTIMADO</td>
+                <td class="p-4 text-right font-bold text-primary text-lg">{dest.investmentTotal}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-slate-400 mt-3 italic">{dest.investmentCurrencyNote}</p>
+      </div>
+
+      <!-- Cities -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-6">🏙️ Ciudades Principales</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {dest.cities.slice(0, 4).map((city) => (
+            <div class="border border-slate-200 rounded-xl p-4">
+              <h3 class="font-bold text-slate-900">{city.name}</h3>
+              <p class="text-sm text-slate-500">{city.para}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-6">✨ Ventajas de Estudiar en {dest.name}</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {dest.benefits.slice(0, 4).map((b) => (
+            <div class="border border-slate-200 rounded-xl p-4">
+              <h3 class="font-bold text-slate-900 text-sm mb-1">{b.title}</h3>
+              <p class="text-xs text-slate-500">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Document Checklist -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-6">📁 Checklist de Documentos</h2>
+        <div class="space-y-2">
+          {[
+            'Pasaporte vigente (mínimo 6 meses de vigencia)',
+            'Certificado bancario de fondos disponibles',
+            'Carta de aceptación de la institución',
+            'Seguro médico internacional',
+            'Certificado de idioma (IELTS/TOEFL) si aplica',
+            'Títulos académicos traducidos y apostillados',
+            'Cartas de referencia laboral (si aplica)',
+            'CV actualizado en inglés',
+            'Fotos tamaño pasaporte',
+            'Formulario de visa completado',
+          ].map((item, i) => (
+            <label class="flex items-start gap-3 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+              <input type="checkbox" class="mt-0.5 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary" />
+              <span class="text-sm text-slate-700">{item}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Tips -->
+      {tips.length > 0 && (
+        <div class="p-8 border-b border-slate-200">
+          <h2 class="text-2xl font-black text-slate-900 mb-6">💡 Tips para Mejorar tu Perfil</h2>
+          <div class="space-y-3">
+            {tips.map((tip) => (
+              <div class="flex items-start gap-3 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                <span class="material-symbols-outlined text-amber-600 text-xl">lightbulb</span>
+                <p class="text-sm text-amber-900">{tip}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- FAQs -->
+      <div class="p-8 border-b border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-6">❓ Preguntas Frecuentes</h2>
+        <div class="space-y-4">
+          {dest.faqs.map((faq) => (
+            <div class="border border-slate-200 rounded-xl p-6">
+              <h3 class="font-bold text-slate-900 mb-2">{faq.q}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="p-8 bg-slate-900 text-white text-center">
+        <h2 class="text-2xl font-black mb-4">¿Necesitas Ayuda?</h2>
+        <p class="text-slate-400 mb-6">Nuestros asesores están listos para guiarte en cada paso.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={`https://wa.me/61449159849?text=${encodeURIComponent(`Hola Global Dreamers, estoy interesado en estudiar en ${dest.name} y necesito orientación.`)}`}
+            target="_blank"
+            class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition-all"
+          >
+            <span class="material-symbols-outlined">chat</span>
+            Escríbenos por WhatsApp
+          </a>
+          <a
+            href={`/estudiar-en-${dest.country}/planner`}
+            class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all"
+          >
+            <span class="material-symbols-outlined">auto_awesome</span>
+            Ir al Planner
+          </a>
+        </div>
+        <div class="mt-6 text-sm text-slate-500">
+          <p>info@globaldreamers.com.au</p>
+          <p>+61 449 159 849</p>
+          <p class="mt-2">Global Dreamers — Melbourne, Australia</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer spacer for printing -->
+    <div class="h-8 print:hidden"></div>
+  </div>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      #guia-content { box-shadow: none !important; }
+      body { background: white !important; }
+      input[type="checkbox"] { appearance: none; border: 2px solid #94a3b8; width: 16px; height: 16px; border-radius: 4px; }
+    }
+  </style>
+</Layout>
