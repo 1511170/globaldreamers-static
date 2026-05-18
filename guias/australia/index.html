@@ -89,54 +89,47 @@ Volver al Planner
       const form = document.getElementById('acompanamiento-form');
       if (!form) return;
 
-      // Interceptar submit: enviar a FormSubmits en iframe invisible y redirigir a /gracias/
+      // Enviar a FormSubmits via fetch y redirigir a /gracias/
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
 
-        // Crear iframe invisible si no existe
-        let iframe = document.getElementById('formsubmits-iframe');
-        if (!iframe) {
-          iframe = document.createElement('iframe');
-          iframe.id = 'formsubmits-iframe';
-          iframe.name = 'formsubmits-iframe';
-          iframe.style.display = 'none';
-          document.body.appendChild(iframe);
-        }
-
-        // Enviar formulario original al iframe
-        form.target = 'formsubmits-iframe';
-        form.submit();
-
-        // Limpiar target para futuros envíos
-        form.target = '';
-
-        // Redirigir pestaña actual a gracias
-        window.location.href = '/gracias/';
+        var formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        }).then(function() {
+          window.location.href = '/gracias/';
+        }).catch(function() {
+          window.location.href = '/gracias/';
+        });
       });
 
       // Cargar datos del planner desde localStorage
-      const country = form.dataset.country;
-      const key = 'gd_planner_data_' + country;
-      const raw = localStorage.getItem(key);
+      var country = form.dataset.country;
+      var key = 'gd_planner_data_' + country;
+      var raw = localStorage.getItem(key);
       if (!raw) return;
       try {
-        const data = JSON.parse(raw);
-        const container = document.getElementById('planner-data-fields');
+        var data = JSON.parse(raw);
+        var container = document.getElementById('planner-data-fields');
         if (!container) return;
 
         // Mostrar banner si hay datos del planner
-        const banner = document.createElement('div');
+        var banner = document.createElement('div');
         banner.className = 'bg-brand-600/20 border border-brand-500/30 rounded-xl p-4 mb-2';
         banner.innerHTML = '<p class="text-xs text-brand-200 font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-sm">info</span> Hemos detectado que completaste el Planner. Tu perfil se adjuntará automáticamente.</p>';
         container.appendChild(banner);
 
-        const fields = [
-          { name: 'planner_age', label: 'Edad', value: data.answers?.age },
-          { name: 'planner_education', label: 'Educación', value: data.answers?.education },
-          { name: 'planner_english', label: 'Nivel de inglés', value: data.answers?.englishLevel },
-          { name: 'planner_work', label: 'Experiencia laboral', value: data.answers?.workExperience },
-          { name: 'planner_financial', label: 'Capacidad financiera', value: data.answers?.financialCapacity },
-          { name: 'planner_sponsor', label: '¿Tiene patrocinador?', value: data.answers?.hasSponsor },
+        var fields = [
+          { name: 'planner_age', label: 'Edad', value: data.answers && data.answers.age },
+          { name: 'planner_education', label: 'Educación', value: data.answers && data.answers.education },
+          { name: 'planner_english', label: 'Nivel de inglés', value: data.answers && data.answers.englishLevel },
+          { name: 'planner_work', label: 'Experiencia laboral', value: data.answers && data.answers.workExperience },
+          { name: 'planner_financial', label: 'Capacidad financiera', value: data.answers && data.answers.financialCapacity },
+          { name: 'planner_sponsor', label: '¿Tiene patrocinador?', value: data.answers && data.answers.hasSponsor },
           { name: 'planner_city', label: 'Ciudad seleccionada', value: data.selectedCityName || data.selectedCity },
           { name: 'planner_course', label: 'Curso seleccionado', value: data.selectedCourseName || data.selectedCourse },
           { name: 'planner_duration', label: 'Duración (meses)', value: data.duration },
@@ -149,7 +142,7 @@ Volver al Planner
 
         fields.forEach(function(f) {
           if (f.value !== undefined && f.value !== null && f.value !== '') {
-            const input = document.createElement('input');
+            var input = document.createElement('input');
             input.type = 'hidden';
             input.name = f.name;
             input.value = String(f.value);
