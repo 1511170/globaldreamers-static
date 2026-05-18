@@ -287,17 +287,9 @@ const tips = tipsByCountry[dest.country] || [];
 
       <!-- Contact -->
       <div class="p-8 bg-slate-900 text-white text-center">
-        <h2 class="text-2xl font-black mb-4">¿Necesitas Ayuda?</h2>
-        <p class="text-slate-400 mb-6">Nuestros asesores están listos para guiarte en cada paso.</p>
+        <h2 class="text-2xl font-black mb-4">Sigue estos pasos</h2>
+        <p class="text-slate-400 mb-6 max-w-xl mx-auto">Aplica los pasos de esta guía para fortalecer tu perfil. En un futuro cercano podrás aplicar y tener un perfil elegible y listo para estudiar en {dest.name}.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={`https://wa.me/61449159849?text=${encodeURIComponent(`Hola Global Dreamers, estoy interesado en estudiar en ${dest.name} y necesito orientación.`)}`}
-            target="_blank"
-            class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition-all"
-          >
-            <span class="material-symbols-outlined">chat</span>
-            Escríbenos por WhatsApp
-          </a>
           <a
             href={`/estudiar-en-${dest.country}/planner`}
             class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all"
