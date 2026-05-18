@@ -89,30 +89,26 @@ Volver al Planner
       const form = document.getElementById('acompanamiento-form');
       if (!form) return;
 
-      // Interceptar submit: enviar a FormSubmits en nueva pestaña y redirigir a /gracias/
+      // Interceptar submit: enviar a FormSubmits en iframe invisible y redirigir a /gracias/
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Crear form temporal con target="_blank" para enviar a FormSubmits
-        const tmpForm = document.createElement('form');
-        tmpForm.action = form.action;
-        tmpForm.method = form.method;
-        tmpForm.target = '_blank';
-        tmpForm.style.display = 'none';
+        // Crear iframe invisible si no existe
+        let iframe = document.getElementById('formsubmits-iframe');
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.id = 'formsubmits-iframe';
+          iframe.name = 'formsubmits-iframe';
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+        }
 
-        // Copiar todos los inputs (visibles y hidden)
-        const inputs = form.querySelectorAll('input');
-        inputs.forEach(function(input) {
-          const clone = document.createElement('input');
-          clone.type = input.type;
-          clone.name = input.name;
-          clone.value = input.value;
-          tmpForm.appendChild(clone);
-        });
+        // Enviar formulario original al iframe
+        form.target = 'formsubmits-iframe';
+        form.submit();
 
-        document.body.appendChild(tmpForm);
-        tmpForm.submit();
-        document.body.removeChild(tmpForm);
+        // Limpiar target para futuros envíos
+        form.target = '';
 
         // Redirigir pestaña actual a gracias
         window.location.href = '/gracias/';
